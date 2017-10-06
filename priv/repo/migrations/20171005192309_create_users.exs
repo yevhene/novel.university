@@ -3,12 +3,18 @@ defmodule Novel.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :name, :string
+      add :uid, :integer
+
       add :email, :string
+      add :nickname, :string
+
+      add :first_name, :string
+      add :last_name, :string
+      add :group, :string
 
       timestamps(type: :utc_datetime)
     end
 
-    create unique_index(:users, [:email])
+    create unique_index(:users, [:uid])
   end
 end

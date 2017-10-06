@@ -25,3 +25,18 @@ config :logger, :console,
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env}.exs"
+
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
+  client_id: System.get_env("GITHUB_CLIENT_ID"),
+  client_secret: System.get_env("GITHUB_CLIENT_SECRET")
+
+config :ueberauth, Ueberauth,
+  providers: [
+    github: {Ueberauth.Strategy.Github, [
+      default_scope: "user:email"
+    ]}
+  ]
+
+config :novel, NovelWeb.Guardian,
+  issuer: "Novel.#{Mix.env}",
+  secret_key: "gkQiIFPZf8zf20ZO0+gw0ugozfqWMIZQXJD6/Q0chGVaOSvBXRC9EgLp7S2P62fn"
