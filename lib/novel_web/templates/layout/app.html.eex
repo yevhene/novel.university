@@ -19,10 +19,23 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
-          </ul>
-        </div>
+        <%= if logged_in?(@conn) do %>
+          <div class="btn-group navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= current_user(@conn).nickname %>
+            </button>
+            <div class="dropdown-menu dropdown-menu-right">
+              <%= link("Sign Out", to: session_path(@conn, :delete), method: "delete", class: "dropdown-item") %>
+            </div>
+          </div>
+        <% else %>
+          <div class="btn-group navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <a class="btn btn-primary" href="/auth/github">
+              <i class="fa fa-github"></i>
+              Sign in
+            </a>
+          </div>
+        <% end %>
       </nav>
     </header>
 

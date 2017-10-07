@@ -40,6 +40,7 @@ defmodule NovelWeb do
       import NovelWeb.Router.Helpers
       import NovelWeb.ErrorHelpers
       import NovelWeb.Gettext
+      import NovelWeb.ViewHelpers
     end
   end
 
