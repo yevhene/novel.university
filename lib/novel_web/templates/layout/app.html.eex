@@ -21,6 +21,12 @@
 
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav flex-row ml-md-auto d-none d-md-flex">
+            <%= if Coherence.current_user(@conn) do %>
+              <%= if @conn.assigns[:remembered] do %>
+                <li style="color: red;">!!</li>
+              <% end %>
+            <% end %>
+            <%= NovelWeb.Coherence.ViewHelpers.coherence_links(@conn, :layout) %>
           </ul>
         </div>
       </nav>
