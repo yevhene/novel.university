@@ -3,6 +3,7 @@ defmodule Novel.Accounts.User do
   import Ecto.Changeset
 
   alias Novel.Accounts.Link
+
   alias Novel.Accounts.User
 
   schema "users" do
@@ -10,6 +11,7 @@ defmodule Novel.Accounts.User do
 
     field :email, :string
     field :nickname, :string
+    field :is_teacher, :boolean
 
     field :first_name, :string
     field :last_name, :string

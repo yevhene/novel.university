@@ -5,7 +5,7 @@ defmodule Novel.Repo.Migrations.CreateLinks do
     create table(:links) do
       add :data, :map
 
-      add :user_id, references(:users, on_delete: :delete_all)
+      add :user_id, references(:users, on_delete: :delete_all), null: false
 
       timestamps(type: :utc_datetime)
     end

@@ -1,0 +1,5 @@
+<%= link(to: course_path(@conn, :show, @course), class: "card text-center") do %>
+  <div class="card-block">
+    <h4 class="card-title"><%= @course.name %></h4>
+  </div>
+<% end %>

@@ -22,18 +22,20 @@ defmodule NovelWeb.Router do
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser]
-
-    get "/", PageController, :index
-  end
-
-  scope "/", NovelWeb do
     pipe_through [:browser, :auth]
 
     resources "/session", SessionController,
       only: [:delete], singleton: true
     resources "/profile", ProfileController,
       only: [:show, :edit, :update], singleton: true
+    resources "/courses", CourseController, except: [:index, :show]
+  end
+
+  scope "/", NovelWeb do
+    pipe_through [:browser]
+
+    resources "/", CourseController, only: [:index]
+    resources "/courses", CourseController, only: [:show]
   end
 
   scope "/auth", NovelWeb do
