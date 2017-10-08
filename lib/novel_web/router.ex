@@ -15,14 +15,15 @@ defmodule NovelWeb.Router do
       error_handler: NovelWeb.Guardian.ErrorHandler
     plug Guardian.Plug.VerifySession
     plug Guardian.Plug.LoadResource, allow_blank: true
+    plug NovelWeb.Plug.CurrentUser
   end
 
-  pipeline :auth do
+  pipeline :require_login do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser, :auth]
+    pipe_through [:browser, :require_login]
 
     resources "/session", SessionController,
       only: [:delete], singleton: true

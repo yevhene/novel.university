@@ -23,7 +23,6 @@ defmodule NovelWeb do
       import Plug.Conn
       import NovelWeb.Router.Helpers
       import NovelWeb.Gettext
-      import NovelWeb.Guardian.Helpers
     end
   end
 
@@ -41,7 +40,9 @@ defmodule NovelWeb do
       import NovelWeb.Router.Helpers
       import NovelWeb.ErrorHelpers
       import NovelWeb.Gettext
-      import NovelWeb.Guardian.Helpers
+      import Canada.Can, only: [can?: 3]
+
+      alias Novel.Education.Course
     end
   end
 

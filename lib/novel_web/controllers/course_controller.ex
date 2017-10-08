@@ -15,6 +15,9 @@ defmodule NovelWeb.CourseController do
   end
 
   def create(conn, %{"course" => course_params}) do
+    course_params = course_params
+    |> Map.merge(%{"user_id" => conn.assigns.current_user.id})
+
     case Education.create_course(course_params) do
       {:ok, course} ->
         conn

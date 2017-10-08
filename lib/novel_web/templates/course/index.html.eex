@@ -4,5 +4,8 @@
 
 <div class="card-columns">
   <%= render_many(@courses, NovelWeb.CourseView, "_course.html", assigns) %>
-  <%= render "_new_course.html", assigns %>
+
+  <%= if @current_user |> can?(:create, Course) do %>
+    <%= render "_new_course.html", assigns %>
+  <% end %>
 </div>
