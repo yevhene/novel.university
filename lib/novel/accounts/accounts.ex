@@ -5,6 +5,19 @@ defmodule Novel.Accounts do
   alias Novel.Accounts.Link
   alias Novel.Accounts.User
 
+  def get_user!(id), do: Repo.get!(User, id)
+
+  def change_user_profile(%User{} = user) do
+    user
+    |> User.profile_changeset(%{})
+  end
+
+  def update_user_profile(%User{} = user, attrs) do
+    user
+    |> User.profile_changeset(attrs)
+    |> Repo.update()
+  end
+
   def authenticate(%Ueberauth.Auth{} = auth) do
     data = auth |> Map.from_struct
 
@@ -38,7 +51,8 @@ defmodule Novel.Accounts do
   end
 
   defp refresh_user_info(user, %{info: %{email: email, nickname: nickname}}) do
-    user = Ecto.Changeset.change user, %{email: email, nickname: nickname}
-    Repo.update user
+    user
+    |> User.info_changeset(%{email: email, nickname: nickname})
+    |> Repo.update()
   end
 end

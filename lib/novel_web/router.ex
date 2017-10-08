@@ -30,7 +30,10 @@ defmodule NovelWeb.Router do
   scope "/", NovelWeb do
     pipe_through [:browser, :auth]
 
-    resources "/session", SessionController, only: [:delete], singleton: true
+    resources "/session", SessionController,
+      only: [:delete], singleton: true
+    resources "/profile", ProfileController,
+      only: [:show, :edit, :update], singleton: true
   end
 
   scope "/auth", NovelWeb do
