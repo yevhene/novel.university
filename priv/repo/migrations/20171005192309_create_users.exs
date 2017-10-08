@@ -3,10 +3,11 @@ defmodule Novel.Repo.Migrations.CreateUsers do
 
   def change do
     create table(:users) do
-      add :uid, :integer
+      add :uid, :integer, null: false
 
       add :email, :string
       add :nickname, :string
+      add :is_teacher, :boolean, default: false, null: false
 
       add :first_name, :string
       add :last_name, :string
