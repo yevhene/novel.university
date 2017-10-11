@@ -1,0 +1,6 @@
+<%= link(to: course_path(@conn, :new), class: "card card-inverse card-primary p-3 text-center") do %>
+  <p><i class="fa fa-plus-circle" aria-hidden="true"></i></p>
+  <footer>
+    <small>New Course</small>
+  </footer>
+<% end %>

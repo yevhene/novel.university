@@ -2,8 +2,9 @@ defmodule Novel.Accounts.Link do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Novel.Accounts.Link
   alias Novel.Accounts.User
+
+  alias Novel.Accounts.Link
 
   schema "links" do
     field :data, :map
@@ -15,8 +16,8 @@ defmodule Novel.Accounts.Link do
 
   def changeset(%Link{} = link, attrs) do
     link
-    |> cast(attrs, [:user_id, :data])
-    |> validate_required([:user_id, :data])
+    |> cast(attrs, [:data, :user_id])
+    |> validate_required([:data, :user_id])
     |> foreign_key_constraint(:user_id)
   end
 end

@@ -1,0 +1,11 @@
+<div class="jumbotron">
+  <h2>Hello!</h2>
+</div>
+
+<div class="card-columns">
+  <%= render_many(@courses, NovelWeb.CourseView, "_course.html", assigns) %>
+
+  <%= if @current_user |> can?(:create, Course) do %>
+    <%= render "_new_course.html", assigns %>
+  <% end %>
+</div>

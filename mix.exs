@@ -42,7 +42,8 @@ defmodule Novel.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:ueberauth_github, "~> 0.4"},
-      {:guardian, "~> 1.0-beta"}
+      {:guardian, "~> 1.0-beta"},
+      {:canada, "~> 1.0.1"}
     ]
   end
 

@@ -1,0 +1,11 @@
+<h2><%= @course.name %></h2>
+
+<%= if @current_user |> can?(:update, @course) do %>
+  <span><%= link "Edit", to: course_path(@conn, :edit, @course) %></span>
+<% end %>
+
+<%= if @current_user |> can?(:delete, @course) do %>
+  <span><%= link "Delete", to: course_path(@conn, :delete, @course), method: :delete %></span>
+<% end %>
+
+<span><%= link "Back", to: course_path(@conn, :index) %></span>
