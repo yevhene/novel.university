@@ -12,6 +12,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :description, class: "control-label" %>
+    <%= textarea f, :description, class: "form-control" %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :started_at, class: "control-label" %>
     <%= date_select f, :started_at, class: "form-control" %>
     <%= error_tag f, :started_at %>

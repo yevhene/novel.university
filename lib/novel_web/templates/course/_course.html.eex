@@ -1,5 +1,9 @@
-<%= link(to: course_path(@conn, :show, @course), class: "card text-center") do %>
-  <div class="card-block">
-    <h4 class="card-title"><%= @course.name %></h4>
+<div class="card border-primary mb-3">
+  <div class="card-body">
+    <h4 class="card-title"><%= link(@course.name, to: course_path(@conn, :show, @course), class: "card-body") %></h4>
+    <p class="card-text"><%= course_description(@course) %></p>
   </div>
-<% end %>
+  <div class="card-header">
+    <%= course_owner(@course) %>
+  </div>
+</div>

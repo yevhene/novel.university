@@ -5,7 +5,9 @@ defmodule Novel.Education do
   alias Novel.Education.Course
 
   def list_courses do
-    Repo.all(Course)
+    Course
+    |> Repo.all
+    |> Repo.preload(:user)
   end
 
   def get_course!(id), do: Repo.get!(Course, id)
