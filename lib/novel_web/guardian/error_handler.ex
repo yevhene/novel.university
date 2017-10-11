@@ -3,7 +3,7 @@ defmodule NovelWeb.Guardian.ErrorHandler do
 
   def auth_error(conn, {_type, reason}, _opts) do
     conn
-    |> put_flash(:error, "Auth Error: #{reason}")
+    |> put_flash(:error, "Unauthenticated")
     |> redirect(to: "/")
   end
 end

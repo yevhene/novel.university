@@ -23,6 +23,7 @@ defmodule NovelWeb do
       import Plug.Conn
       import NovelWeb.Router.Helpers
       import NovelWeb.Gettext
+      import NovelWeb.Authorize
     end
   end
 
