@@ -18,29 +18,40 @@ defmodule NovelWeb.Router do
     plug NovelWeb.Plug.CurrentUser
   end
 
+  pipeline :require_identification do
+    plug NovelWeb.Plug.EnsureCurrentUserIsIdentified
+  end
+
   pipeline :require_login do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser, :require_login]
+    pipe_through [:browser, :require_login, :require_identification]
 
     resources "/session", SessionController,
       only: [:delete], singleton: true
     resources "/profile", ProfileController,
-      only: [:show, :edit, :update], singleton: true
+      only: [:show], singleton: true
     resources "/courses", CourseController, except: [:index, :show]
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser]
+    pipe_through [:browser, :require_login]
+
+    resources "/profile", ProfileController,
+      only: [:edit, :update], singleton: true
+  end
+
+  scope "/", NovelWeb do
+    pipe_through [:browser, :require_identification]
 
     resources "/", CourseController, only: [:index]
     resources "/courses", CourseController, only: [:show]
   end
 
   scope "/auth", NovelWeb do
-    pipe_through :browser
+    pipe_through [:browser]
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback

@@ -1,9 +1,14 @@
 <div class="card border-primary mb-3">
-  <div class="card-body">
-    <h4 class="card-title"><%= link(@course.name, to: course_path(@conn, :show, @course), class: "card-body") %></h4>
-    <p class="card-text"><%= course_description(@course) %></p>
-  </div>
   <div class="card-header">
-    <%= course_owner(@course) %>
+    <h4 class="card-title m-0"><%= link(@course.name, to: course_path(@conn, :show, @course)) %></h4>
+  </div>
+  <%= if course_has_content?(@course) do %>
+    <div class="card-body">
+      <p class="card-text"><%= course_description(@course) %></p>
+    </div>
+  <% end %>
+  <div class="card-footer d-flex align-items-center justify-content-between">
+    <div><%= course_owner(@course) %></div>
+    <small><%= @course.started_at %></small>
   </div>
 </div>

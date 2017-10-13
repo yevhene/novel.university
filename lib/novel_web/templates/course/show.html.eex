@@ -1,11 +1,15 @@
-<h2><%= @course.name %></h2>
+<h2>
+  <%= @course.name %>
 
-<%= if @current_user |> can?(:update, @course) do %>
-  <span><%= link "Edit", to: course_path(@conn, :edit, @course) %></span>
-<% end %>
+  <%= if @current_user |> can?(:update, @course) do %>
+    <span>
+      <%= link to: course_path(@conn, :edit, @course) do %>
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      <% end %>
+    </span>
+  <% end %>
+</h2>
 
-<%= if @current_user |> can?(:delete, @course) do %>
-  <span><%= link "Delete", to: course_path(@conn, :delete, @course), method: :delete %></span>
-<% end %>
+<p><%= @course.description %></p>
 
 <span><%= link "Back", to: course_path(@conn, :index) %></span>
