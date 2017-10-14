@@ -25,15 +25,13 @@ defmodule NovelWeb.CourseAdmin.GroupController do
   def create(conn, %{"group" => group_params}) do
     course = conn.assigns.course
     group_params = update_params(conn, group_params)
-    IO.inspect(group_params)
 
     case Education.create_group(group_params) do
-      {:ok, group} ->
+      {:ok, _group} ->
         conn
         |> put_flash(:info, "Group created successfully")
         |> redirect(to: course_admin_group_path(conn, :index, course))
       {:error, %Ecto.Changeset{} = changeset} ->
-        IO.inspect changeset
         render(conn, "new.html", changeset: changeset)
     end
   end
