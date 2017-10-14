@@ -11,7 +11,7 @@ config :novel,
 
 # Configures the endpoint
 config :novel, NovelWeb.Endpoint,
-  url: [host: "localhost"],
+  url: [host: "0.0.0.0"],
   secret_key_base: "c7aes2Bqu7vvUIv42hOg1Xd2KY97FFWvd5QIhRCpZvN+ka1yKb38mTlptf5yP19y",
   render_errors: [view: NovelWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Novel.PubSub,
