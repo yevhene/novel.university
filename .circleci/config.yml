@@ -25,14 +25,14 @@ jobs:
           command: mix local.rebar --force
 
       - restore_cache:
-          key: dependency-cache-{{ checksum "mix.lock" }}
+          key: deps-cache-{{ arch }}-{{ .Branch }}-{{ checksum "mix.lock" }}
 
       - run:
           name: Deps
           command: mix deps.get
 
       - save_cache:
-          key: dependency-cache-{{ checksum "mix.lock" }}
+          key: deps-cache-{{ arch }}-{{ .Branch }}-{{ checksum "mix.lock" }}
           paths:
             - deps
 
