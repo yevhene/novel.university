@@ -18,7 +18,7 @@ defmodule NovelWeb.StringHelper do
   end
 
   def present?(string) do
-    string && String.strip(string) != ""
+    string && String.trim(string) != ""
   end
 
   def blank?(string) do
