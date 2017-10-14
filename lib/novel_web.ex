@@ -44,6 +44,7 @@ defmodule NovelWeb do
       import Canada.Can, only: [can?: 3]
 
       alias Novel.Education.Course
+      alias Novel.Education.Group
     end
   end
 

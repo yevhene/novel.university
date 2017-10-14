@@ -33,7 +33,9 @@ defmodule NovelWeb.Router do
       only: [:delete], singleton: true
     resources "/profile", ProfileController,
       only: [:show], singleton: true
-    resources "/courses", CourseController, except: [:index, :show]
+    resources "/courses", CourseController, except: [:index, :show] do
+      resources "/groups", GroupController, except: [:show]
+    end
   end
 
   scope "/", NovelWeb do

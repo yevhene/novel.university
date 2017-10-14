@@ -1,0 +1,6 @@
+<li class="list-group-item">
+  <%= link to: course_group_path(@conn, :edit, @course, @group) do %>
+    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+    <span><%= @group.name %></span>
+  <% end %>
+</li>

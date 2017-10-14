@@ -1,0 +1,13 @@
+<ul class="nav nav-tabs mb-3">
+  <%= if @current_user |> can?(:edit, @course) do %>
+    <li class="nav-item">
+      <%= nav_item @conn, "Settings", course_path(@conn, :edit, @course) %>
+    </li>
+  <% end %>
+
+  <%= if @current_user |> can?(:index, Group) do %>
+    <li class="nav-item">
+      <%= nav_item @conn, "Groups", course_group_path(@conn, :index, @course) %>
+    </li>
+  <% end %>
+</ul>

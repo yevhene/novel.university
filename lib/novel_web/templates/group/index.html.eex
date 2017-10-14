@@ -1,0 +1,9 @@
+<ul class="list-group mb-3">
+  <%= render_many(@groups, NovelWeb.GroupView, "_group.html", assigns) %>
+
+  <%= if @current_user |> can?(:create, Group) do %>
+    <%= render "_new_group_button.html", assigns %>
+  <% end %>
+</ul>
+
+<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>

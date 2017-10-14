@@ -7,6 +7,7 @@ defmodule NovelWeb.CourseController do
   plug :authorize_resources when action in [:index, :new, :create]
   plug :load_and_authorize_resource when
     action in [:show, :edit, :update, :delete]
+  plug :put_layout, "course_admin.html" when action in [:edit, :update]
 
   def index(conn, _params) do
     courses = Education.list_courses()
@@ -49,7 +50,7 @@ defmodule NovelWeb.CourseController do
     case Education.update_course(course, course_params) do
       {:ok, course} ->
         conn
-        |> put_flash(:info, "Course updated successfully.")
+        |> put_flash(:info, "Course updated successfully")
         |> redirect(to: course_path(conn, :show, course))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", course: course, changeset: changeset)
@@ -61,7 +62,7 @@ defmodule NovelWeb.CourseController do
     {:ok, _course} = Education.delete_course(course)
 
     conn
-    |> put_flash(:info, "Course deleted successfully.")
+    |> put_flash(:info, "Course deleted successfully")
     |> redirect(to: course_path(conn, :index))
   end
 

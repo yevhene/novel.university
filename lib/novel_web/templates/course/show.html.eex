@@ -4,7 +4,7 @@
   <%= if @current_user |> can?(:update, @course) do %>
     <span>
       <%= link to: course_path(@conn, :edit, @course) do %>
-        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        <i class="fa fa-cogs" aria-hidden="true"></i>
       <% end %>
     </span>
   <% end %>
