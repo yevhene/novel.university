@@ -4,7 +4,7 @@ defmodule Novel.Repo.Migrations.CreateGroups do
   def change do
     create table(:groups) do
       add :name, :string
-      add :course_id, references(:users, on_delete: :delete_all)
+      add :course_id, references(:courses, on_delete: :delete_all)
 
       timestamps(type: :utc_datetime)
     end
