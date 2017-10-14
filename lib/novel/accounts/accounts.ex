@@ -51,8 +51,14 @@ defmodule Novel.Accounts do
   end
 
   defp refresh_user_info(user, %{info: %{email: email, nickname: nickname}}) do
+    changeset = if user.email do
+      %{nickname: nickname}
+    else
+      %{email: email, nickname: nickname}
+    end
+
     user
-    |> User.info_changeset(%{email: email, nickname: nickname})
+    |> User.info_changeset(changeset)
     |> Repo.update()
   end
 end

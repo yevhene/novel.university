@@ -2,16 +2,16 @@
 
 <ul>
   <li>
-    <strong>Email:</strong>
-    <%= @user.email %>
-  </li>
-  <li>
-    <strong>Nickname:</strong>
+    <strong>Github username:</strong>
     <%= @user.nickname %>
   </li>
 </ul>
 
 <ul>
+  <li>
+    <strong>Email:</strong>
+    <%= @user.email %>
+  </li>
   <li>
     <strong>First Name:</strong>
     <%= @user.first_name %>

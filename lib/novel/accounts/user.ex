@@ -36,7 +36,7 @@ defmodule Novel.Accounts.User do
 
   def profile_changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:first_name, :last_name])
-    |> validate_required([:first_name, :last_name])
+    |> cast(attrs, [:email, :first_name, :last_name])
+    |> validate_required([:email, :first_name, :last_name])
   end
 end
