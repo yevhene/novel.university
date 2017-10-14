@@ -8,7 +8,9 @@ defmodule NovelWeb.Authorize do
   end
 
   def authorize!(conn, action, subject) do
-    unless can?(conn.assigns.current_user, action, subject) do
+    if can?(conn.assigns.current_user, action, subject) do
+      conn
+    else
       conn
       |> put_flash(:error, "Unauthorized")
       |> redirect(to: "/")
