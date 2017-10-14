@@ -54,6 +54,7 @@ defmodule Novel.Mixfile do
 
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
+      {:junit_formatter, "~> 2.0", only: :test},
       {:excoveralls, "~> 0.7", only: :test}
     ]
   end

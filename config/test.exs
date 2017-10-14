@@ -17,3 +17,8 @@ config :novel, Novel.Repo,
   database: "novel_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :junit_formatter,
+  report_file: "report_file_test.xml",
+  report_dir: "tmp",
+  print_report_file: true
