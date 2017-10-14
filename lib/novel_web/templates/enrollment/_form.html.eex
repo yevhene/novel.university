@@ -6,12 +6,11 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :name, class: "control-label" %>
-    <%= text_input f, :name, class: "form-control" %>
-    <%= error_tag f, :name %>
+    <%= hidden_input f, :invitation_code, class: "form-control" %>
+    <%= error_tag f, :invitation_code %>
   </div>
 
-  <div class="form-group">
-    <%= submit "Submit", class: "btn btn-primary" %>
+  <div class="form-group d-flex align-items-center justify-content-center">
+    <%= submit "Enroll", class: "btn btn-primary" %>
   </div>
 <% end %>

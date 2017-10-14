@@ -29,6 +29,8 @@ defmodule NovelWeb.Router do
   scope "/", NovelWeb do
     pipe_through [:browser, :require_login, :require_identification]
 
+    resources "/enrollment", EnrollmentController,
+      only: [:new, :create]
     resources "/session", SessionController,
       only: [:delete], singleton: true
     resources "/profile", ProfileController,

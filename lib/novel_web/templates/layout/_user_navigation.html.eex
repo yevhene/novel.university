@@ -1,7 +1,7 @@
 <%= if @current_user do %>
   <div class="btn-group navbar-nav flex-row ml-md-auto d-none d-md-flex">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <%= full_name(@current_user) %>
+      <%= NovelWeb.UserView.full_name(@current_user) %>
     </button>
     <div class="dropdown-menu dropdown-menu-right">
       <%= link("Profile", to: profile_path(@conn, :show), class: "dropdown-item") %>
