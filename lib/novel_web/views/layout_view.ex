@@ -20,7 +20,7 @@ defmodule NovelWeb.LayoutView do
   end
 
   defp nav_item_link_class(conn, path) do
-    if path == conn.request_path do
+    if String.starts_with?(conn.request_path, path) do
       "nav-link active"
     else
       "nav-link"

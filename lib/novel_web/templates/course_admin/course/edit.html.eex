@@ -1,0 +1,3 @@
+<%= render "_form.html", Map.put(assigns, :action, course_admin_course_path(@conn, :update, @course)) %>
+
+<span><%= link "Back", to: course_admin_course_path(@conn, :show, @course) %></span>

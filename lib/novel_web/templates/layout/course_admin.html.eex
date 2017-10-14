@@ -1,5 +1,5 @@
 <%= base_layout assigns do %>
-  <h2>Course Admin</h2>
+  <h2>Course "<%= @course.name %>" Admin</h2>
 
   <%= render "_course_admin_nav.html", assigns %>
 

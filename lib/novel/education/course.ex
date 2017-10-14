@@ -3,8 +3,8 @@ defmodule Novel.Education.Course do
   import Ecto.Changeset
 
   alias Novel.Accounts.User
-
   alias Novel.Education.Course
+  alias Novel.Education.Group
 
   schema "courses" do
     field :name, :string
@@ -12,6 +12,7 @@ defmodule Novel.Education.Course do
     field :started_at, :date
 
     belongs_to :user, User
+    has_many :groups, Group
 
     timestamps(type: :utc_datetime)
   end

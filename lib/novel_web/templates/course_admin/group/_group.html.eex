@@ -1,0 +1,5 @@
+<li class="list-group-item">
+  <%= link to: course_admin_group_path(@conn, :show, @course, @group) do %>
+    <span><%= @group.name %></span>
+  <% end %>
+</li>

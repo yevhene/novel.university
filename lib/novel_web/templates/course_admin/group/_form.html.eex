@@ -15,7 +15,7 @@
     <%= submit "Submit", class: "btn btn-primary" %>
 
     <%= if @conn.assigns[:group] do %>
-      <%= link "Delete", to: course_group_path(@conn, :delete, @course, @group), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
+      <%= link "Delete", to: course_admin_group_path(@conn, :delete, @course, @group), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
     <% end %>
   </div>
 <% end %>

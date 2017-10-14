@@ -1,5 +1,5 @@
 <ul class="list-group mb-3">
-  <%= render_many(@groups, NovelWeb.GroupView, "_group.html", assigns) %>
+  <%= render_many(@groups, NovelWeb.CourseAdmin.GroupView, "_group.html", assigns) %>
 
   <%= if @current_user |> can?(:create, Group) do %>
     <%= render "_new_group_button.html", assigns %>

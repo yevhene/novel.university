@@ -23,11 +23,7 @@
     <%= error_tag f, :started_at %>
   </div>
 
-  <div class="form-group d-flex align-items-center justify-content-between">
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
-
-    <%= if @conn.assigns[:course] do %>
-      <%= link "Delete", to: course_path(@conn, :delete, @course), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
-    <% end %>
   </div>
 <% end %>

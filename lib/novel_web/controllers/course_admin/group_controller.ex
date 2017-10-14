@@ -1,4 +1,4 @@
-defmodule NovelWeb.GroupController do
+defmodule NovelWeb.CourseAdmin.GroupController do
   use NovelWeb, :controller
 
   alias Novel.Education
@@ -25,21 +25,28 @@ defmodule NovelWeb.GroupController do
   def create(conn, %{"group" => group_params}) do
     course = conn.assigns.course
     group_params = update_params(conn, group_params)
+    IO.inspect(group_params)
 
     case Education.create_group(group_params) do
-      {:ok, _group} ->
+      {:ok, group} ->
         conn
         |> put_flash(:info, "Group created successfully")
-        |> redirect(to: course_group_path(conn, :index, course))
+        |> redirect(to: course_admin_group_path(conn, :index, course))
       {:error, %Ecto.Changeset{} = changeset} ->
+        IO.inspect changeset
         render(conn, "new.html", changeset: changeset)
     end
+  end
+
+  def show(conn, _params) do
+    group = conn.assigns.group
+    render(conn, "show.html", group: group)
   end
 
   def edit(conn, _params) do
     group = conn.assigns.group
     changeset = Education.change_group(group)
-    render(conn, "edit.html", group: conn.assigns.group, changeset: changeset)
+    render(conn, "edit.html", group: group, changeset: changeset)
   end
 
   def update(conn, %{"group" => group_params}) do
@@ -48,10 +55,10 @@ defmodule NovelWeb.GroupController do
     group_params = update_params(conn, group_params)
 
     case Education.update_group(group, group_params) do
-      {:ok, _group} ->
+      {:ok, group} ->
         conn
         |> put_flash(:info, "Group updated successfully")
-        |> redirect(to: course_group_path(conn, :index, course))
+        |> redirect(to: course_admin_group_path(conn, :show, course, group))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", group: group, changeset: changeset)
     end
@@ -64,7 +71,7 @@ defmodule NovelWeb.GroupController do
 
     conn
     |> put_flash(:info, "Group deleted successfully")
-    |> redirect(to: course_group_path(conn, :index, course))
+    |> redirect(to: course_admin_group_path(conn, :index, course))
   end
 
   defp load_and_authorize_course(conn, _opts) do

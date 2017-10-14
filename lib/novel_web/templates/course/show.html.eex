@@ -3,7 +3,7 @@
 
   <%= if @current_user |> can?(:update, @course) do %>
     <span>
-      <%= link to: course_path(@conn, :edit, @course) do %>
+      <%= link to: course_admin_course_path(@conn, :show, @course) do %>
         <i class="fa fa-cogs" aria-hidden="true"></i>
       <% end %>
     </span>

@@ -5,9 +5,7 @@ defmodule NovelWeb.CourseController do
   alias Novel.Education.Course
 
   plug :authorize_resources when action in [:index, :new, :create]
-  plug :load_and_authorize_resource when
-    action in [:show, :edit, :update, :delete]
-  plug :put_layout, "course_admin.html" when action in [:edit, :update]
+  plug :load_and_authorize_resource when action in [:show]
 
   def index(conn, _params) do
     courses = Education.list_courses()
@@ -35,35 +33,6 @@ defmodule NovelWeb.CourseController do
   def show(conn, _params) do
     course = conn.assigns.course
     render(conn, "show.html", course: course)
-  end
-
-  def edit(conn, _params) do
-    course = conn.assigns.course
-    changeset = Education.change_course(course)
-    render(conn, "edit.html", course: conn.assigns.course, changeset: changeset)
-  end
-
-  def update(conn, %{"course" => course_params}) do
-    course = conn.assigns.course
-    course_params = update_params(conn, course_params)
-
-    case Education.update_course(course, course_params) do
-      {:ok, course} ->
-        conn
-        |> put_flash(:info, "Course updated successfully")
-        |> redirect(to: course_path(conn, :show, course))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", course: course, changeset: changeset)
-    end
-  end
-
-  def delete(conn, _params) do
-    course = conn.assigns.course
-    {:ok, _course} = Education.delete_course(course)
-
-    conn
-    |> put_flash(:info, "Course deleted successfully")
-    |> redirect(to: course_path(conn, :index))
   end
 
   defp authorize_resources(conn, _params) do

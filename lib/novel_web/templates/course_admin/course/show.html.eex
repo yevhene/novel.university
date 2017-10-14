@@ -1,0 +1,17 @@
+<h2>
+  <%= @course.name %>
+</h2>
+
+<p><%= @course.description %></p>
+
+<div class="form-group d-flex align-items-center justify-content-between">
+  <%= if @current_user |> can?(:edit, @course) do %>
+    <%= link "Edit", to: course_admin_course_path(@conn, :edit, @course), class: "btn btn-primary" %>
+  <% end %>
+
+  <%= if @current_user |> can?(:delete, @course) do %>
+    <%= link "Delete", to: course_admin_course_path(@conn, :delete, @course), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
+  <% end %>
+</div>
+
+<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>

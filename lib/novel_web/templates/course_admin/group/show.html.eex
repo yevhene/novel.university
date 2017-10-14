@@ -1,0 +1,15 @@
+<h2>
+  <%= @group.name %>
+</h2>
+
+<div class="form-group d-flex align-items-center justify-content-between">
+  <%= if @current_user |> can?(:edit, @group) do %>
+    <%= link "Edit", to: course_admin_group_path(@conn, :edit, @course, @group), class: "btn btn-primary" %>
+  <% end %>
+
+  <%= if @current_user |> can?(:delete, @group) do %>
+    <%= link "Delete", to: course_admin_group_path(@conn, :delete, @course, @group), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
+  <% end %>
+</div>
+
+<span><%= link "Back", to: course_admin_group_path(@conn, :index, @course) %></span>
