@@ -1,0 +1,18 @@
+<h2>Enrollment to Course "<%= @course.name %>"</h2>
+
+<h4>
+  <span>Your enrollment is</span>
+  <%= if @enrollment.is_approved do %>
+    <b>Approved</b>
+  <% else %>
+    <i>Not Approved Yet</i>
+  <% end %>
+</h4>
+
+<div>
+  <%= if @current_user |> can?(:delete, @enrollment) do %>
+    <%= link "Delete", to: student_course_enrollment_path(@conn, :delete, @enrollment), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
+  <% end %>
+</div>
+
+<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>

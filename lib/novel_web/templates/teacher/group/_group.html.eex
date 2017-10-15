@@ -1,8 +1,0 @@
-<li class="list-group-item">
-  <div class="d-flex align-items-center justify-content-between">
-    <%= link to: course_teacher_group_path(@conn, :show, @course, @group) do %>
-      <span><%= @group.name %></span>
-    <% end %>
-    <span><%= enrollment_url(@conn, :new, invitation_code: @group.invitation_code) %></span>
-  </div>
-</li>

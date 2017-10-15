@@ -35,11 +35,15 @@ defmodule NovelWeb.Router do
       only: [:delete], singleton: true
     resources "/profile", ProfileController,
       only: [:show], singleton: true
-    resources "/courses", CourseController, only: [:new, :create] do
-      scope "/teacher", Teacher, as: :teacher do
-        resources "/course", CourseController,
-          only: [:show, :edit, :update, :delete], singleton: true
-        resources "/groups", GroupController
+
+    scope "/teacher", Teacher, as: :teacher do
+      resources "/course", CourseController, except: [:index]
+    end
+
+    scope "/student", Student, as: :student do
+      resources "/course", CourseController, only: [] do
+        resources "/enrollment", EnrollmentController,
+          except: [:edit, :update], singleton: true
       end
     end
   end

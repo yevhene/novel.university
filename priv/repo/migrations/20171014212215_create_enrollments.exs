@@ -3,13 +3,15 @@ defmodule Novel.Repo.Migrations.CreateEnrollments do
 
   def change do
     create table(:university_enrollments) do
-      add :group_id, references(:university_groups, on_delete: :restrict)
+      add :is_approved, :boolean, default: false, null: false
+
+      add :course_id, references(:university_courses, on_delete: :restrict)
       add :user_id, references(:account_users, on_delete: :restrict)
 
       timestamps(type: :utc_datetime)
     end
 
-    create index(:university_enrollments, [:group_id])
-    create unique_index(:university_enrollments, [:user_id, :group_id])
+    create unique_index(:university_enrollments, [:course_id, :user_id])
+    create index(:university_enrollments, [:user_id])
   end
 end
