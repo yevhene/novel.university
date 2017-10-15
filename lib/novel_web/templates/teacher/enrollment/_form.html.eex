@@ -6,12 +6,6 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :is_approved, class: "control-label" %>
-    <%= select f, :is_approved, ["Approved": true, "Rejected": false, "Not Approved Yet": nil], class: "form-control" %>
-    <%= error_tag f, :is_approved %>
-  </div>
-
-  <div class="form-group">
     <%= label f, :group_id, class: "control-label" %>
     <%= select f, :group_id, enrollment_group_options(@groups), class: "form-control" %>
     <%= error_tag f, :group_id %>

@@ -3,8 +3,6 @@ defmodule Novel.Repo.Migrations.CreateEnrollments do
 
   def change do
     create table(:university_enrollments) do
-      add :is_approved, :boolean
-
       add :course_id, references(:university_courses, on_delete: :restrict),
         null: false
       add :group_id, references(:university_groups, on_delete: :nilify_all)

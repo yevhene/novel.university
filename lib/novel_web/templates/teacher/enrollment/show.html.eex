@@ -1,7 +1,7 @@
 <ul>
   <li>
     <strong>User:</strong>
-    <%= NovelWeb.UserView.full_name @enrollment.user %>
+    <%= full_name @enrollment.user %>
   </li>
   <li>
     <strong>Status:</strong>

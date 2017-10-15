@@ -1,6 +1,8 @@
 defmodule NovelWeb.CourseView do
   use NovelWeb, :view
+
   import NovelWeb.StringHelper
+  import NovelWeb.UserHelper
 
   def course_description(course) do
     truncate(course.description)

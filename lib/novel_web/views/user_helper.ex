@@ -1,5 +1,4 @@
-defmodule NovelWeb.UserView do
-  use NovelWeb, :view
+defmodule NovelWeb.UserHelper do
   import NovelWeb.StringHelper
 
   def full_name(user) do

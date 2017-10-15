@@ -1,7 +1,7 @@
 <li class="list-group-item">
   <div class="d-flex align-items-center justify-content-between">
     <%= link to: teacher_course_enrollment_path(@conn, :show, @course, @enrollment) do %>
-      <span><%= NovelWeb.UserView.full_name(@enrollment.user) %></span>
+      <span><%= full_name(@enrollment.user) %></span>
     <% end %>
 
     <%= enrollment_status(@enrollment) %>

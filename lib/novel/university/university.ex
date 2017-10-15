@@ -42,6 +42,7 @@ defmodule Novel.University do
     |> order_by([desc: :inserted_at])
     |> Repo.all
     |> Repo.preload(:user)
+    |> Repo.preload(:group)
   end
 
   def get_enrollment!(id) do
@@ -49,6 +50,7 @@ defmodule Novel.University do
     |> Repo.get!(id)
     |> Repo.preload(:user)
     |> Repo.preload(:course)
+    |> Repo.preload(:group)
   end
 
   def get_user_enrollment(%User{} = user, %Course{} = course) do
@@ -61,6 +63,7 @@ defmodule Novel.University do
   def get_user_enrollment!(%User{} = user, %Course{} = course) do
     Enrollment
     |> Repo.get_by!(course_id: course.id, user_id: user.id)
+    |> Repo.preload(:group)
   end
 
   def create_enrollment(attrs \\ %{}) do

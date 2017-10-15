@@ -2,14 +2,7 @@
 
 <h4>
   <span>Your enrollment is</span>
-  <%= case @enrollment.is_approved do %>
-    <% true -> %>
-      <b class="text-success">Approved</b>
-    <% false -> %>
-      <b class="text-danger">Rejected</b>
-    <% nil -> %>
-      <i>Not Approved Yet</i>
-  <% end %>
+  <%= enrollment_status(@enrollment) %>
 </h4>
 
 <div>
