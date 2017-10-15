@@ -4,7 +4,7 @@
       <span><%= full_name(@enrollment.user) %></span>
     <% end %>
 
-    <%= enrollment_status(@enrollment) %>
+    <%= @enrollment.group && @enrollment.group.name %>
   </div>
 </li>
 
