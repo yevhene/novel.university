@@ -1,7 +1,6 @@
 defmodule NovelWeb.Teacher.EnrollmentView do
   use NovelWeb, :view
 
-  import NovelWeb.EnrollmentHelper
   import NovelWeb.UserHelper
 
   def enrollment_group_options(groups) do

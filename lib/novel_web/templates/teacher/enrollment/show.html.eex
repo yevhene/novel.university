@@ -4,8 +4,8 @@
     <%= full_name @enrollment.user %>
   </li>
   <li>
-    <strong>Status:</strong>
-    <%= enrollment_status @enrollment %>
+    <strong>Group:</strong>
+    <%= @enrollment.group && @enrollment.group.name %>
   </li>
 </ul>
 
