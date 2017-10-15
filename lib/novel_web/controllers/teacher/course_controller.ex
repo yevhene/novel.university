@@ -27,7 +27,6 @@ defmodule NovelWeb.Teacher.CourseController do
   end
 
   def show(conn, _params) do
-    course = conn.assigns.course
     render(conn, "show.html")
   end
 

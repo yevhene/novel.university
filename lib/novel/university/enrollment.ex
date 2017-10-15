@@ -5,11 +5,11 @@ defmodule Novel.University.Enrollment do
   alias Novel.Account.User
   alias Novel.University.Course
   alias Novel.University.Enrollment
+  alias Novel.University.Group
 
   schema "university_enrollments" do
-    field :is_approved, :boolean
-
     belongs_to :course, Course
+    belongs_to :group, Group
     belongs_to :user, User
 
     timestamps(type: :utc_datetime)
@@ -28,6 +28,6 @@ defmodule Novel.University.Enrollment do
 
   def update_changeset(%Enrollment{} = enrollment, attrs) do
     enrollment
-    |> cast(attrs, [:is_approved])
+    |> cast(attrs, [:group_id])
   end
 end

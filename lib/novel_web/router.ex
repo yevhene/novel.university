@@ -36,6 +36,7 @@ defmodule NovelWeb.Router do
 
     scope "/teacher", Teacher, as: :teacher do
       resources "/courses", CourseController, except: [:index] do
+        resources "/groups", GroupController
         resources "/enrollments", EnrollmentController,
           only: [:index, :show, :edit, :update]
       end

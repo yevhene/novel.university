@@ -11,7 +11,6 @@ defmodule Novel.Repo.Migrations.CreateUsers do
 
       add :first_name, :string
       add :last_name, :string
-      add :group, :string
 
       timestamps(type: :utc_datetime)
     end

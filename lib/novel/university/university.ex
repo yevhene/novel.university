@@ -5,6 +5,7 @@ defmodule Novel.University do
   alias Novel.Account.User
   alias Novel.University.Course
   alias Novel.University.Enrollment
+  alias Novel.University.Group
 
   def list_courses do
     Course
@@ -41,6 +42,7 @@ defmodule Novel.University do
     |> order_by([desc: :inserted_at])
     |> Repo.all
     |> Repo.preload(:user)
+    |> Repo.preload(:group)
   end
 
   def get_enrollment!(id) do
@@ -48,6 +50,7 @@ defmodule Novel.University do
     |> Repo.get!(id)
     |> Repo.preload(:user)
     |> Repo.preload(:course)
+    |> Repo.preload(:group)
   end
 
   def get_user_enrollment(%User{} = user, %Course{} = course) do
@@ -55,11 +58,12 @@ defmodule Novel.University do
     |> Repo.get_by(course_id: course.id, user_id: user.id)
   end
 
-  def get_user_enrollment(nil, %Course{} = course), do: nil
+  def get_user_enrollment(nil, %Course{}), do: nil
 
   def get_user_enrollment!(%User{} = user, %Course{} = course) do
     Enrollment
     |> Repo.get_by!(course_id: course.id, user_id: user.id)
+    |> Repo.preload(:group)
   end
 
   def create_enrollment(attrs \\ %{}) do
@@ -80,5 +84,38 @@ defmodule Novel.University do
 
   def change_enrollment(%Enrollment{} = enrollment) do
     Enrollment.changeset(enrollment, %{})
+  end
+
+  def list_groups(course) do
+    Group
+    |> where(course_id: ^course.id)
+    |> order_by(:name)
+    |> Repo.all
+  end
+
+  def get_group!(id) do
+    Group
+    |> Repo.get!(id)
+    |> Repo.preload(:course)
+  end
+
+  def create_group(attrs \\ %{}) do
+    %Group{}
+    |> Group.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def update_group(%Group{} = group, attrs) do
+    group
+    |> Group.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_group(%Group{} = group) do
+    Repo.delete(group)
+  end
+
+  def change_group(%Group{} = group) do
+    Group.changeset(group, %{})
   end
 end
