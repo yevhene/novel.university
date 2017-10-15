@@ -4,6 +4,8 @@ defmodule Novel.University.Course do
 
   alias Novel.Account.User
   alias Novel.University.Course
+  alias Novel.University.Enrollment
+  alias Novel.University.Group
 
   schema "university_courses" do
     field :name, :string
@@ -11,6 +13,9 @@ defmodule Novel.University.Course do
     field :started_at, :date
 
     belongs_to :head, User
+
+    has_many :groups, Group
+    has_many :enrollments, Enrollment
 
     timestamps(type: :utc_datetime)
   end

@@ -12,6 +12,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :group_id, class: "control-label" %>
+    <%= select f, :group_id, enrollment_group_options(@groups), class: "form-control" %>
+    <%= error_tag f, :group_id %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -10,6 +10,7 @@ defmodule Novel.University.Enrollment do
     field :is_approved, :boolean
 
     belongs_to :course, Course
+    belongs_to :group, Group
     belongs_to :user, User
 
     timestamps(type: :utc_datetime)
@@ -28,6 +29,6 @@ defmodule Novel.University.Enrollment do
 
   def update_changeset(%Enrollment{} = enrollment, attrs) do
     enrollment
-    |> cast(attrs, [:is_approved])
+    |> cast(attrs, [:group_id, :is_approved])
   end
 end

@@ -7,6 +7,7 @@ defmodule NovelWeb.Teacher.EnrollmentController do
   plug :load_and_authorize_course
   plug :authorize_resources when action in [:index]
   plug :load_and_authorize_resource when action in [:show, :edit, :update]
+  plug :load_groups when action in [:edit, :update]
   plug :put_layout, "teacher.html"
 
   def index(conn, _params) do
@@ -56,5 +57,11 @@ defmodule NovelWeb.Teacher.EnrollmentController do
     enrollment = University.get_enrollment!(conn.params["id"])
     conn |> authorize!(enrollment)
     assign(conn, :enrollment, enrollment)
+  end
+
+  defp load_groups(conn, _opts) do
+    course = conn.assigns.course
+    groups = University.list_groups(course)
+    assign(conn, :groups, groups)
   end
 end
