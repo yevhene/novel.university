@@ -29,19 +29,20 @@ defmodule NovelWeb.Router do
   scope "/", NovelWeb do
     pipe_through [:browser, :require_login, :require_identification]
 
-    resources "/enrollment", EnrollmentController,
-      only: [:new, :create]
     resources "/session", SessionController,
       only: [:delete], singleton: true
     resources "/profile", ProfileController,
       only: [:show], singleton: true
 
     scope "/teacher", Teacher, as: :teacher do
-      resources "/course", CourseController, except: [:index]
+      resources "/courses", CourseController, except: [:index] do
+        resources "/enrollments", EnrollmentController,
+          only: [:index, :show, :edit, :update]
+      end
     end
 
     scope "/student", Student, as: :student do
-      resources "/course", CourseController, only: [] do
+      resources "/courses", CourseController, only: [] do
         resources "/enrollment", EnrollmentController,
           except: [:edit, :update], singleton: true
       end

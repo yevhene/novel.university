@@ -1,0 +1,18 @@
+<ul>
+  <li>
+    <strong>User:</strong>
+    <%= NovelWeb.UserView.full_name @enrollment.user %>
+  </li>
+  <li>
+    <strong>Status:</strong>
+    <%= enrollment_status @enrollment %>
+  </li>
+</ul>
+
+<div class="d-flex align-items-center justify-content-between">
+  <%= if @current_user |> can?(:edit, @enrollment) do %>
+    <%= link "Edit", to: teacher_course_enrollment_path(@conn, :edit, @course, @enrollment), class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<span><%= link "Back", to: teacher_course_enrollment_path(@conn, :index, @course) %></span>

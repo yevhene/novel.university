@@ -55,7 +55,7 @@ defmodule NovelWeb.Student.EnrollmentController do
   defp load_and_authorize_resource(conn, _opts) do
     course = conn.assigns.course
     user = conn.assigns.current_user
-    enrollment = University.get_enrollment!(course.id, user.id)
+    enrollment = University.get_user_enrollment!(user, course)
     conn |> authorize!(enrollment)
     assign(conn, :enrollment, enrollment)
   end

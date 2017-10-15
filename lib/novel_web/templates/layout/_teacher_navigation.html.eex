@@ -1,7 +1,9 @@
 <ul class="nav nav-tabs mb-3">
-  <%= if @current_user |> can?(:edit, @course) do %>
     <li class="nav-item">
       <%= nav_item @conn, "Settings", teacher_course_path(@conn, :show, @course) %>
     </li>
-  <% end %>
+
+    <li class="nav-item">
+      <%= nav_item @conn, "Enrollments", teacher_course_enrollment_path(@conn, :index, @course) %>
+    </li>
 </ul>

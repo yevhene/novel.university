@@ -28,13 +28,13 @@ defmodule NovelWeb.Teacher.CourseController do
 
   def show(conn, _params) do
     course = conn.assigns.course
-    render(conn, "show.html", course: course)
+    render(conn, "show.html")
   end
 
   def edit(conn, _params) do
     course = conn.assigns.course
     changeset = University.change_course(course)
-    render(conn, "edit.html", course: conn.assigns.course, changeset: changeset)
+    render(conn, "edit.html", changeset: changeset)
   end
 
   def update(conn, %{"course" => course_params}) do
@@ -47,7 +47,7 @@ defmodule NovelWeb.Teacher.CourseController do
         |> put_flash(:info, "Course updated successfully")
         |> redirect(to: teacher_course_path(conn, :show, course))
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "edit.html", course: course, changeset: changeset)
+        render(conn, "edit.html", changeset: changeset)
     end
   end
 
