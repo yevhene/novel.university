@@ -1,24 +1,24 @@
-defmodule NovelWeb.CourseAdmin.GroupController do
+defmodule NovelWeb.Teacher.GroupController do
   use NovelWeb, :controller
 
-  alias Novel.Education
-  alias Novel.Education.Group
+  alias Novel.University
+  alias Novel.University.Group
 
   plug :load_and_authorize_course
   plug :authorize_resources when action in [:index, :new, :create]
   plug :load_and_authorize_resource when
     action in [:show, :edit, :update, :delete]
-  plug :put_layout, "course_admin.html"
+  plug :put_layout, "teacher.html"
 
   def index(conn, _params) do
     course = conn.assigns.course
-    groups = Education.list_groups(course)
+    groups = University.list_groups(course)
     render(conn, "index.html", groups: groups)
   end
 
   def new(conn, _params) do
     course = conn.assigns.course
-    changeset = Education.change_group(%Group{course_id: course.id})
+    changeset = University.change_group(%Group{course_id: course.id})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -26,11 +26,11 @@ defmodule NovelWeb.CourseAdmin.GroupController do
     course = conn.assigns.course
     group_params = update_params(conn, group_params)
 
-    case Education.create_group(group_params) do
+    case University.create_group(group_params) do
       {:ok, _group} ->
         conn
         |> put_flash(:info, "Group created successfully")
-        |> redirect(to: course_admin_group_path(conn, :index, course))
+        |> redirect(to: course_teacher_group_path(conn, :index, course))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -43,7 +43,7 @@ defmodule NovelWeb.CourseAdmin.GroupController do
 
   def edit(conn, _params) do
     group = conn.assigns.group
-    changeset = Education.change_group(group)
+    changeset = University.change_group(group)
     render(conn, "edit.html", group: group, changeset: changeset)
   end
 
@@ -52,11 +52,11 @@ defmodule NovelWeb.CourseAdmin.GroupController do
     group = conn.assigns.group
     group_params = update_params(conn, group_params)
 
-    case Education.update_group(group, group_params) do
+    case University.update_group(group, group_params) do
       {:ok, group} ->
         conn
         |> put_flash(:info, "Group updated successfully")
-        |> redirect(to: course_admin_group_path(conn, :show, course, group))
+        |> redirect(to: course_teacher_group_path(conn, :show, course, group))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", group: group, changeset: changeset)
     end
@@ -65,15 +65,15 @@ defmodule NovelWeb.CourseAdmin.GroupController do
   def delete(conn, _params) do
     course = conn.assigns.course
     group = conn.assigns.group
-    {:ok, _group} = Education.delete_group(group)
+    {:ok, _group} = University.delete_group(group)
 
     conn
     |> put_flash(:info, "Group deleted successfully")
-    |> redirect(to: course_admin_group_path(conn, :index, course))
+    |> redirect(to: course_teacher_group_path(conn, :index, course))
   end
 
   defp load_and_authorize_course(conn, _opts) do
-    course = Education.get_course!(conn.params["course_id"])
+    course = University.get_course!(conn.params["course_id"])
     conn |> authorize!(:edit, course)
     assign(conn, :course, course)
   end
@@ -83,7 +83,7 @@ defmodule NovelWeb.CourseAdmin.GroupController do
   end
 
   defp load_and_authorize_resource(conn, _opts) do
-    group = Education.get_group!(conn.params["id"])
+    group = University.get_group!(conn.params["id"])
     conn |> authorize!(group)
     assign(conn, :group, group)
   end

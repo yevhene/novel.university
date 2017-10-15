@@ -1,3 +1,0 @@
-<%= render "_form.html", Map.put(assigns, :action, course_admin_group_path(@conn, :update, @course, @group)) %>
-
-<span><%= link "Back", to: course_admin_group_path(@conn, :index, @course) %></span>

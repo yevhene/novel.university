@@ -1,5 +1,5 @@
 <li class="list-group-item">
-  <%= link to: course_admin_group_path(@conn, :new, @course) do %>
+  <%= link to: course_teacher_group_path(@conn, :new, @course) do %>
     <i class="fa fa-plus-circle" aria-hidden="true"></i>
     <span>New Group</span>
   <% end %>

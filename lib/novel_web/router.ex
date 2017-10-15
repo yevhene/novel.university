@@ -36,7 +36,7 @@ defmodule NovelWeb.Router do
     resources "/profile", ProfileController,
       only: [:show], singleton: true
     resources "/courses", CourseController, only: [:new, :create] do
-      scope "/admin", CourseAdmin, as: :admin do
+      scope "/teacher", Teacher, as: :teacher do
         resources "/course", CourseController,
           only: [:show, :edit, :update, :delete], singleton: true
         resources "/groups", GroupController

@@ -1,13 +1,13 @@
 defmodule NovelWeb.EnrollmentController do
   use NovelWeb, :controller
 
-  alias Novel.Education
-  alias Novel.Education.Enrollment
+  alias Novel.University
+  alias Novel.University.Enrollment
 
   def new(conn, %{"invitation_code" => invitation_code}) do
-    group = Education.get_group_by_invitation_code(invitation_code)
+    group = University.get_group_by_invitation_code(invitation_code)
 
-    changeset = Education.change_enrollment(%Enrollment{
+    changeset = University.change_enrollment(%Enrollment{
       invitation_code: invitation_code
     })
     render(conn, "new.html", changeset: changeset, group: group)
@@ -16,7 +16,7 @@ defmodule NovelWeb.EnrollmentController do
   def create(conn, %{"enrollment" => enrollment_params}) do
     enrollment_params = update_params(conn, enrollment_params)
 
-    case Education.create_enrollment(enrollment_params) do
+    case University.create_enrollment(enrollment_params) do
       {:ok, _enrollment} ->
         conn
         |> put_flash(:info, "Enrollment created successfully")

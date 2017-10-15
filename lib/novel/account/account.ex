@@ -1,9 +1,9 @@
-defmodule Novel.Accounts do
+defmodule Novel.Account do
   import Ecto.Query, warn: false
   alias Novel.Repo
 
-  alias Novel.Accounts.Link
-  alias Novel.Accounts.User
+  alias Novel.Account.Link
+  alias Novel.Account.User
 
   def get_user!(id), do: Repo.get!(User, id)
 

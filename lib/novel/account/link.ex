@@ -1,12 +1,12 @@
-defmodule Novel.Accounts.Link do
+defmodule Novel.Account.Link do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Novel.Accounts.User
+  alias Novel.Account.User
 
-  alias Novel.Accounts.Link
+  alias Novel.Account.Link
 
-  schema "links" do
+  schema "account_links" do
     field :data, :map
 
     belongs_to :user, User

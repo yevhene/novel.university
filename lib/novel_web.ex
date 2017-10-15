@@ -43,8 +43,8 @@ defmodule NovelWeb do
       import NovelWeb.Gettext
       import Canada.Can, only: [can?: 3]
 
-      alias Novel.Education.Course
-      alias Novel.Education.Group
+      alias Novel.University.Course
+      alias Novel.University.Group
     end
   end
 
