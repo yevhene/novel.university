@@ -12,6 +12,9 @@ defmodule Novel.DataCase do
   of the test unless the test case is marked as async.
   """
 
+  alias Ecto.Adapters.SQL.Sandbox
+  alias Ecto.Changeset
+
   use ExUnit.CaseTemplate
 
   using do
@@ -26,10 +29,10 @@ defmodule Novel.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Novel.Repo)
+    :ok = Sandbox.checkout(Novel.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Novel.Repo, {:shared, self()})
+      Sandbox.mode(Novel.Repo, {:shared, self()})
     end
 
     :ok
@@ -38,13 +41,13 @@ defmodule Novel.DataCase do
   @doc """
   A helper that transform changeset errors to a map of messages.
 
-      assert {:error, changeset} = Accounts.create_user(%{password: "short"})
+      assert {:error, changeset} = Account.create_user(%{password: "short"})
       assert "password is too short" in errors_on(changeset).password
       assert %{password: ["password is too short"]} = errors_on(changeset)
 
   """
   def errors_on(changeset) do
-    Ecto.Changeset.traverse_errors(changeset, fn {message, opts} ->
+    Changeset.traverse_errors(changeset, fn {message, opts} ->
       Enum.reduce(opts, message, fn {key, value}, acc ->
         String.replace(acc, "%{#{key}}", to_string(value))
       end)

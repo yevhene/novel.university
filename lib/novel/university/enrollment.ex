@@ -1,12 +1,12 @@
-defmodule Novel.Education.Enrollment do
+defmodule Novel.University.Enrollment do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Novel.Accounts.User
-  alias Novel.Education.Group
-  alias Novel.Education.Enrollment
+  alias Novel.Account.User
+  alias Novel.University.Group
+  alias Novel.University.Enrollment
 
-  schema "enrollments" do
+  schema "university_enrollments" do
     belongs_to :group, Group
     belongs_to :user, User
 

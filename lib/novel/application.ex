@@ -1,6 +1,8 @@
 defmodule Novel.Application do
   use Application
 
+  alias NovelWeb.Endpoint
+
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
@@ -12,7 +14,8 @@ defmodule Novel.Application do
       supervisor(Novel.Repo, []),
       # Start the endpoint when the application starts
       supervisor(NovelWeb.Endpoint, []),
-      # Start your own worker by calling: Novel.Worker.start_link(arg1, arg2, arg3)
+      # Start your own worker by calling:
+      # Novel.Worker.start_link(arg1, arg2, arg3)
       # worker(Novel.Worker, [arg1, arg2, arg3]),
     ]
 
@@ -25,7 +28,7 @@ defmodule Novel.Application do
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
   def config_change(changed, _new, removed) do
-    NovelWeb.Endpoint.config_change(changed, removed)
+    Endpoint.config_change(changed, removed)
     :ok
   end
 end

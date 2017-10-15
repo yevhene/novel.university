@@ -8,7 +8,7 @@
     </div>
   <% end %>
   <div class="card-footer d-flex align-items-center justify-content-between">
-    <div><%= course_owner(@course) %></div>
+    <div><%= NovelWeb.UserView.full_name(@course.head) %></div>
     <small><%= @course.started_at %></small>
   </div>
 </div>

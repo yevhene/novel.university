@@ -1,9 +1,11 @@
 defmodule NovelWeb.SessionController do
   use NovelWeb, :controller
 
+  import NovelWeb.Guardian.Plug, only: [sign_out: 1]
+
   def delete(conn, _params) do
     conn
-    |> NovelWeb.Guardian.Plug.sign_out
+    |> sign_out
     |> put_flash(:info, "Signed out")
     |> redirect(to: "/")
   end

@@ -5,7 +5,7 @@
     <p><%= @group.course.description %></p>
   <% end %>
   <h3>Group: <%= @group.name %></h3>
-  <h3>Course Head: <%= NovelWeb.UserView.full_name(@group.course.user) %></h3>
+  <h3>Course Head: <%= NovelWeb.UserView.full_name(@group.course.head) %></h3>
 
   <%= render "_form.html", Map.put(assigns, :action, enrollment_path(@conn, :create)) %>
 <% else %>

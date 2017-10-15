@@ -20,8 +20,8 @@
         #
         # You can give explicit globs or simply directories.
         # In the latter case `**/*.{ex,exs}` will be used.
-      #
-        included: ["lib/", "src/", "web/", "apps/"],
+        #
+        included: ["lib/", "src/", "web/", "apps/", "priv/", "test/"],
         excluded: [~r"/_build/", ~r"/deps/"]
       },
       #
@@ -33,7 +33,7 @@
       # If you want to enforce a style guide and need a more traditional linting
       # experience, you can change `strict` to `true` below:
       #
-      strict: false,
+      strict: true,
       #
       # If you want to use uncolored output by default, you can change `color`
       # to `false` below:
@@ -123,11 +123,11 @@
 
         # Controversial and experimental checks (opt-in, just remove `, false`)
         #
-        {Credo.Check.Refactor.ABCSize, false},
-        {Credo.Check.Refactor.AppendSingleItem, false},
-        {Credo.Check.Refactor.VariableRebinding, false},
-        {Credo.Check.Warning.MapGetUnsafePass, false},
-        {Credo.Check.Consistency.MultiAliasImportRequireUse, false},
+        {Credo.Check.Refactor.ABCSize},
+        {Credo.Check.Refactor.AppendSingleItem},
+        {Credo.Check.Refactor.VariableRebinding},
+        {Credo.Check.Warning.MapGetUnsafePass},
+        {Credo.Check.Consistency.MultiAliasImportRequireUse},
 
         # Deprecated checks (these will be deleted after a grace period)
         #

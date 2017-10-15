@@ -1,17 +1,17 @@
-defmodule Novel.Education do
+defmodule Novel.University do
   import Ecto.Query, warn: false
   alias Novel.Repo
   alias Novel.Util.Token
 
-  alias Novel.Education.Course
-  alias Novel.Education.Group
-  alias Novel.Education.Enrollment
+  alias Novel.University.Course
+  alias Novel.University.Group
+  alias Novel.University.Enrollment
 
   def list_courses do
     Course
     |> order_by(:started_at)
     |> Repo.all
-    |> Repo.preload(:user)
+    |> Repo.preload(:head)
   end
 
   def get_course!(id), do: Repo.get!(Course, id)

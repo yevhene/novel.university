@@ -1,7 +1,7 @@
 defmodule NovelWeb.ProfileController do
   use NovelWeb, :controller
 
-  alias Novel.Accounts
+  alias Novel.Account
 
   def show(conn, _params) do
     user = conn.assigns.current_user
@@ -10,13 +10,13 @@ defmodule NovelWeb.ProfileController do
 
   def edit(conn, _params) do
     user = conn.assigns.current_user
-    changeset = Accounts.change_user_profile(user)
+    changeset = Account.change_user_profile(user)
     render(conn, "edit.html", user: user, changeset: changeset)
   end
 
   def update(conn, %{"user" => user_params}) do
     user = conn.assigns.current_user
-    case Accounts.update_user_profile(user, user_params) do
+    case Account.update_user_profile(user, user_params) do
       {:ok, _user} ->
         conn
         |> put_flash(:info, "Profile updated successfully")

@@ -1,11 +1,11 @@
-defmodule Novel.Education.Group do
+defmodule Novel.University.Group do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Novel.Education.Course
-  alias Novel.Education.Group
+  alias Novel.University.Course
+  alias Novel.University.Group
 
-  schema "groups" do
+  schema "university_groups" do
     field :name, :string
     field :invitation_code, :string
 
