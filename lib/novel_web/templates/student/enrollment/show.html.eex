@@ -2,10 +2,13 @@
 
 <h4>
   <span>Your enrollment is</span>
-  <%= if @enrollment.is_approved do %>
-    <b>Approved</b>
-  <% else %>
-    <i>Not Approved Yet</i>
+  <%= case @enrollment.is_approved do %>
+    <% true -> %>
+      <b class="text-success">Approved</b>
+    <% false -> %>
+      <b class="text-danger">Rejected</b>
+    <% nil -> %>
+      <i>Not Approved Yet</i>
   <% end %>
 </h4>
 

@@ -3,10 +3,13 @@ alias Novel.University.Course
 alias Novel.University.Enrollment
 
 defimpl Canada.Can, for: User do
+  def can?(%User{is_teacher: true}, :index, Enrollment), do: true
   def can?(%User{}, action, Enrollment)
     when action in [:new, :create], do: true
   def can?(%User{id: user_id}, action, %Enrollment{user_id: user_id})
     when action in [:show, :delete], do: true
+  def can?(%User{id: user_id}, action, %Enrollment{course: %Course{head_id: user_id}})
+    when action in [:show, :edit, :update], do: true
 
   def can?(%User{}, :index, Course), do: true
   def can?(%User{}, :show, %Course{}), do: true

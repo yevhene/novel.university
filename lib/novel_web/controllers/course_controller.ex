@@ -31,7 +31,7 @@ defmodule NovelWeb.CourseController do
   defp load_enrollment(conn, _opts) do
     course = conn.assigns.course
     user = conn.assigns.current_user
-    enrollment = University.get_enrollment(course.id, user.id)
+    enrollment = University.get_user_enrollment(user, course)
     assign(conn, :enrollment, enrollment)
   end
 end

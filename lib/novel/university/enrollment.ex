@@ -25,4 +25,9 @@ defmodule Novel.University.Enrollment do
       name: :university_enrollments_course_id_user_id_index
     )
   end
+
+  def update_changeset(%Enrollment{} = enrollment, attrs) do
+    enrollment
+    |> cast(attrs, [:is_approved])
+  end
 end
