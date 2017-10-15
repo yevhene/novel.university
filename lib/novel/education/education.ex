@@ -1,12 +1,15 @@
 defmodule Novel.Education do
   import Ecto.Query, warn: false
   alias Novel.Repo
+  alias Novel.Util.Token
 
   alias Novel.Education.Course
   alias Novel.Education.Group
+  alias Novel.Education.Enrollment
 
   def list_courses do
     Course
+    |> order_by(:started_at)
     |> Repo.all
     |> Repo.preload(:user)
   end
@@ -36,6 +39,7 @@ defmodule Novel.Education do
   def list_groups(course) do
     Group
     |> where(course_id: ^course.id)
+    |> order_by(:name)
     |> Repo.all
   end
 
@@ -46,6 +50,9 @@ defmodule Novel.Education do
   end
 
   def create_group(attrs \\ %{}) do
+    attrs = attrs
+    |> Map.put("invitation_code", Token.generate)
+
     %Group{}
     |> Group.changeset(attrs)
     |> Repo.insert()
@@ -63,5 +70,28 @@ defmodule Novel.Education do
 
   def change_group(%Group{} = group) do
     Group.changeset(group, %{})
+  end
+
+  def get_group_by_invitation_code(invitation_code) do
+    Group
+    |> Repo.get_by(invitation_code: invitation_code)
+    |> Repo.preload(course: :user)
+  end
+
+  def create_enrollment(attrs \\ %{}) do
+    invitation_code = Map.get(attrs, "invitation_code")
+    group = Group |> Repo.get_by(invitation_code: invitation_code)
+
+    attrs = attrs
+    |> Map.delete("invitation_code")
+    |> Map.put("group_id", group && group.id)
+
+    %Enrollment{}
+    |> Enrollment.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def change_enrollment(%Enrollment{} = enrollment) do
+    Enrollment.changeset(enrollment, %{})
   end
 end
