@@ -1,13 +1,7 @@
 <h2>
   <%= @course.name %>
 
-  <%= if @current_user |> can?(:update, @course) do %>
-    <span>
-      <%= link to: course_teacher_course_path(@conn, :show, @course) do %>
-        <i class="fa fa-cogs" aria-hidden="true"></i>
-      <% end %>
-    </span>
-  <% end %>
+  <%= render "_actions.html", assigns %>
 </h2>
 
 <p><%= @course.description %></p>

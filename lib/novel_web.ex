@@ -42,9 +42,6 @@ defmodule NovelWeb do
       import NovelWeb.ErrorHelpers
       import NovelWeb.Gettext
       import Canada.Can, only: [can?: 3]
-
-      alias Novel.University.Course
-      alias Novel.University.Group
     end
   end
 

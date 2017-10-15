@@ -3,24 +3,26 @@ defmodule Novel.University.Enrollment do
   import Ecto.Changeset
 
   alias Novel.Account.User
-  alias Novel.University.Group
+  alias Novel.University.Course
   alias Novel.University.Enrollment
 
   schema "university_enrollments" do
-    belongs_to :group, Group
+    field :is_approved, :boolean
+
+    belongs_to :course, Course
     belongs_to :user, User
 
-    field :invitation_code, :string, virtual: true
-
-    timestamps()
+    timestamps(type: :utc_datetime)
   end
 
   def changeset(%Enrollment{} = enrollment, attrs) do
     enrollment
-    |> cast(attrs, [:group_id, :user_id])
-    |> validate_required([:group_id, :user_id])
-    |> foreign_key_constraint(:group_id)
+    |> cast(attrs, [:course_id, :user_id])
+    |> validate_required([:course_id, :user_id])
+    |> foreign_key_constraint(:course_id)
     |> foreign_key_constraint(:user_id)
-    |> unique_constraint(:name, name: :enrollments_user_id_group_id_index)
+    |> unique_constraint(:course_id,
+      name: :university_enrollments_course_id_user_id_index
+    )
   end
 end
