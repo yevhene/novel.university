@@ -1,0 +1,19 @@
+<h2>
+  <%= @lab.title %>
+</h2>
+
+<hr />
+
+<h3><%= gettext "Your submissions" %>:</h3>
+
+<ul class="list-group mb-3">
+  <%= render_many(@submissions, NovelWeb.Student.SubmissionView, "_submission.html", assigns) %>
+</ul>
+
+<%= link to: student_course_lab_submission_path(@conn, :new, @course, @lab), class: "btn btn-primary" do %>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  <%= gettext "New Submission" %>
+<% end %>
+
+<hr />
+<span><%= link gettext("Back"), to: student_course_lab_path(@conn, :index, @course) %></span>

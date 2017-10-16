@@ -39,6 +39,7 @@ defmodule NovelWeb.Router do
   end
 
   pipeline :student do
+    plug NovelWeb.Plug.LoadEnrollment
     plug NovelWeb.Plug.AuthorizeEnrollment
   end
 
@@ -77,7 +78,11 @@ defmodule NovelWeb.Router do
     scope "/student", Student, as: :student do
       pipe_through [:course, :student]
 
-      resources "/courses", CourseController, only: [:show]
+      resources "/courses", CourseController, only: [:show] do
+        resources "/labs", LabController, only: [:index, :show] do
+          resources "/submissions", SubmissionController, only: [:new, :create]
+        end
+      end
     end
   end
 

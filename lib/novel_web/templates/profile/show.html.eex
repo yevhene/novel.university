@@ -23,3 +23,6 @@
 </ul>
 
 <span><%= link gettext("Edit"), to: profile_path(@conn, :edit) %></span>
+
+<hr />
+<span><%= link gettext("Back"), to: "/" %></span>

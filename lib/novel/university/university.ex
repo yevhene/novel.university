@@ -7,6 +7,7 @@ defmodule Novel.University do
   alias Novel.University.Enrollment
   alias Novel.University.Group
   alias Novel.University.Lab
+  alias Novel.University.Submission
 
   def list_courses do
     Course
@@ -92,9 +93,9 @@ defmodule Novel.University do
     Enrollment.changeset(enrollment, %{})
   end
 
-  def list_groups(course) do
+  def list_groups(%{id: course_id}) do
     Group
-    |> where(course_id: ^course.id)
+    |> where(course_id: ^course_id)
     |> order_by(:name)
     |> Repo.all
   end
@@ -125,9 +126,9 @@ defmodule Novel.University do
     Group.changeset(group, %{})
   end
 
-  def list_labs(course) do
+  def list_labs(%Course{id: course_id}) do
     Lab
-    |> where(course_id: ^course.id)
+    |> where(course_id: ^course_id)
     |> order_by(:title)
     |> Repo.all
   end
@@ -156,5 +157,23 @@ defmodule Novel.University do
 
   def change_lab(%Lab{} = lab) do
     Lab.changeset(lab, %{})
+  end
+
+  def list_submissions(%Enrollment{id: enrollment_id}, %Lab{id: lab_id}) do
+    Submission
+    |> where(enrollment_id: ^enrollment_id)
+    |> where(lab_id: ^lab_id)
+    |> order_by(desc: :inserted_at)
+    |> Repo.all
+  end
+
+  def create_submission(attrs \\ %{}) do
+    %Submission{}
+    |> Submission.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def change_submission(%Submission{} = submission) do
+    Submission.changeset(submission, %{})
   end
 end

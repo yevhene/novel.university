@@ -8,4 +8,5 @@
   <%= link gettext("Delete"), to: teacher_course_lab_path(@conn, :delete, @course, @lab), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
 </div>
 
+<hr />
 <span><%= link gettext("Back"), to: teacher_course_lab_path(@conn, :index, @course) %></span>
