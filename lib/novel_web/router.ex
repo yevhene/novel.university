@@ -30,9 +30,16 @@ defmodule NovelWeb.Router do
     plug NovelWeb.Plug.AuthorizeTeacher
   end
 
-  pipeline :course_head do
+  pipeline :course do
     plug NovelWeb.Plug.LoadCourse
-    plug NovelWeb.Plug.AuthorizeCourseHead
+  end
+
+  pipeline :head do
+    plug NovelWeb.Plug.AuthorizeHead
+  end
+
+  pipeline :student do
+    plug NovelWeb.Plug.AuthorizeEnrollment
   end
 
   scope "/", NovelWeb do
@@ -50,7 +57,7 @@ defmodule NovelWeb.Router do
     end
 
     scope "/teacher", Teacher, as: :teacher do
-      pipe_through [:teacher, :course_head]
+      pipe_through [:teacher, :course, :head]
 
       resources "/courses", CourseController, except: [:index, :new, :create] do
         resources "/groups", GroupController
@@ -59,11 +66,17 @@ defmodule NovelWeb.Router do
       end
     end
 
+    resources "/courses", CourseController, only: [] do
+      pipe_through [:course]
+
+      resources "/enrollment", EnrollmentController,
+        only: [:new, :create, :show], singleton: true
+    end
+
     scope "/student", Student, as: :student do
-      resources "/courses", CourseController, only: [] do
-        resources "/enrollment", EnrollmentController,
-          except: [:edit, :update], singleton: true
-      end
+      pipe_through [:course, :student]
+
+      resources "/courses", CourseController, only: [:show]
     end
   end
 

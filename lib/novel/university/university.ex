@@ -60,6 +60,7 @@ defmodule Novel.University do
   def get_user_enrollment(%User{} = user, %Course{} = course) do
     Enrollment
     |> Repo.get_by(course_id: course.id, user_id: user.id)
+    |> Repo.preload(:group)
   end
 
   def get_user_enrollment(nil, %Course{}), do: nil

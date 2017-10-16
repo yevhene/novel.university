@@ -2,7 +2,6 @@ defmodule NovelWeb.CourseController do
   use NovelWeb, :controller
 
   alias Novel.University
-  alias Novel.University.Course
 
   plug :load_resource when action in [:show]
   plug :load_enrollment when action in [:show]

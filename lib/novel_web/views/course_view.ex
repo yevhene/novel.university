@@ -4,6 +4,9 @@ defmodule NovelWeb.CourseView do
   import NovelWeb.StringHelper
   import NovelWeb.UserHelper
 
+  alias Novel.University.Enrollment
+  alias Novel.University.Group
+
   def course_description(course) do
     truncate(course.description)
   end

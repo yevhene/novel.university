@@ -1,8 +1,0 @@
-<h2>Enrollment to Course "<%= @course.name %>"</h2>
-
-<h4>
-  <span>Your enrollment is</span>
-  <%= enrollment_status(@enrollment) %>
-</h4>
-
-<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>

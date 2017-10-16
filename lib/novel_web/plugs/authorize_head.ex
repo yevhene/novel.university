@@ -1,4 +1,4 @@
-defmodule NovelWeb.Plug.AuthorizeCourseHead do
+defmodule NovelWeb.Plug.AuthorizeHead do
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   import Plug.Conn, only: [halt: 1]
 

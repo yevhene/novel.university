@@ -1,4 +1,4 @@
-defmodule NovelWeb.Student.EnrollmentController do
+defmodule NovelWeb.EnrollmentController do
   use NovelWeb, :controller
 
   alias Novel.University

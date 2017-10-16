@@ -1,4 +1,4 @@
-defmodule NovelWeb.CourseControllerTest do
+defmodule NovelWeb.PageControllerTest do
   use NovelWeb.ConnCase
 
   test "GET /", %{conn: conn} do

@@ -1,0 +1,25 @@
+<h2>Enrollment to Course "<%= @course.name %>"</h2>
+
+<h4>
+  <span>Your enrollment is</span>
+
+  <%= case @enrollment do %>
+    <% %Enrollment{group: %Group{}} -> %>
+      <span class="text-success">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        Approved
+      </span>
+    <% %Enrollment{} -> %>
+      <span class="text-warning">
+        <i class="fa fa-tasks" aria-hidden="true"></i>
+        In Progress
+      </span>
+    <% nil -> %>
+      <span class="text-danger">
+        <i class="fa fa-question-circle" aria-hidden="true"></i>
+        Not exists
+      </span>
+  <% end %>
+</h4>
+
+<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>
