@@ -6,6 +6,7 @@ defmodule Novel.University.Course do
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
+  alias Novel.University.Lab
 
   schema "university_courses" do
     field :name, :string
@@ -16,6 +17,7 @@ defmodule Novel.University.Course do
 
     has_many :groups, Group
     has_many :enrollments, Enrollment
+    has_many :labs, Enrollment
 
     timestamps(type: :utc_datetime)
   end
