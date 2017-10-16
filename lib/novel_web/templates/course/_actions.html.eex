@@ -12,12 +12,12 @@
           Cabinet
         <% end %>
       <% %Enrollment{} -> %>
-        <%= link to: course_enrollment_path(@conn, :show, @course), class: "btn btn-primary" do %>
-          <i class="fa fa-id-card" aria-hidden="true"></i>
-          Enrollment
+        <%= link to: '', class: "btn btn-warning" do %>
+          <i class="fa fa-question-circle" aria-hidden="true"></i>
+          Enrollment in progress
         <% end %>
       <% nil -> %>
-        <%= link to: course_enrollment_path(@conn, :new, @course), class: "btn btn-primary" do %>
+        <%= link to: course_enrollment_path(@conn, :create, @course), method: :post, class: "btn btn-primary" do %>
           <i class="fa fa-plus" aria-hidden="true"></i>
           Enroll
         <% end %>
