@@ -14,7 +14,11 @@ defmodule Novel.University do
     |> Repo.preload(:head)
   end
 
-  def get_course!(id), do: Repo.get!(Course, id)
+  def get_course!(id) do
+    Course
+    |> Repo.get!(id)
+    |> Repo.preload(:head)
+  end
 
   def create_course(attrs \\ %{}) do
     %Course{}

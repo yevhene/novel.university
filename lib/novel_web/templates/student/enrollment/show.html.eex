@@ -5,10 +5,4 @@
   <%= enrollment_status(@enrollment) %>
 </h4>
 
-<div>
-  <%= if @current_user |> can?(:delete, @enrollment) do %>
-    <%= link "Delete", to: student_course_enrollment_path(@conn, :delete, @enrollment), method: "delete", class: "btn btn-danger", data: [confirm: "Really?"] %>
-  <% end %>
-</div>
-
 <span><%= link "Back", to: course_path(@conn, :show, @course) %></span>

@@ -50,7 +50,6 @@ defmodule Novel.Mixfile do
       {:cowboy, "~> 1.0"},
       {:ueberauth_github, "~> 0.4"},
       {:guardian, "~> 1.0-beta"},
-      {:canada, "~> 1.0.1"},
 
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},

@@ -2,11 +2,8 @@ defmodule NovelWeb.Teacher.EnrollmentController do
   use NovelWeb, :controller
 
   alias Novel.University
-  alias Novel.University.Enrollment
 
-  plug :load_and_authorize_course
-  plug :authorize_resources when action in [:index]
-  plug :load_and_authorize_resource when action in [:show, :edit, :update]
+  plug :load_resource when action in [:show, :edit, :update]
   plug :load_groups when action in [:edit, :update]
   plug :put_layout, "teacher.html"
 
@@ -43,19 +40,8 @@ defmodule NovelWeb.Teacher.EnrollmentController do
     end
   end
 
-  defp load_and_authorize_course(conn, _opts) do
-    course = University.get_course!(conn.params["course_id"])
-    conn |> authorize!(:edit, course)
-    assign(conn, :course, course)
-  end
-
-  defp authorize_resources(conn, _params) do
-    conn |> authorize!(Enrollment)
-  end
-
-  defp load_and_authorize_resource(conn, _opts) do
+  defp load_resource(conn, _opts) do
     enrollment = University.get_enrollment!(conn.params["id"])
-    conn |> authorize!(enrollment)
     assign(conn, :enrollment, enrollment)
   end
 

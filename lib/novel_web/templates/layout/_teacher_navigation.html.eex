@@ -1,13 +1,13 @@
 <ul class="nav nav-tabs mb-3">
-    <li class="nav-item">
-      <%= nav_item @conn, "Settings", teacher_course_path(@conn, :show, @course) %>
-    </li>
+  <li class="nav-item">
+    <%= nav_item @conn, "Settings", teacher_course_path(@conn, :show, @course) %>
+  </li>
 
-    <li class="nav-item">
-      <%= nav_item @conn, "Groups", teacher_course_group_path(@conn, :index, @course) %>
-    </li>
+  <li class="nav-item">
+    <%= nav_item @conn, "Groups", teacher_course_group_path(@conn, :index, @course) %>
+  </li>
 
-    <li class="nav-item">
-      <%= nav_item @conn, "Enrollments", teacher_course_enrollment_path(@conn, :index, @course) %>
-    </li>
+  <li class="nav-item">
+    <%= nav_item @conn, "Enrollments", teacher_course_enrollment_path(@conn, :index, @course) %>
+  </li>
 </ul>

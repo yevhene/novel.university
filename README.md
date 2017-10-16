@@ -12,6 +12,12 @@ mix deps.get
 mix ecto.setup
 ```
 
+### Environment
+```
+export GITHUB_CLIENT_ID=YOUR_APP_ID
+export GITHUB_CLIENT_SECRET=YOUR_APP_SECRET
+```
+
 ## Run
 ```
 mix phx.server
