@@ -1,4 +1,4 @@
-defmodule NovelWeb.Plug.EnsureCurrentUserIsIdentified do
+defmodule NovelWeb.Plug.IdentifyCurrentUser do
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   import Plug.Conn, only: [halt: 1]
   alias NovelWeb.Router.Helpers, as: Routes

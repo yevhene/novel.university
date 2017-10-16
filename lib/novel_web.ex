@@ -23,7 +23,6 @@ defmodule NovelWeb do
       import Plug.Conn
       import NovelWeb.Router.Helpers
       import NovelWeb.Gettext
-      import NovelWeb.Authorize
     end
   end
 
@@ -41,7 +40,6 @@ defmodule NovelWeb do
       import NovelWeb.Router.Helpers
       import NovelWeb.ErrorHelpers
       import NovelWeb.Gettext
-      import Canada.Can, only: [can?: 3]
     end
   end
 

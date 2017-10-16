@@ -1,20 +1,26 @@
-<%= if @current_user |> can?(:update, @course) do %>
-  <%= link to: teacher_course_path(@conn, :show, @course), class: "btn btn-primary" do %>
-    <i class="fa fa-cogs" aria-hidden="true"></i>
-    Settings
-  <% end %>
-<% else %>
-  <%= if @enrollment do %>
-    <%= link to: student_course_enrollment_path(@conn, :show, @course), class: "btn btn-primary" do %>
-      <i class="fa fa-id-card" aria-hidden="true"></i>
-      Enrollment
+<%= if @current_user do %>
+  <%= if @current_user.id == @course.head.id do %>
+    <%= link to: teacher_course_path(@conn, :show, @course), class: "btn btn-primary" do %>
+      <i class="fa fa-cogs" aria-hidden="true"></i>
+      Settings
     <% end %>
   <% else %>
-    <%= if @current_user |> can?(:new, Novel.University.Enrollment) do %>
-      <%= link to: student_course_enrollment_path(@conn, :new, @course), class: "btn btn-primary" do %>
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        Enroll
-      <% end %>
+    <%= case @enrollment do %>
+      <% %Enrollment{group: %Group{}} -> %>
+        <%= link to: student_course_path(@conn, :show, @course), class: "btn btn-success" do %>
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+          Cabinet
+        <% end %>
+      <% %Enrollment{} -> %>
+        <%= link to: course_enrollment_path(@conn, :show, @course), class: "btn btn-primary" do %>
+          <i class="fa fa-id-card" aria-hidden="true"></i>
+          Enrollment
+        <% end %>
+      <% nil -> %>
+        <%= link to: course_enrollment_path(@conn, :new, @course), class: "btn btn-primary" do %>
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          Enroll
+        <% end %>
     <% end %>
   <% end %>
 <% end %>

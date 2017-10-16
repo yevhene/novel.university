@@ -1,13 +1,10 @@
-defmodule NovelWeb.Student.EnrollmentController do
+defmodule NovelWeb.EnrollmentController do
   use NovelWeb, :controller
 
   alias Novel.University
   alias Novel.University.Enrollment
 
-  plug :load_course
-  plug :authorize_resources when action in [:new, :create]
-  plug :load_and_authorize_resource when action in [:show, :delete]
-  plug :put_layout, "student.html"
+  plug :load_resource when action in [:show]
 
   def new(conn, _params) do
     changeset = University.change_enrollment(%Enrollment{})
@@ -33,30 +30,10 @@ defmodule NovelWeb.Student.EnrollmentController do
     render(conn, "show.html", enrollment: enrollment)
   end
 
-  def delete(conn, _params) do
-    course = conn.assigns.course
-    enrollment = conn.assigns.enrollment
-    {:ok, _enrollment} = University.delete_enrollment(enrollment)
-
-    conn
-    |> put_flash(:info, "Enrollment deleted successfully")
-    |> redirect(to: course_path(conn, :show, course))
-  end
-
-  defp load_course(conn, _opts) do
-    course = University.get_course!(conn.params["course_id"])
-    assign(conn, :course, course)
-  end
-
-  defp authorize_resources(conn, _params) do
-    conn |> authorize!(Enrollment)
-  end
-
-  defp load_and_authorize_resource(conn, _opts) do
+  defp load_resource(conn, _opts) do
     course = conn.assigns.course
     user = conn.assigns.current_user
     enrollment = University.get_user_enrollment!(user, course)
-    conn |> authorize!(enrollment)
     assign(conn, :enrollment, enrollment)
   end
 

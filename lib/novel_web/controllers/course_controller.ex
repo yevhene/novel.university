@@ -2,10 +2,8 @@ defmodule NovelWeb.CourseController do
   use NovelWeb, :controller
 
   alias Novel.University
-  alias Novel.University.Course
 
-  plug :authorize_resources when action in [:index]
-  plug :load_and_authorize_resource when action in [:show]
+  plug :load_resource when action in [:show]
   plug :load_enrollment when action in [:show]
 
   def index(conn, _params) do
@@ -18,13 +16,8 @@ defmodule NovelWeb.CourseController do
     render(conn, "show.html", course: course)
   end
 
-  defp authorize_resources(conn, _params) do
-    conn |> authorize!(Course)
-  end
-
-  defp load_and_authorize_resource(conn, _opts) do
+  defp load_resource(conn, _opts) do
     course = University.get_course!(conn.params["id"])
-    conn |> authorize!(course)
     assign(conn, :course, course)
   end
 

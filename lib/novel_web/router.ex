@@ -18,16 +18,32 @@ defmodule NovelWeb.Router do
     plug NovelWeb.Plug.CurrentUser
   end
 
-  pipeline :require_identification do
-    plug NovelWeb.Plug.EnsureCurrentUserIsIdentified
+  pipeline :identify do
+    plug NovelWeb.Plug.IdentifyCurrentUser
   end
 
   pipeline :require_login do
     plug Guardian.Plug.EnsureAuthenticated
   end
 
+  pipeline :teacher do
+    plug NovelWeb.Plug.AuthorizeTeacher
+  end
+
+  pipeline :course do
+    plug NovelWeb.Plug.LoadCourse
+  end
+
+  pipeline :head do
+    plug NovelWeb.Plug.AuthorizeHead
+  end
+
+  pipeline :student do
+    plug NovelWeb.Plug.AuthorizeEnrollment
+  end
+
   scope "/", NovelWeb do
-    pipe_through [:browser, :require_login, :require_identification]
+    pipe_through [:browser, :require_login, :identify]
 
     resources "/session", SessionController,
       only: [:delete], singleton: true
@@ -35,18 +51,32 @@ defmodule NovelWeb.Router do
       only: [:show], singleton: true
 
     scope "/teacher", Teacher, as: :teacher do
-      resources "/courses", CourseController, except: [:index] do
+      pipe_through [:teacher]
+
+      resources "/courses", CourseController, only: [:new, :create]
+    end
+
+    scope "/teacher", Teacher, as: :teacher do
+      pipe_through [:teacher, :course, :head]
+
+      resources "/courses", CourseController, except: [:index, :new, :create] do
         resources "/groups", GroupController
         resources "/enrollments", EnrollmentController,
           only: [:index, :show, :edit, :update]
       end
     end
 
+    resources "/courses", CourseController, only: [] do
+      pipe_through [:course]
+
+      resources "/enrollment", EnrollmentController,
+        only: [:new, :create, :show], singleton: true
+    end
+
     scope "/student", Student, as: :student do
-      resources "/courses", CourseController, only: [] do
-        resources "/enrollment", EnrollmentController,
-          except: [:edit, :update], singleton: true
-      end
+      pipe_through [:course, :student]
+
+      resources "/courses", CourseController, only: [:show]
     end
   end
 
@@ -58,7 +88,7 @@ defmodule NovelWeb.Router do
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser, :require_identification]
+    pipe_through [:browser, :identify]
 
     resources "/", CourseController, only: [:index]
     resources "/courses", CourseController, only: [:show]

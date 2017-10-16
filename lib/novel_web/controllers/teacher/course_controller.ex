@@ -4,8 +4,6 @@ defmodule NovelWeb.Teacher.CourseController do
   alias Novel.University
   alias Novel.University.Course
 
-  plug :authorize_resources when action in [:new, :create]
-  plug :load_and_authorize_resource when action not in [:new, :create]
   plug :put_layout, "teacher.html" when action not in [:new, :create]
 
   def new(conn, _params) do
@@ -57,16 +55,6 @@ defmodule NovelWeb.Teacher.CourseController do
     conn
     |> put_flash(:info, "Course deleted successfully")
     |> redirect(to: course_path(conn, :index))
-  end
-
-  defp authorize_resources(conn, _params) do
-    conn |> authorize!(Course)
-  end
-
-  defp load_and_authorize_resource(conn, _opts) do
-    course = University.get_course!(conn.params["id"])
-    conn |> authorize!(course)
-    assign(conn, :course, course)
   end
 
   defp update_params(conn, params) do

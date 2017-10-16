@@ -14,7 +14,11 @@ defmodule Novel.University do
     |> Repo.preload(:head)
   end
 
-  def get_course!(id), do: Repo.get!(Course, id)
+  def get_course!(id) do
+    Course
+    |> Repo.get!(id)
+    |> Repo.preload(:head)
+  end
 
   def create_course(attrs \\ %{}) do
     %Course{}
@@ -56,6 +60,7 @@ defmodule Novel.University do
   def get_user_enrollment(%User{} = user, %Course{} = course) do
     Enrollment
     |> Repo.get_by(course_id: course.id, user_id: user.id)
+    |> Repo.preload(:group)
   end
 
   def get_user_enrollment(nil, %Course{}), do: nil

@@ -4,10 +4,7 @@ defmodule NovelWeb.Teacher.GroupController do
   alias Novel.University
   alias Novel.University.Group
 
-  plug :load_and_authorize_course
-  plug :authorize_resources when action in [:index, :new, :create]
-  plug :load_and_authorize_resource when
-    action in [:show, :edit, :update, :delete]
+  plug :load_resource when action in [:show, :edit, :update, :delete]
   plug :put_layout, "teacher.html"
 
   def index(conn, _params) do
@@ -72,19 +69,8 @@ defmodule NovelWeb.Teacher.GroupController do
     |> redirect(to: teacher_course_group_path(conn, :index, course))
   end
 
-  defp load_and_authorize_course(conn, _opts) do
-    course = University.get_course!(conn.params["course_id"])
-    conn |> authorize!(:edit, course)
-    assign(conn, :course, course)
-  end
-
-  defp authorize_resources(conn, _params) do
-    conn |> authorize!(Group)
-  end
-
-  defp load_and_authorize_resource(conn, _opts) do
+  defp load_resource(conn, _opts) do
     group = University.get_group!(conn.params["id"])
-    conn |> authorize!(group)
     assign(conn, :group, group)
   end
 
