@@ -2,14 +2,6 @@ defmodule NovelWeb.EnrollmentController do
   use NovelWeb, :controller
 
   alias Novel.University
-  alias Novel.University.Enrollment
-
-  plug :load_resource when action in [:show]
-
-  def new(conn, _params) do
-    changeset = University.change_enrollment(%Enrollment{})
-    render(conn, "new.html", changeset: changeset)
-  end
 
   def create(conn, _params) do
     course = conn.assigns.course
@@ -20,21 +12,11 @@ defmodule NovelWeb.EnrollmentController do
         conn
         |> put_flash(:info, "Enrollment created successfully")
         |> redirect(to: course_path(conn, :show, course))
-      {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+      {:error, _} ->
+        conn
+        |> put_flash(:error, "Problems with enrollment. Contact admin")
+        |> redirect(to: course_path(conn, :show, course))
     end
-  end
-
-  def show(conn, _params) do
-    enrollment = conn.assigns.enrollment
-    render(conn, "show.html", enrollment: enrollment)
-  end
-
-  defp load_resource(conn, _opts) do
-    course = conn.assigns.course
-    user = conn.assigns.current_user
-    enrollment = University.get_user_enrollment!(user, course)
-    assign(conn, :enrollment, enrollment)
   end
 
   defp update_params(conn, params) do
