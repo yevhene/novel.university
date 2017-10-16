@@ -10,4 +10,8 @@
   <li class="nav-item">
     <%= nav_item @conn, "Enrollments", teacher_course_enrollment_path(@conn, :index, @course) %>
   </li>
+
+  <li class="nav-item">
+    <%= nav_item @conn, "Labs", teacher_course_lab_path(@conn, :index, @course) %>
+  </li>
 </ul>

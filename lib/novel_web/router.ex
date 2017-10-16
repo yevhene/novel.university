@@ -61,6 +61,7 @@ defmodule NovelWeb.Router do
 
       resources "/courses", CourseController, except: [:index, :new, :create] do
         resources "/groups", GroupController
+        resources "/labs", LabController
         resources "/enrollments", EnrollmentController,
           only: [:index, :show, :edit, :update]
       end

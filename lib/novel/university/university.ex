@@ -6,6 +6,7 @@ defmodule Novel.University do
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
+  alias Novel.University.Lab
 
   def list_courses do
     Course
@@ -122,5 +123,38 @@ defmodule Novel.University do
 
   def change_group(%Group{} = group) do
     Group.changeset(group, %{})
+  end
+
+  def list_labs(course) do
+    Lab
+    |> where(course_id: ^course.id)
+    |> order_by(:title)
+    |> Repo.all
+  end
+
+  def get_lab!(id) do
+    Lab
+    |> Repo.get!(id)
+    |> Repo.preload(:course)
+  end
+
+  def create_lab(attrs \\ %{}) do
+    %Lab{}
+    |> Lab.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def update_lab(%Lab{} = lab, attrs) do
+    lab
+    |> Lab.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_lab(%Lab{} = lab) do
+    Repo.delete(lab)
+  end
+
+  def change_lab(%Lab{} = lab) do
+    Lab.changeset(lab, %{})
   end
 end
