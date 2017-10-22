@@ -1,5 +1,5 @@
 <%= base_layout assigns do %>
-  <h2>Course "<%= @course.name %>" Admin</h2>
+  <h2><%= gettext "Course \"%{course}\"", course: @course.name %></h2>
 
   <%= render "_student_navigation.html", assigns %>
 

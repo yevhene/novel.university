@@ -10,7 +10,7 @@
 </ul>
 
 <div class="d-flex align-items-center justify-content-between">
-  <%= link "Edit", to: teacher_course_enrollment_path(@conn, :edit, @course, @enrollment), class: "btn btn-primary" %>
+  <%= link gettext("Edit"), to: teacher_course_enrollment_path(@conn, :edit, @course, @enrollment), class: "btn btn-primary" %>
 </div>
 
-<span><%= link "Back", to: teacher_course_enrollment_path(@conn, :index, @course) %></span>
+<span><%= link gettext("Back"), to: teacher_course_enrollment_path(@conn, :index, @course) %></span>

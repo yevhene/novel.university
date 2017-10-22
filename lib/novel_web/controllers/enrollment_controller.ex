@@ -10,11 +10,11 @@ defmodule NovelWeb.EnrollmentController do
     case University.create_enrollment(enrollment_params) do
       {:ok, _enrollment} ->
         conn
-        |> put_flash(:info, "Enrollment created successfully")
+        |> put_flash(:info, gettext "Enrollment created successfully")
         |> redirect(to: course_path(conn, :show, course))
       {:error, _} ->
         conn
-        |> put_flash(:error, "Problems with enrollment. Contact admin")
+        |> put_flash(:error, gettext "Enrollment failed. Try again later")
         |> redirect(to: course_path(conn, :show, course))
     end
   end

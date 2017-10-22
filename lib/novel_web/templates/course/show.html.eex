@@ -6,4 +6,4 @@
 
 <p><%= @course.description %></p>
 
-<span><%= link "Back", to: course_path(@conn, :index) %></span>
+<span><%= link gettext("Back"), to: course_path(@conn, :index) %></span>

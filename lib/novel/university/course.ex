@@ -6,7 +6,6 @@ defmodule Novel.University.Course do
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
-  alias Novel.University.Lab
 
   schema "university_courses" do
     field :name, :string

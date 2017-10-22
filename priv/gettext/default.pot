@@ -1,0 +1,281 @@
+## This file is a PO Template file.
+##
+## `msgid`s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run `mix gettext.extract` to bring this file up to
+## date. Leave `msgstr`s empty as changing them here as no
+## effect: edit them in PO (`.po`) files instead.
+msgid ""
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:20
+msgid "Course created successfully"
+msgstr ""
+
+#: lib/novel_web/templates/course/show.html.eex:9
+#: lib/novel_web/templates/profile/edit.html.eex:5
+#: lib/novel_web/templates/teacher/course/edit.html.eex:3
+#: lib/novel_web/templates/teacher/course/new.html.eex:5
+#: lib/novel_web/templates/teacher/course/show.html.eex:13
+#: lib/novel_web/templates/teacher/enrollment/edit.html.eex:3
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:16
+#: lib/novel_web/templates/teacher/group/edit.html.eex:3
+#: lib/novel_web/templates/teacher/group/index.html.eex:7
+#: lib/novel_web/templates/teacher/group/new.html.eex:3
+#: lib/novel_web/templates/teacher/group/show.html.eex:11
+#: lib/novel_web/templates/teacher/lab/edit.html.eex:3
+#: lib/novel_web/templates/teacher/lab/index.html.eex:7
+#: lib/novel_web/templates/teacher/lab/new.html.eex:3
+#: lib/novel_web/templates/teacher/lab/show.html.eex:11
+msgid "Back"
+msgstr ""
+
+#: lib/novel_web/templates/course/_actions.html.eex:12
+msgid "Cabinet"
+msgstr ""
+
+#: lib/novel_web/controllers/auth_controller.ex:25
+msgid "Could not authenticate. Error: %{reason}"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:56
+msgid "Course deleted successfully"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:44
+msgid "Course updated successfully"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_student_navigation.html.eex:3
+msgid "Dashboard"
+msgstr ""
+
+#: lib/novel_web/templates/course/_actions.html.eex:22
+msgid "Enroll"
+msgstr ""
+
+#: lib/novel_web/controllers/enrollment_controller.ex:13
+msgid "Enrollment created successfully"
+msgstr ""
+
+#: lib/novel_web/controllers/enrollment_controller.ex:17
+msgid "Enrollment failed. Try again later"
+msgstr ""
+
+#: lib/novel_web/templates/course/_actions.html.eex:17
+msgid "Enrollment in progress"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:34
+msgid "Enrollment updated successfully"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:11
+msgid "Enrollments"
+msgstr ""
+
+#: lib/novel_web/controllers/auth_controller.ex:10
+msgid "Failed to authenticate"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:29
+msgid "Group created successfully"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:68
+msgid "Group deleted successfully"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:55
+msgid "Group updated successfully"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:7
+msgid "Groups"
+msgstr ""
+
+#: lib/novel_web/templates/course/index.html.eex:3
+msgid "Hello!"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:29
+msgid "Lab created successfully"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:68
+msgid "Lab deleted successfully"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:55
+msgid "Lab updated successfully"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:15
+msgid "Labs"
+msgstr ""
+
+#: lib/novel_web/templates/course/_new_course_button.html.eex:5
+#: lib/novel_web/templates/teacher/course/new.html.eex:1
+msgid "New Course"
+msgstr ""
+
+#: lib/novel_web/templates/layout/base.html.eex:10
+msgid "Novel University"
+msgstr ""
+
+#: lib/novel_web/plugs/identify_current_user.ex:13
+msgid "Please fill your profile"
+msgstr ""
+
+#: lib/novel_web/controllers/profile_controller.ex:22
+msgid "Profile updated successfully"
+msgstr ""
+
+#: lib/novel_web/templates/course/_actions.html.eex:5
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:3
+msgid "Settings"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_user_navigation.html.eex:16
+msgid "Sign in"
+msgstr ""
+
+#: lib/novel_web/controllers/session_controller.ex:9
+msgid "Signed out"
+msgstr ""
+
+#: lib/novel_web/controllers/auth_controller.ex:18
+msgid "Successfully authenticated"
+msgstr ""
+
+#: lib/novel_web/guardian/error_handler.ex:7
+msgid "Unauthenticated"
+msgstr ""
+
+#: lib/novel_web/templates/layout/base.html.eex:17
+msgid "novel.university"
+msgstr ""
+
+#: lib/novel_web/templates/student/course/show.html.eex:1
+msgid "Congratulations!"
+msgstr ""
+
+#: lib/novel_web/templates/layout/student.html.eex:2
+msgid "Course \"%{course}\""
+msgstr ""
+
+#: lib/novel_web/templates/layout/teacher.html.eex:2
+msgid "Course \"%{course}\" Admin"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/course/show.html.eex:10
+#: lib/novel_web/templates/teacher/group/show.html.eex:8
+#: lib/novel_web/templates/teacher/lab/show.html.eex:8
+msgid "Delete"
+msgstr ""
+
+#: lib/novel_web/templates/profile/show.html.eex:25
+#: lib/novel_web/templates/teacher/course/show.html.eex:8
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:13
+#: lib/novel_web/templates/teacher/group/show.html.eex:6
+#: lib/novel_web/templates/teacher/lab/show.html.eex:6
+msgid "Edit"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/group/_new_group_button.html.eex:4
+msgid "New Group"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/lab/_new_lab_button.html.eex:4
+msgid "New Lab"
+msgstr ""
+
+#: lib/novel_web/templates/profile/_form.html.eex:4
+#: lib/novel_web/templates/teacher/course/_form.html.eex:4
+#: lib/novel_web/templates/teacher/enrollment/_form.html.eex:4
+#: lib/novel_web/templates/teacher/group/_form.html.eex:4
+#: lib/novel_web/templates/teacher/lab/_form.html.eex:4
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr ""
+
+#: lib/novel_web/templates/teacher/course/show.html.eex:10
+#: lib/novel_web/templates/teacher/group/show.html.eex:8
+#: lib/novel_web/templates/teacher/lab/show.html.eex:8
+msgid "Really?"
+msgstr ""
+
+#: lib/novel_web/templates/profile/_form.html.eex:27
+#: lib/novel_web/templates/teacher/course/_form.html.eex:27
+#: lib/novel_web/templates/teacher/enrollment/_form.html.eex:15
+#: lib/novel_web/templates/teacher/group/_form.html.eex:15
+#: lib/novel_web/templates/teacher/lab/_form.html.eex:15
+msgid "Submit"
+msgstr ""
+
+#: lib/novel_web/plugs/authorize_enrollment.ex:28
+msgid "You are not enrolled"
+msgstr ""
+
+#: lib/novel_web/plugs/authorize_head.ex:15
+msgid "You should be a course head"
+msgstr ""
+
+#: lib/novel_web/plugs/authorize_teacher.ex:14
+msgid "You should be a teacher"
+msgstr ""
+
+#: lib/novel_web/plugs/authorize_enrollment.ex:23
+msgid "Your enrollment is not yet approved"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_user_navigation.html.eex:8
+#: lib/novel_web/templates/profile/show.html.eex:1
+msgid "Profile"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_user_navigation.html.eex:9
+msgid "Sign Out"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/course/_form.html.eex:15
+msgid "Description"
+msgstr ""
+
+#: lib/novel_web/templates/profile/_form.html.eex:9
+#: lib/novel_web/templates/profile/show.html.eex:12
+msgid "Email"
+msgstr ""
+
+#: lib/novel_web/templates/profile/_form.html.eex:15
+#: lib/novel_web/templates/profile/show.html.eex:16
+msgid "First name"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/enrollment/_form.html.eex:9
+msgid "Group"
+msgstr ""
+
+#: lib/novel_web/templates/profile/_form.html.eex:21
+#: lib/novel_web/templates/profile/show.html.eex:20
+msgid "Last name"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/course/_form.html.eex:9
+#: lib/novel_web/templates/teacher/group/_form.html.eex:9
+msgid "Name"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/course/_form.html.eex:21
+msgid "Start"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/lab/_form.html.eex:9
+msgid "Title"
+msgstr ""
+
+#: lib/novel_web/templates/profile/show.html.eex:5
+msgid "Github username"
+msgstr ""

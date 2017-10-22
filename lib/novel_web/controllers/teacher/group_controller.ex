@@ -26,7 +26,7 @@ defmodule NovelWeb.Teacher.GroupController do
     case University.create_group(group_params) do
       {:ok, _group} ->
         conn
-        |> put_flash(:info, "Group created successfully")
+        |> put_flash(:info, gettext "Group created successfully")
         |> redirect(to: teacher_course_group_path(conn, :index, course))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -52,7 +52,7 @@ defmodule NovelWeb.Teacher.GroupController do
     case University.update_group(group, group_params) do
       {:ok, group} ->
         conn
-        |> put_flash(:info, "Group updated successfully")
+        |> put_flash(:info, gettext "Group updated successfully")
         |> redirect(to: teacher_course_group_path(conn, :show, course, group))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", group: group, changeset: changeset)
@@ -65,7 +65,7 @@ defmodule NovelWeb.Teacher.GroupController do
     {:ok, _group} = University.delete_group(group)
 
     conn
-    |> put_flash(:info, "Group deleted successfully")
+    |> put_flash(:info, gettext "Group deleted successfully")
     |> redirect(to: teacher_course_group_path(conn, :index, course))
   end
 

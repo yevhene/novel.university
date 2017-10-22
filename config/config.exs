@@ -40,3 +40,5 @@ config :ueberauth, Ueberauth,
 config :novel, NovelWeb.Guardian,
   issuer: "Novel.#{Mix.env}",
   secret_key: "gkQiIFPZf8zf20ZO0+gw0ugozfqWMIZQXJD6/Q0chGVaOSvBXRC9EgLp7S2P62fn"
+
+config :novel, NovelWeb.Gettext, default_locale: "uk"

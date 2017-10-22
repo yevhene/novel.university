@@ -4,4 +4,4 @@
   <%= render "_new_lab_button.html", assigns %>
 </ul>
 
-<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>
+<span><%= link gettext("Back"), to: course_path(@conn, :show, @course) %></span>

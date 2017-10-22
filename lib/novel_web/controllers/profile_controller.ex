@@ -19,7 +19,7 @@ defmodule NovelWeb.ProfileController do
     case Account.update_user_profile(user, user_params) do
       {:ok, _user} ->
         conn
-        |> put_flash(:info, "Profile updated successfully")
+        |> put_flash(:info, gettext "Profile updated successfully")
         |> redirect(to: "/")
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", user: user, changeset: changeset)
