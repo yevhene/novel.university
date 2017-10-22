@@ -63,11 +63,11 @@ msgstr "Записатися"
 
 #: lib/novel_web/controllers/enrollment_controller.ex:13
 msgid "Enrollment created successfully"
-msgstr "Запис створено"
+msgstr "Заявку створено"
 
 #: lib/novel_web/controllers/enrollment_controller.ex:17
 msgid "Enrollment failed. Try again later"
-msgstr "Створення запису провалено. Спробйте пізніше"
+msgstr "Створення заявки провалено. Спробуйте пізніше"
 
 #: lib/novel_web/templates/course/_actions.html.eex:17
 msgid "Enrollment in progress"
@@ -146,7 +146,7 @@ msgstr "Налаштування"
 
 #: lib/novel_web/templates/layout/_user_navigation.html.eex:16
 msgid "Sign in"
-msgstr "Ви зайшли"
+msgstr "Зайти"
 
 #: lib/novel_web/controllers/session_controller.ex:9
 msgid "Signed out"

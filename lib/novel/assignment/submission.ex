@@ -1,12 +1,12 @@
-defmodule Novel.University.Submission do
+defmodule Novel.Assignment.Submission do
   use Ecto.Schema
   import Ecto.Changeset
 
   alias Novel.University.Enrollment
-  alias Novel.University.Lab
-  alias Novel.University.Submission
+  alias Novel.Assignment.Lab
+  alias Novel.Assignment.Submission
 
-  schema "university_submissions" do
+  schema "assignment_submissions" do
     field :repository, :string
 
     belongs_to :enrollment, Enrollment
