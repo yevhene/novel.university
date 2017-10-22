@@ -20,6 +20,10 @@ defmodule Novel.Remote do
     fetch_list(provider, token)
   end
 
+  def repository_link(name) do
+    "https://github.com/#{name}"
+  end
+
   defp fetch_list("github", token) do
     token
     |> load_github_repositories

@@ -33,6 +33,7 @@ defmodule NovelWeb.Router do
 
   pipeline :course do
     plug NovelWeb.Plug.LoadCourse
+    plug NovelWeb.Plug.LoadCourseCounters
   end
 
   pipeline :head do
@@ -63,8 +64,10 @@ defmodule NovelWeb.Router do
 
       resources "/courses", CourseController, except: [:index, :new, :create] do
         resources "/groups", GroupController
-        resources "/labs", LabController
         resources "/enrollments", EnrollmentController,
+          only: [:index, :show, :edit, :update]
+        resources "/labs", LabController
+        resources "/submissions", SubmissionController,
           only: [:index, :show, :edit, :update]
       end
     end
@@ -73,7 +76,7 @@ defmodule NovelWeb.Router do
       pipe_through [:course]
 
       resources "/enrollment", EnrollmentController,
-        only: [:new, :create, :show], singleton: true
+        only: [:new, :create], singleton: true
     end
 
     scope "/student", Student, as: :student do

@@ -4,6 +4,7 @@ defmodule Novel.Repo.Migrations.CreateAssignmentSubmissions do
   def change do
     create table(:assignment_submissions) do
       add :repository, :string
+      add :is_approved, :boolean
 
       add :enrollment_id,
         references(:university_enrollments, on_delete: :restrict)

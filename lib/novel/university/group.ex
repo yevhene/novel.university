@@ -3,12 +3,14 @@ defmodule Novel.University.Group do
   import Ecto.Changeset
 
   alias Novel.University.Course
+  alias Novel.University.Enrollment
   alias Novel.University.Group
 
   schema "university_groups" do
     field :name, :string
 
     belongs_to :course, Course
+    has_many :enrollments, Enrollment
 
     timestamps(type: :utc_datetime)
   end

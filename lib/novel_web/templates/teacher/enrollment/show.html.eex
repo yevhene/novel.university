@@ -1,10 +1,10 @@
 <ul>
   <li>
-    <strong>User:</strong>
+    <strong><%= gettext "User" %>:</strong>
     <%= full_name @enrollment.user %>
   </li>
   <li>
-    <strong>Group:</strong>
+    <strong><% gettext "Group" %>:</strong>
     <%= @enrollment.group && @enrollment.group.name %>
   </li>
 </ul>
