@@ -3,7 +3,7 @@ defmodule Novel.Repo.Migrations.CreateUniversitySubmissions do
 
   def change do
     create table(:university_submissions) do
-      add :repo, :string
+      add :repository, :string
 
       add :enrollment_id,
         references(:university_enrollments, on_delete: :restrict)

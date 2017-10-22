@@ -19,7 +19,7 @@ msgstr "Курс створено"
 #: lib/novel_web/templates/profile/show.html.eex:28
 #: lib/novel_web/templates/student/lab/index.html.eex:6
 #: lib/novel_web/templates/student/lab/show.html.eex:19
-#: lib/novel_web/templates/student/submission/new.html.eex:4
+#: lib/novel_web/templates/student/submission/new.html.eex:7
 #: lib/novel_web/templates/teacher/course/edit.html.eex:4
 #: lib/novel_web/templates/teacher/course/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/show.html.eex:14
@@ -131,7 +131,7 @@ msgstr "Новий курс"
 msgid "Novel University"
 msgstr ""
 
-#: lib/novel_web/plugs/identify_current_user.ex:13
+#: lib/novel_web/plugs/identify_current_user.ex:24
 msgid "Please fill your profile"
 msgstr "Будь ласка заповніть ваш профіль"
 
@@ -156,7 +156,7 @@ msgstr "Ви вийшли"
 msgid "Successfully authenticated"
 msgstr "Автентифіковано"
 
-#: lib/novel_web/guardian/error_handler.ex:7
+#: lib/novel_web/guardian/error_handler.ex:12
 msgid "Unauthenticated"
 msgstr "Не автентифіковано"
 
@@ -205,7 +205,7 @@ msgstr "Нова лабораторна"
 #: lib/novel_web/templates/teacher/group/_form.html.eex:4
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:4
 msgid "Oops, something went wrong! Please check the errors below."
-msgstr "Не вдалося зберегти, через помилкиб що описані нижче"
+msgstr "Не вдалося зберегти, через помилки, що описані нижче"
 
 #: lib/novel_web/templates/teacher/course/show.html.eex:10
 #: lib/novel_web/templates/teacher/group/show.html.eex:8
@@ -214,7 +214,7 @@ msgid "Really?"
 msgstr "Ви впевнені?"
 
 #: lib/novel_web/templates/profile/_form.html.eex:27
-#: lib/novel_web/templates/student/submission/_form.html.eex:15
+#: lib/novel_web/templates/repository/_repository.html.eex:10
 #: lib/novel_web/templates/teacher/course/_form.html.eex:27
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:15
 #: lib/novel_web/templates/teacher/group/_form.html.eex:15
@@ -222,19 +222,19 @@ msgstr "Ви впевнені?"
 msgid "Submit"
 msgstr "Відправити"
 
-#: lib/novel_web/plugs/authorize_enrollment.ex:26
+#: lib/novel_web/plugs/authorize_enrollment.ex:49
 msgid "You are not enrolled"
 msgstr "Ви не записані на курс"
 
-#: lib/novel_web/plugs/authorize_head.ex:15
+#: lib/novel_web/plugs/authorize_head.ex:24
 msgid "You should be a course head"
 msgstr "Ви маєте бути головою курсу"
 
-#: lib/novel_web/plugs/authorize_teacher.ex:14
+#: lib/novel_web/plugs/authorize_teacher.ex:23
 msgid "You should be a teacher"
 msgstr "Ви маєте бути вчителем"
 
-#: lib/novel_web/plugs/authorize_enrollment.ex:21
+#: lib/novel_web/plugs/authorize_enrollment.ex:32
 msgid "Your enrollment is not yet approved"
 msgstr "Вашу заявку ще не схвалено"
 
@@ -299,10 +299,14 @@ msgstr "Створити подання"
 msgid "Submission created successfully"
 msgstr "Подання створено"
 
-#: lib/novel_web/templates/student/submission/_form.html.eex:9
-msgid "Repo"
-msgstr "Репозиторій"
-
 #: lib/novel_web/templates/student/lab/show.html.eex:7
 msgid "Your submissions"
 msgstr "Ваші подання"
+
+#: lib/novel_web/templates/student/submission/new.html.eex:1
+msgid "New Submission for Lab \"%{lab}\""
+msgstr "Нове подання для лабораторної \"%{lab}\""
+
+#: lib/novel_web/templates/student/submission/_form.html.eex:9
+msgid "Choose repository"
+msgstr "Оберіть репозиторій"

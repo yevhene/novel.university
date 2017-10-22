@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">
+      <%= @repository.name %>
+      <a href="<%= @repository.url %>"><i class="fa fa-github" aria-hidden="true"></i></a>
+    </h4>
+    <p class="card-text"><%= @repository.description %></p>
+  </div>
+  <div class="card-footer d-flex justify-content-center">
+    <button class="btn btn-primary" js-submit-repository="<%= @repository.full_name %>">
+      <%= gettext("Submit") %>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+<div class="card-columns">
+  <%= render_many(@repositories, NovelWeb.RepositoryView, "_repository.html", assigns) %>
+</div>
