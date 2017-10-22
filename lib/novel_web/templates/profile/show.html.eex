@@ -1,25 +1,25 @@
-<h2>Profile</h2>
+<h2><%= gettext "Profile" %></h2>
 
 <ul>
   <li>
-    <strong>Github username:</strong>
+    <strong><%= gettext "Github username" %>:</strong>
     <%= @user.nickname %>
   </li>
 </ul>
 
 <ul>
   <li>
-    <strong>Email:</strong>
+    <strong><%= gettext "Email" %>:</strong>
     <%= @user.email %>
   </li>
   <li>
-    <strong>First Name:</strong>
+    <strong><%= gettext "First name" %>:</strong>
     <%= @user.first_name %>
   </li>
   <li>
-    <strong>Last Name:</strong>
+    <strong><%= gettext "Last name" %>:</strong>
     <%= @user.last_name %>
   </li>
 </ul>
 
-<span><%= link "Edit", to: profile_path(@conn, :edit) %></span>
+<span><%= link gettext("Edit"), to: profile_path(@conn, :edit) %></span>

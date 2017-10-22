@@ -31,7 +31,7 @@ defmodule NovelWeb.Teacher.EnrollmentController do
     case University.update_enrollment(enrollment, enrollment_params) do
       {:ok, enrollment} ->
         conn
-        |> put_flash(:info, "Enrollment updated successfully")
+        |> put_flash(:info, gettext "Enrollment updated successfully")
         |> redirect(
           to: teacher_course_enrollment_path(conn, :show, course, enrollment)
         )

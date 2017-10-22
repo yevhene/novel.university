@@ -7,7 +7,7 @@ defmodule NovelWeb.AuthController do
 
   def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
     conn
-    |> put_flash(:error, "Failed to authenticate.")
+    |> put_flash(:error, gettext "Failed to authenticate")
     |> redirect(to: "/")
   end
 
@@ -15,12 +15,15 @@ defmodule NovelWeb.AuthController do
     case Account.authenticate(oauth) do
       {:ok, user} ->
         conn
-        |> put_flash(:info, "Successfully authenticated.")
+        |> put_flash(:info, gettext "Successfully authenticated")
         |> sign_in(user)
         |> redirect(to: "/")
       {:error, reason} ->
         conn
-        |> put_flash(:error, "Could not authenticate. Error: #{reason}")
+        |> put_flash(
+          :error,
+          gettext("Could not authenticate. Error: %{reason}", reason: reason)
+        )
         |> redirect(to: "/")
     end
   end

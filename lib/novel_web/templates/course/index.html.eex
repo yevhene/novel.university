@@ -1,5 +1,7 @@
 <div class="jumbotron">
-  <h2>Hello!</h2>
+  <h2>
+    <%= gettext "Hello!" %>
+  </h2>
 </div>
 
 <div class="card-columns">

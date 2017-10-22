@@ -1,0 +1,86 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: uk\n"
+
+msgid "can't be blank"
+msgstr "не можу бути пустим"
+
+msgid "has already been taken"
+msgstr "вже існує"
+
+msgid "is invalid"
+msgstr "помилкове"
+
+msgid "must be accepted"
+msgstr "має бути прийняте"
+
+msgid "has invalid format"
+msgstr "має неправильний формат"
+
+msgid "has an invalid entry"
+msgstr "має помилковий запис"
+
+msgid "is reserved"
+msgstr "зарезервовано"
+
+msgid "does not match confirmation"
+msgstr "не співпадає з підтвердженням"
+
+msgid "is still associated with this entry"
+msgstr "все ще ассоційовано з цим записом"
+
+msgid "are still associated with this entry"
+msgstr "все ще ассоційовані з цим записом"
+
+msgid "should be %{count} character(s)"
+msgid_plural "should be %{count} character(s)"
+msgstr[0] "має містити %{count} символ"
+msgstr[1] "має містити %{count} символів"
+
+msgid "should have %{count} item(s)"
+msgid_plural "should have %{count} item(s)"
+msgstr[0] "має містити %{count} елемент"
+msgstr[1] "має містити %{count} елементи"
+
+msgid "should be at least %{count} character(s)"
+msgid_plural "should be at least %{count} character(s)"
+msgstr[0] "має містити не менше за %{count} символ"
+msgstr[1] "має містити не менше за %{count} символи"
+
+msgid "should have at least %{count} item(s)"
+msgid_plural "should have at least %{count} item(s)"
+msgstr[0] "має містити не менше за %{count} елемент"
+msgstr[1] "має містити не менше за %{count} елементи"
+
+msgid "should be at most %{count} character(s)"
+msgid_plural "should be at most %{count} character(s)"
+msgstr[0] "має містити не більше за %{count} символ"
+msgstr[1] "має містити не більше за %{count} символи"
+
+msgid "should have at most %{count} item(s)"
+msgid_plural "should have at most %{count} item(s)"
+msgstr[0] "має містити не більше за %{count} елемент"
+msgstr[1] "має містити не більше за %{count} елементи"
+
+msgid "must be less than %{number}"
+msgstr "має бути меншим за %{number}"
+
+msgid "must be greater than %{number}"
+msgstr "має бути більшим за %{number}"
+
+msgid "must be less than or equal to %{number}"
+msgstr "має бути меншим або дорівнювати %{number}"
+
+msgid "must be greater than or equal to %{number}"
+msgstr "має бути більшим або дорівнювати %{number}"
+
+msgid "must be equal to %{number}"
+msgstr "має дорівнювати %{number}"

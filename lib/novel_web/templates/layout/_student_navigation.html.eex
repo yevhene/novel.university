@@ -1,5 +1,5 @@
 <ul class="nav nav-tabs mb-3">
   <li class="nav-item">
-    <%= nav_item @conn, "Dashboard", student_course_path(@conn, :show, @course) %>
+    <%= nav_item @conn, gettext("Dashboard"), student_course_path(@conn, :show, @course) %>
   </li>
 </ul>

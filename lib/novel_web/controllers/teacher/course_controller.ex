@@ -17,7 +17,7 @@ defmodule NovelWeb.Teacher.CourseController do
     case University.create_course(course_params) do
       {:ok, course} ->
         conn
-        |> put_flash(:info, "Course created successfully")
+        |> put_flash(:info, gettext "Course created successfully")
         |> redirect(to: course_path(conn, :show, course))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
@@ -41,7 +41,7 @@ defmodule NovelWeb.Teacher.CourseController do
     case University.update_course(course, course_params) do
       {:ok, course} ->
         conn
-        |> put_flash(:info, "Course updated successfully")
+        |> put_flash(:info, gettext "Course updated successfully")
         |> redirect(to: teacher_course_path(conn, :show, course))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", changeset: changeset)
@@ -53,7 +53,7 @@ defmodule NovelWeb.Teacher.CourseController do
     {:ok, _course} = University.delete_course(course)
 
     conn
-    |> put_flash(:info, "Course deleted successfully")
+    |> put_flash(:info, gettext "Course deleted successfully")
     |> redirect(to: course_path(conn, :index))
   end
 

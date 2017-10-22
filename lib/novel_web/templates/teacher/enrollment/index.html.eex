@@ -2,4 +2,4 @@
   <%= render_many(@enrollments, NovelWeb.Teacher.EnrollmentView, "_enrollment.html", assigns) %>
 </ul>
 
-<span><%= link "Back", to: course_path(@conn, :show, @course) %></span>
+<span><%= link gettext("Back"), to: course_path(@conn, :show, @course) %></span>

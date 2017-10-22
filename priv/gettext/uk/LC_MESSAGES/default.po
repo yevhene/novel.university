@@ -1,0 +1,281 @@
+## `msgid`s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove `msgid`s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use `mix gettext.extract --merge` or `mix gettext.merge`
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: uk\n"
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:20
+msgid "Course created successfully"
+msgstr "Курс створено"
+
+#: lib/novel_web/templates/course/show.html.eex:9
+#: lib/novel_web/templates/profile/edit.html.eex:5
+#: lib/novel_web/templates/teacher/course/edit.html.eex:3
+#: lib/novel_web/templates/teacher/course/new.html.eex:5
+#: lib/novel_web/templates/teacher/course/show.html.eex:13
+#: lib/novel_web/templates/teacher/enrollment/edit.html.eex:3
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:16
+#: lib/novel_web/templates/teacher/group/edit.html.eex:3
+#: lib/novel_web/templates/teacher/group/index.html.eex:7
+#: lib/novel_web/templates/teacher/group/new.html.eex:3
+#: lib/novel_web/templates/teacher/group/show.html.eex:11
+#: lib/novel_web/templates/teacher/lab/edit.html.eex:3
+#: lib/novel_web/templates/teacher/lab/index.html.eex:7
+#: lib/novel_web/templates/teacher/lab/new.html.eex:3
+#: lib/novel_web/templates/teacher/lab/show.html.eex:11
+msgid "Back"
+msgstr "Назад"
+
+#: lib/novel_web/templates/course/_actions.html.eex:12
+msgid "Cabinet"
+msgstr "Кабінет"
+
+#: lib/novel_web/controllers/auth_controller.ex:25
+msgid "Could not authenticate. Error: %{reason}"
+msgstr "Не вдалося автентифікувати. Помилка: %{reason}"
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:56
+msgid "Course deleted successfully"
+msgstr "Курс видалено"
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:44
+msgid "Course updated successfully"
+msgstr "Курс оновлено"
+
+#: lib/novel_web/templates/layout/_student_navigation.html.eex:3
+msgid "Dashboard"
+msgstr "Головна"
+
+#: lib/novel_web/templates/course/_actions.html.eex:22
+msgid "Enroll"
+msgstr "Записатися"
+
+#: lib/novel_web/controllers/enrollment_controller.ex:13
+msgid "Enrollment created successfully"
+msgstr "Запис створено"
+
+#: lib/novel_web/controllers/enrollment_controller.ex:17
+msgid "Enrollment failed. Try again later"
+msgstr "Створення запису провалено. Спробйте пізніше"
+
+#: lib/novel_web/templates/course/_actions.html.eex:17
+msgid "Enrollment in progress"
+msgstr "Заявка у процесі"
+
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:34
+msgid "Enrollment updated successfully"
+msgstr "Заявку оновлено"
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:11
+msgid "Enrollments"
+msgstr "Заявки"
+
+#: lib/novel_web/controllers/auth_controller.ex:10
+msgid "Failed to authenticate"
+msgstr "Не вдалося автентифікувати"
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:29
+msgid "Group created successfully"
+msgstr "Групу створено"
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:68
+msgid "Group deleted successfully"
+msgstr "Групу видалено"
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:55
+msgid "Group updated successfully"
+msgstr "Групу оновлено"
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:7
+msgid "Groups"
+msgstr "Групи"
+
+#: lib/novel_web/templates/course/index.html.eex:3
+msgid "Hello!"
+msgstr "Привіт!"
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:29
+msgid "Lab created successfully"
+msgstr "Лабораторну створено"
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:68
+msgid "Lab deleted successfully"
+msgstr "Лабораторну видалено"
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:55
+msgid "Lab updated successfully"
+msgstr "Лабораторну оновлено"
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:15
+msgid "Labs"
+msgstr "Лабораторні"
+
+#: lib/novel_web/templates/course/_new_course_button.html.eex:5
+#: lib/novel_web/templates/teacher/course/new.html.eex:1
+msgid "New Course"
+msgstr "Новий курс"
+
+#: lib/novel_web/templates/layout/base.html.eex:10
+msgid "Novel University"
+msgstr ""
+
+#: lib/novel_web/plugs/identify_current_user.ex:13
+msgid "Please fill your profile"
+msgstr "Будь ласка заповніть ваш профіль"
+
+#: lib/novel_web/controllers/profile_controller.ex:22
+msgid "Profile updated successfully"
+msgstr "Профіль оновлено"
+
+#: lib/novel_web/templates/course/_actions.html.eex:5
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:3
+msgid "Settings"
+msgstr "Налаштування"
+
+#: lib/novel_web/templates/layout/_user_navigation.html.eex:16
+msgid "Sign in"
+msgstr "Ви зайшли"
+
+#: lib/novel_web/controllers/session_controller.ex:9
+msgid "Signed out"
+msgstr "Ви вийшли"
+
+#: lib/novel_web/controllers/auth_controller.ex:18
+msgid "Successfully authenticated"
+msgstr "Автентифіковано"
+
+#: lib/novel_web/guardian/error_handler.ex:7
+msgid "Unauthenticated"
+msgstr "Не автентифіковано"
+
+#: lib/novel_web/templates/layout/base.html.eex:17
+msgid "novel.university"
+msgstr ""
+
+#: lib/novel_web/templates/student/course/show.html.eex:1
+msgid "Congratulations!"
+msgstr "Вітаємо!"
+
+#: lib/novel_web/templates/layout/student.html.eex:2
+msgid "Course \"%{course}\""
+msgstr "Курс \"%{course}\""
+
+#: lib/novel_web/templates/layout/teacher.html.eex:2
+msgid "Course \"%{course}\" Admin"
+msgstr "Адміністратор курсу \"%{course}\""
+
+#: lib/novel_web/templates/teacher/course/show.html.eex:10
+#: lib/novel_web/templates/teacher/group/show.html.eex:8
+#: lib/novel_web/templates/teacher/lab/show.html.eex:8
+msgid "Delete"
+msgstr "Видалити"
+
+#: lib/novel_web/templates/profile/show.html.eex:25
+#: lib/novel_web/templates/teacher/course/show.html.eex:8
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:13
+#: lib/novel_web/templates/teacher/group/show.html.eex:6
+#: lib/novel_web/templates/teacher/lab/show.html.eex:6
+msgid "Edit"
+msgstr "Редагувати"
+
+#: lib/novel_web/templates/teacher/group/_new_group_button.html.eex:4
+msgid "New Group"
+msgstr "Нова група"
+
+#: lib/novel_web/templates/teacher/lab/_new_lab_button.html.eex:4
+msgid "New Lab"
+msgstr "Нова лабораторна"
+
+#: lib/novel_web/templates/profile/_form.html.eex:4
+#: lib/novel_web/templates/teacher/course/_form.html.eex:4
+#: lib/novel_web/templates/teacher/enrollment/_form.html.eex:4
+#: lib/novel_web/templates/teacher/group/_form.html.eex:4
+#: lib/novel_web/templates/teacher/lab/_form.html.eex:4
+msgid "Oops, something went wrong! Please check the errors below."
+msgstr "Не вдалося зберегти, через помилкиб що описані нижче"
+
+#: lib/novel_web/templates/teacher/course/show.html.eex:10
+#: lib/novel_web/templates/teacher/group/show.html.eex:8
+#: lib/novel_web/templates/teacher/lab/show.html.eex:8
+msgid "Really?"
+msgstr "Ви впевнені?"
+
+#: lib/novel_web/templates/profile/_form.html.eex:27
+#: lib/novel_web/templates/teacher/course/_form.html.eex:27
+#: lib/novel_web/templates/teacher/enrollment/_form.html.eex:15
+#: lib/novel_web/templates/teacher/group/_form.html.eex:15
+#: lib/novel_web/templates/teacher/lab/_form.html.eex:15
+msgid "Submit"
+msgstr "Відправити"
+
+#: lib/novel_web/plugs/authorize_enrollment.ex:28
+msgid "You are not enrolled"
+msgstr "Ви не записані на курс"
+
+#: lib/novel_web/plugs/authorize_head.ex:15
+msgid "You should be a course head"
+msgstr "Ви маєте бути головою курсу"
+
+#: lib/novel_web/plugs/authorize_teacher.ex:14
+msgid "You should be a teacher"
+msgstr "Ви маєте бути вчителем"
+
+#: lib/novel_web/plugs/authorize_enrollment.ex:23
+msgid "Your enrollment is not yet approved"
+msgstr "Вашу заявку ще не схвалено"
+
+#: lib/novel_web/templates/layout/_user_navigation.html.eex:8
+#: lib/novel_web/templates/profile/show.html.eex:1
+msgid "Profile"
+msgstr "Профіль"
+
+#: lib/novel_web/templates/layout/_user_navigation.html.eex:9
+msgid "Sign Out"
+msgstr "Вийти"
+
+#: lib/novel_web/templates/teacher/course/_form.html.eex:15
+msgid "Description"
+msgstr "Опис"
+
+#: lib/novel_web/templates/profile/_form.html.eex:9
+#: lib/novel_web/templates/profile/show.html.eex:12
+msgid "Email"
+msgstr "Електропошта"
+
+#: lib/novel_web/templates/profile/_form.html.eex:15
+#: lib/novel_web/templates/profile/show.html.eex:16
+msgid "First name"
+msgstr "Ім'я"
+
+#: lib/novel_web/templates/teacher/enrollment/_form.html.eex:9
+msgid "Group"
+msgstr "Група"
+
+#: lib/novel_web/templates/profile/_form.html.eex:21
+#: lib/novel_web/templates/profile/show.html.eex:20
+msgid "Last name"
+msgstr "Прізвище"
+
+#: lib/novel_web/templates/teacher/course/_form.html.eex:9
+#: lib/novel_web/templates/teacher/group/_form.html.eex:9
+msgid "Name"
+msgstr "Назва"
+
+#: lib/novel_web/templates/teacher/course/_form.html.eex:21
+msgid "Start"
+msgstr "Початок"
+
+#: lib/novel_web/templates/teacher/lab/_form.html.eex:9
+msgid "Title"
+msgstr "Назва"
+
+#: lib/novel_web/templates/profile/show.html.eex:5
+msgid "Github username"
+msgstr "Ім'я користувача на Github"

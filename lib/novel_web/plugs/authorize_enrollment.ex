@@ -1,4 +1,5 @@
 defmodule NovelWeb.Plug.AuthorizeEnrollment do
+  import NovelWeb.Gettext
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   import Plug.Conn, only: [halt: 1, assign: 3]
   alias NovelWeb.Router.Helpers, as: Routes
@@ -19,12 +20,12 @@ defmodule NovelWeb.Plug.AuthorizeEnrollment do
         assign(conn, :enrollment, enrollment)
       %Enrollment{} ->
         conn
-        |> put_flash(:error, "Enrollment not yet approved")
+        |> put_flash(:error, gettext "Your enrollment is not yet approved")
         |> redirect(to: Routes.course_enrollment_path(conn, :show, enrollment))
         |> halt()
       nil ->
         conn
-        |> put_flash(:error, "Not enrolled")
+        |> put_flash(:error, gettext "You are not enrolled")
         |> redirect(to: Routes.course_path(conn, :show, course))
         |> halt()
     end

@@ -1,4 +1,5 @@
 defmodule NovelWeb.Plug.AuthorizeTeacher do
+  import NovelWeb.Gettext
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   import Plug.Conn, only: [halt: 1]
 
@@ -10,7 +11,7 @@ defmodule NovelWeb.Plug.AuthorizeTeacher do
       conn
     else
       conn
-      |> put_flash(:error, "Should be teacher")
+      |> put_flash(:error, gettext "You should be a teacher")
       |> redirect(to: "/")
       |> halt()
     end

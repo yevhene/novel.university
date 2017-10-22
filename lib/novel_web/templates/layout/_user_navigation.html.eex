@@ -5,15 +5,15 @@
     </button>
 
     <div class="dropdown-menu dropdown-menu-right">
-      <%= link("Profile", to: profile_path(@conn, :show), class: "dropdown-item") %>
-      <%= link("Sign Out", to: session_path(@conn, :delete), method: "delete", class: "dropdown-item") %>
+      <%= link gettext("Profile"), to: profile_path(@conn, :show), class: "dropdown-item" %>
+      <%= link gettext("Sign Out"), to: session_path(@conn, :delete), method: "delete", class: "dropdown-item" %>
     </div>
   </div>
 <% else %>
   <div class="btn-group navbar-nav">
     <a class="btn btn-primary" href="/auth/github">
       <i class="fa fa-github"></i>
-      Sign in
+      <%= gettext "Sign in" %>
     </a>
   </div>
 <% end %>
