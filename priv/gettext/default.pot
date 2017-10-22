@@ -14,22 +14,26 @@ msgstr ""
 msgid "Course created successfully"
 msgstr ""
 
-#: lib/novel_web/templates/course/show.html.eex:9
-#: lib/novel_web/templates/profile/edit.html.eex:5
-#: lib/novel_web/templates/teacher/course/edit.html.eex:3
-#: lib/novel_web/templates/teacher/course/new.html.eex:5
-#: lib/novel_web/templates/teacher/course/show.html.eex:13
-#: lib/novel_web/templates/teacher/enrollment/edit.html.eex:3
-#: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
-#: lib/novel_web/templates/teacher/enrollment/show.html.eex:16
-#: lib/novel_web/templates/teacher/group/edit.html.eex:3
-#: lib/novel_web/templates/teacher/group/index.html.eex:7
-#: lib/novel_web/templates/teacher/group/new.html.eex:3
-#: lib/novel_web/templates/teacher/group/show.html.eex:11
-#: lib/novel_web/templates/teacher/lab/edit.html.eex:3
-#: lib/novel_web/templates/teacher/lab/index.html.eex:7
-#: lib/novel_web/templates/teacher/lab/new.html.eex:3
-#: lib/novel_web/templates/teacher/lab/show.html.eex:11
+#: lib/novel_web/templates/course/show.html.eex:10
+#: lib/novel_web/templates/profile/edit.html.eex:6
+#: lib/novel_web/templates/profile/show.html.eex:28
+#: lib/novel_web/templates/student/lab/index.html.eex:6
+#: lib/novel_web/templates/student/lab/show.html.eex:19
+#: lib/novel_web/templates/student/submission/new.html.eex:4
+#: lib/novel_web/templates/teacher/course/edit.html.eex:4
+#: lib/novel_web/templates/teacher/course/new.html.eex:6
+#: lib/novel_web/templates/teacher/course/show.html.eex:14
+#: lib/novel_web/templates/teacher/enrollment/edit.html.eex:4
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:6
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:17
+#: lib/novel_web/templates/teacher/group/edit.html.eex:4
+#: lib/novel_web/templates/teacher/group/index.html.eex:8
+#: lib/novel_web/templates/teacher/group/new.html.eex:4
+#: lib/novel_web/templates/teacher/group/show.html.eex:12
+#: lib/novel_web/templates/teacher/lab/edit.html.eex:4
+#: lib/novel_web/templates/teacher/lab/index.html.eex:8
+#: lib/novel_web/templates/teacher/lab/new.html.eex:4
+#: lib/novel_web/templates/teacher/lab/show.html.eex:12
 msgid "Back"
 msgstr ""
 
@@ -113,6 +117,7 @@ msgstr ""
 msgid "Lab updated successfully"
 msgstr ""
 
+#: lib/novel_web/templates/layout/_student_navigation.html.eex:7
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:15
 msgid "Labs"
 msgstr ""
@@ -194,6 +199,7 @@ msgid "New Lab"
 msgstr ""
 
 #: lib/novel_web/templates/profile/_form.html.eex:4
+#: lib/novel_web/templates/student/submission/_form.html.eex:4
 #: lib/novel_web/templates/teacher/course/_form.html.eex:4
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:4
 #: lib/novel_web/templates/teacher/group/_form.html.eex:4
@@ -208,6 +214,7 @@ msgid "Really?"
 msgstr ""
 
 #: lib/novel_web/templates/profile/_form.html.eex:27
+#: lib/novel_web/templates/student/submission/_form.html.eex:15
 #: lib/novel_web/templates/teacher/course/_form.html.eex:27
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:15
 #: lib/novel_web/templates/teacher/group/_form.html.eex:15
@@ -215,7 +222,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: lib/novel_web/plugs/authorize_enrollment.ex:28
+#: lib/novel_web/plugs/authorize_enrollment.ex:26
 msgid "You are not enrolled"
 msgstr ""
 
@@ -227,7 +234,7 @@ msgstr ""
 msgid "You should be a teacher"
 msgstr ""
 
-#: lib/novel_web/plugs/authorize_enrollment.ex:23
+#: lib/novel_web/plugs/authorize_enrollment.ex:21
 msgid "Your enrollment is not yet approved"
 msgstr ""
 
@@ -278,4 +285,24 @@ msgstr ""
 
 #: lib/novel_web/templates/profile/show.html.eex:5
 msgid "Github username"
+msgstr ""
+
+#: lib/novel_web/templates/profile/edit.html.eex:1
+msgid "Edit Profile"
+msgstr ""
+
+#: lib/novel_web/templates/student/lab/show.html.eex:15
+msgid "New Submission"
+msgstr ""
+
+#: lib/novel_web/controllers/student/submission_controller.ex:23
+msgid "Submission created successfully"
+msgstr ""
+
+#: lib/novel_web/templates/student/submission/_form.html.eex:9
+msgid "Repo"
+msgstr ""
+
+#: lib/novel_web/templates/student/lab/show.html.eex:7
+msgid "Your submissions"
 msgstr ""

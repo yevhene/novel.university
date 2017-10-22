@@ -4,11 +4,14 @@ defmodule Novel.University.Lab do
 
   alias Novel.University.Course
   alias Novel.University.Lab
+  alias Novel.University.Submission
 
   schema "university_labs" do
     field :title, :string
 
     belongs_to :course, Course
+
+    has_many :submissions, Submission
 
     timestamps(type: :utc_datetime)
   end

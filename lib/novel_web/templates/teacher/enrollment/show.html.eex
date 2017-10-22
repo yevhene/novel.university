@@ -13,4 +13,5 @@
   <%= link gettext("Edit"), to: teacher_course_enrollment_path(@conn, :edit, @course, @enrollment), class: "btn btn-primary" %>
 </div>
 
+<hr />
 <span><%= link gettext("Back"), to: teacher_course_enrollment_path(@conn, :index, @course) %></span>

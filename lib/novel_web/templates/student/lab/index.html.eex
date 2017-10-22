@@ -1,0 +1,6 @@
+<ul class="list-group mb-3">
+  <%= render_many(@labs, NovelWeb.Student.LabView, "_lab.html", assigns) %>
+</ul>
+
+<hr />
+<span><%= link gettext("Back"), to: student_course_path(@conn, :show, @course) %></span>

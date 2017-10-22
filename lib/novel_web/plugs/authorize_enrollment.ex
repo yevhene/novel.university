@@ -1,23 +1,21 @@
 defmodule NovelWeb.Plug.AuthorizeEnrollment do
   import NovelWeb.Gettext
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
-  import Plug.Conn, only: [halt: 1, assign: 3]
+  import Plug.Conn, only: [halt: 1]
   alias NovelWeb.Router.Helpers, as: Routes
 
-  alias Novel.University
   alias Novel.University.Enrollment
   alias Novel.University.Group
 
   def init(opts), do: opts
 
   def call(conn, _opts) do
-    user = conn.assigns.current_user
     course = conn.assigns.course
-    enrollment = University.get_user_enrollment(user, course)
+    enrollment = conn.assigns.enrollment
 
     case enrollment do
       %Enrollment{group: %Group{}} ->
-        assign(conn, :enrollment, enrollment)
+        conn
       %Enrollment{} ->
         conn
         |> put_flash(:error, gettext "Your enrollment is not yet approved")

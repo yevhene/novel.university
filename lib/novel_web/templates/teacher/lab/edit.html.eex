@@ -1,3 +1,4 @@
 <%= render "_form.html", Map.put(assigns, :action, teacher_course_lab_path(@conn, :update, @course, @lab)) %>
 
+<hr />
 <span><%= link gettext("Back"), to: teacher_course_lab_path(@conn, :index, @course) %></span>
