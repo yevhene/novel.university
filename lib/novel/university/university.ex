@@ -51,6 +51,13 @@ defmodule Novel.University do
     |> Repo.preload(:group)
   end
 
+  def new_enrollments_count(%Course{} = course) do
+    Enrollment
+    |> where(course_id: ^course.id)
+    |> where([e], is_nil(e.group_id))
+    |> Repo.aggregate(:count, :id)
+  end
+
   def get_enrollment!(id) do
     Enrollment
     |> Repo.get!(id)

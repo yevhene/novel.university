@@ -1,0 +1,14 @@
+<li class="list-group-item <%= approved_class(@submission.is_approved) %>">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= link to: teacher_course_submission_path(@conn, :show, @course, @submission) do %>
+      <%= @submission.lab.title %>
+    <% end %>
+
+    <span><%= full_name @submission.enrollment.user %></span>
+
+    <span><%= @submission.enrollment.group && @submission.enrollment.group.name %></span>
+  </div>
+</li>
+
+
+

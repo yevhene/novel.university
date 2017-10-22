@@ -8,6 +8,7 @@ defmodule Novel.Assignment.Submission do
 
   schema "assignment_submissions" do
     field :repository, :string
+    field :is_approved, :boolean
 
     belongs_to :enrollment, Enrollment
     belongs_to :lab, Lab
@@ -15,10 +16,14 @@ defmodule Novel.Assignment.Submission do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def changeset(%Submission{} = submission, attrs) do
     submission
     |> cast(attrs, [:repository, :enrollment_id, :lab_id])
     |> validate_required([:repository, :enrollment_id, :lab_id])
+  end
+
+  def update_changeset(%Submission{} = submission, attrs) do
+    submission
+    |> cast(attrs, [:is_approved])
   end
 end

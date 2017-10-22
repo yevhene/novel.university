@@ -40,6 +40,17 @@ defmodule Novel.Assignment do
     Lab.changeset(lab, %{})
   end
 
+  def list_submissions(%Course{} = course) do
+    Submission
+    |> join(
+      :inner, [s], l in Lab, s.lab_id == l.id and l.course_id == ^course.id
+    )
+    |> order_by(desc: :inserted_at)
+    |> Repo.all
+    |> Repo.preload(:lab)
+    |> Repo.preload(enrollment: [:user, :group])
+  end
+
   def list_submissions(%Enrollment{id: enrollment_id}, %Lab{id: lab_id}) do
     Submission
     |> where(enrollment_id: ^enrollment_id)
@@ -48,10 +59,33 @@ defmodule Novel.Assignment do
     |> Repo.all
   end
 
+  def new_submissions_count(%Course{} = course) do
+    Enrollment
+    Submission
+    |> join(
+      :inner, [s], l in Lab, s.lab_id == l.id and l.course_id == ^course.id
+    )
+    |> where([s], is_nil(s.is_approved))
+    |> Repo.aggregate(:count, :id)
+  end
+
+  def get_submission!(id) do
+    Submission
+    |> Repo.get!(id)
+    |> Repo.preload(:lab)
+    |> Repo.preload(enrollment: [:user, :group])
+  end
+
   def create_submission(attrs \\ %{}) do
     %Submission{}
     |> Submission.changeset(attrs)
     |> Repo.insert()
+  end
+
+  def update_submission(%Submission{} = submission, attrs) do
+    submission
+    |> Submission.update_changeset(attrs)
+    |> Repo.update()
   end
 
   def change_submission(%Submission{} = submission) do

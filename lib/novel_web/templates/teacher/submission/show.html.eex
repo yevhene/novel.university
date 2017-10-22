@@ -1,0 +1,26 @@
+<ul>
+  <li>
+    <strong><%= gettext "User" %>:</strong>
+    <%= full_name @submission.enrollment.user %>
+  </li>
+  <li>
+    <strong><%= gettext "Group" %>:</strong>
+    <%= @submission.enrollment.group && @submission.enrollment.group.name %>
+  </li>
+  <li>
+    <strong><%= gettext "Repository" %>:</strong>
+    <%= repository_link @submission.repository %>
+  </li>
+
+  <li>
+    <strong><%= gettext "Is approved" %>:</strong>
+    <%= approved_format(@submission.is_approved) %>
+  </li>
+</ul>
+
+<div class="d-flex align-items-center justify-content-between">
+  <%= link gettext("Edit"), to: teacher_course_submission_path(@conn, :edit, @course, @submission), class: "btn btn-primary" %>
+</div>
+
+<hr />
+<span><%= link gettext("Back"), to: teacher_course_submission_path(@conn, :index, @course) %></span>

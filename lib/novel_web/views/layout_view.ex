@@ -7,10 +7,19 @@ defmodule NovelWeb.LayoutView do
     render "base.html", Map.put(assigns, :contents, contents)
   end
 
-  def nav_item(conn, text, path) do
+  def nav_item(conn, text, path, counter \\ 0) do
     content_tag :li, class: "nav-item" do
-      link text,
-        to: path, class: nav_item_link_class(conn, path)
+      link to: path, class: nav_item_link_class(conn, path) do
+        if counter == 0 do
+          content_tag(:span, text)
+        else
+          [
+            content_tag(:span, "#{text} "),
+            content_tag(:span, counter, class: "badge badge-primary"),
+            content_tag(:span, gettext("New enrollments"), class: "sr-only")
+          ]
+        end
+      end
     end
   end
 

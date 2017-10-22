@@ -8,10 +8,14 @@
   </li>
 
   <li class="nav-item">
-    <%= nav_item @conn, gettext("Enrollments"), teacher_course_enrollment_path(@conn, :index, @course) %>
+    <%= nav_item @conn, gettext("Enrollments"), teacher_course_enrollment_path(@conn, :index, @course), @new_enrollments_count %>
   </li>
 
   <li class="nav-item">
     <%= nav_item @conn, gettext("Labs"), teacher_course_lab_path(@conn, :index, @course) %>
+  </li>
+
+  <li class="nav-item">
+    <%= nav_item @conn, gettext("Submissions"), teacher_course_submission_path(@conn, :index, @course), @new_submissions_count %>
   </li>
 </ul>
