@@ -3,11 +3,11 @@ defmodule Novel.University do
   alias Novel.Repo
 
   alias Novel.Account.User
+  alias Novel.Assignment.Lab
+  alias Novel.Assignment.Submission
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
-  alias Novel.University.Lab
-  alias Novel.University.Submission
 
   def list_courses do
     Course

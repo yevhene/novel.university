@@ -1,14 +1,14 @@
 defmodule NovelWeb.Student.SubmissionController do
   use NovelWeb, :controller
 
-  alias Novel.University
-  alias Novel.University.Submission
+  alias Novel.Assignment
+  alias Novel.Assignment.Submission
 
   plug :load_lab
   plug :put_layout, "student.html"
 
   def new(conn, _params) do
-    changeset = University.change_submission(%Submission{})
+    changeset = Assignment.change_submission(%Submission{})
     render(conn, "new.html", changeset: changeset)
   end
 
@@ -17,7 +17,7 @@ defmodule NovelWeb.Student.SubmissionController do
     lab = conn.assigns.lab
     submission_params = update_params(conn, submission_params)
 
-    case University.create_submission(submission_params) do
+    case Assignment.create_submission(submission_params) do
       {:ok, _submission} ->
         conn
         |> put_flash(:info, gettext "Submission created successfully")
@@ -28,7 +28,7 @@ defmodule NovelWeb.Student.SubmissionController do
   end
 
   defp load_lab(conn, _opts) do
-    lab = University.get_lab!(conn.params["lab_id"])
+    lab = Assignment.get_lab!(conn.params["lab_id"])
     assign(conn, :lab, lab)
   end
 

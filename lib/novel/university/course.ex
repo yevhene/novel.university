@@ -3,10 +3,10 @@ defmodule Novel.University.Course do
   import Ecto.Changeset
 
   alias Novel.Account.User
+  alias Novel.Assignment.Lab
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
-  alias Novel.University.Lab
 
   schema "university_courses" do
     field :name, :string
