@@ -7,7 +7,7 @@ defmodule Novel.University.Submission do
   alias Novel.University.Submission
 
   schema "university_submissions" do
-    field :repo, :string
+    field :repository, :string
 
     belongs_to :enrollment, Enrollment
     belongs_to :lab, Lab
@@ -18,7 +18,7 @@ defmodule Novel.University.Submission do
   @doc false
   def changeset(%Submission{} = submission, attrs) do
     submission
-    |> cast(attrs, [:repo, :enrollment_id, :lab_id])
-    |> validate_required([:repo, :enrollment_id, :lab_id])
+    |> cast(attrs, [:repository, :enrollment_id, :lab_id])
+    |> validate_required([:repository, :enrollment_id, :lab_id])
   end
 end

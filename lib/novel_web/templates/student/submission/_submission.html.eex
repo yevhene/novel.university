@@ -1,6 +1,6 @@
 <li class="list-group-item">
   <div class="d-flex align-items-center justify-content-between">
-    <span><%= @submission.repo %></span>
+    <span><%= @submission.repository %></span>
     <span><%= @submission.inserted_at %></span>
   </div>
 </li>

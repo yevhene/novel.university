@@ -45,7 +45,7 @@ defmodule Novel.University do
   def list_enrollments(%Course{} = course) do
     Enrollment
     |> where(course_id: ^course.id)
-    |> order_by([desc: :inserted_at])
+    |> order_by(desc: :inserted_at)
     |> Repo.all
     |> Repo.preload(:user)
     |> Repo.preload(:group)

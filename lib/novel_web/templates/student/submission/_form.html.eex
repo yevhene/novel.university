@@ -6,12 +6,13 @@
   <% end %>
 
   <div class="form-group">
-    <%= label f, :repo, gettext("Repo"), class: "control-label" %>
-    <%= text_input f, :repo, class: "form-control" %>
-    <%= error_tag f, :repo %>
-  </div>
+    <%= label f, :repository, gettext("Choose repository"), class: "control-label" %>
+    <%= hidden_input f, :repository, class: "form-control" %>
+    <br />
+    <%= error_tag f, :repository %>
 
-  <div class="form-group">
-    <%= submit gettext("Submit"), class: "btn btn-primary" %>
+    <div class="d-flex justify-content-center" lazy-content="/repositories">
+      <i class="fa fa-spinner loading" aria-hidden="true"></i>
+    </div>
   </div>
 <% end %>

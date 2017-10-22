@@ -1,7 +1,7 @@
 defmodule NovelWeb.Plug.IdentifyCurrentUser do
   import NovelWeb.Gettext
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
-  import Plug.Conn, only: [halt: 1]
+  import Plug.Conn, only: [halt: 1, send_resp: 3]
   alias NovelWeb.Router.Helpers, as: Routes
 
   def init(opts), do: opts
@@ -9,12 +9,25 @@ defmodule NovelWeb.Plug.IdentifyCurrentUser do
   def call(conn, _opts) do
     current_user = conn.assigns.current_user
     if user_should_fill_profile?(current_user) do
-      conn
-      |> put_flash(:info, gettext "Please fill your profile")
-      |> redirect(to: Routes.profile_path(conn, :edit))
-      |> halt()
+      conn |> error_response
     else
       conn
+    end
+  end
+
+  defp error_response(conn) do
+    format = conn.private.phoenix_format
+
+    case format do
+      "html" ->
+        conn
+        |> put_flash(:info, gettext "Please fill your profile")
+        |> redirect(to: Routes.profile_path(conn, :edit))
+        |> halt()
+      _ ->
+        conn
+        |> send_resp(403, "")
+        |> halt()
     end
   end
 

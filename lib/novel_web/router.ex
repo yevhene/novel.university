@@ -2,14 +2,15 @@ defmodule NovelWeb.Router do
   use NovelWeb, :router
 
   pipeline :browser do
-    plug Ueberauth
-
     plug :accepts, ["html"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+  end
 
+  pipeline :guardian do
+    plug Ueberauth
     plug Guardian.Plug.Pipeline,
       module: NovelWeb.Guardian,
       error_handler: NovelWeb.Guardian.ErrorHandler
@@ -44,7 +45,7 @@ defmodule NovelWeb.Router do
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser, :require_login, :identify]
+    pipe_through [:browser, :guardian, :require_login, :identify]
 
     resources "/session", SessionController,
       only: [:delete], singleton: true
@@ -87,21 +88,23 @@ defmodule NovelWeb.Router do
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser, :require_login]
+    pipe_through [:browser, :guardian, :require_login]
 
     resources "/profile", ProfileController,
       only: [:edit, :update], singleton: true
+
+    resources "/repositories", RepositoryController, only: [:index]
   end
 
   scope "/", NovelWeb do
-    pipe_through [:browser, :identify]
+    pipe_through [:browser, :guardian, :identify]
 
     resources "/", CourseController, only: [:index]
     resources "/courses", CourseController, only: [:show]
   end
 
   scope "/auth", NovelWeb do
-    pipe_through [:browser]
+    pipe_through [:browser, :guardian]
 
     get "/:provider", AuthController, :request
     get "/:provider/callback", AuthController, :callback
