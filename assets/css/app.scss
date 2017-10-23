@@ -3,4 +3,27 @@ $fa-font-path: "../fonts";
 
 @import "bootstrap";
 
-@import "custom";
+.alert {
+  &:empty {
+    display: none;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+header {
+  margin-bottom: 1em;
+}
+
+.loading {
+  font-size: 5em;
+  color: $primary;
+  margin: 1em;
+
+  animation:spin 2s linear infinite;
+}
+
+
+@keyframes spin { 100% { transform:rotate(360deg); } }
