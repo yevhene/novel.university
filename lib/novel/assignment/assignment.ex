@@ -12,6 +12,7 @@ defmodule Novel.Assignment do
     |> where(course_id: ^course_id)
     |> order_by(:title)
     |> Repo.all
+    |> Repo.preload(:submissions)
   end
 
   def get_lab!(id) do
@@ -38,6 +39,18 @@ defmodule Novel.Assignment do
 
   def change_lab(%Lab{} = lab) do
     Lab.changeset(lab, %{})
+  end
+
+  def is_approved?(%Lab{} = lab) do
+    if lab.submissions |> Enum.any?(&(&1.is_approved)) do
+      true
+    else
+      if lab.submissions |> Enum.any?(&(&1.is_approved == nil)) do
+        nil
+      else
+        false
+      end
+    end
   end
 
   def list_submissions(%Course{} = course) do

@@ -17,10 +17,10 @@ defmodule NovelWeb.SubmissionHelper do
     end
   end
 
-  def approved_class(is_approved) do
+  def approved_icon(is_approved) do
     case is_approved do
-      true -> "list-group-item-success"
-      false -> "list-group-item-danger"
+      true -> content_tag(:i, "", class: "fa fa-check text-success")
+      false -> content_tag(:i, "", class: "fa fa-times text-danger")
       _ -> ""
     end
   end

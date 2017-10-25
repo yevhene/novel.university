@@ -1,6 +1,7 @@
-<li class="list-group-item <%= approved_class(@submission.is_approved) %>">
+<li class="list-group-item">
   <div class="d-flex align-items-center justify-content-between">
     <span><%= repository_link @submission.repository %></span>
     <span><%= @submission.inserted_at %></span>
+    <%= approved_icon @submission.is_approved %>
   </div>
 </li>
