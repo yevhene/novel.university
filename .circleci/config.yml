@@ -11,34 +11,74 @@ jobs:
           POSTGRES_DB: novel_test
     steps:
       - run:
-          name: Ensure Git
-          command: apt-get -qq update; apt-get -y install git
+          name: Add actual node.js PPA
+          command: curl -sL https://deb.nodesource.com/setup_8.x | bash -
+
+      - run:
+          name: Update Apt cache
+          command: apt -qq update
+
+      - run:
+          name: Install Apt deps
+          command: apt -y install git python build-essential nodejs
 
       - checkout
+
+      - restore_cache:
+          keys:
+            - deps-v4-{{ arch }}-{{ .Branch }}-{{ checksum "mix.lock" }}
+            - deps-v4-{{ arch }}-{{ .Branch }}
+            - deps-v4-{{ arch }}
 
       - run:
           name: Hex
           command: mix local.hex --force
-
       - run:
-          name: Hex
+          name: Rebar
           command: mix local.rebar --force
-
-      - restore_cache:
-          key: deps-cache-{{ arch }}-{{ .Branch }}-{{ checksum "mix.lock" }}
-
       - run:
           name: Deps
           command: mix deps.get
 
-      - save_cache:
-          key: deps-cache-{{ arch }}-{{ .Branch }}-{{ checksum "mix.lock" }}
-          paths:
-            - deps
-
+      - restore_cache:
+          keys:
+            - build-v4-{{ arch }}-{{ .Branch }}
+            - build-v4-{{ arch }}
       - run:
           name: Compile
           command: mix compile
+      - run:
+          name: Compile Test
+          command: MIX_ENV=test mix compile
+      - save_cache:
+          key: build-v4-{{ arch }}-{{ .Branch }}
+          paths:
+            - _build
+
+      - save_cache:
+          key: deps-v4-{{ arch }}-{{ .Branch }}-{{ checksum "mix.lock" }}
+          paths:
+            - deps
+            - /root/.hex
+            - /root/.cache/rebar3
+            - /root/.mix
+
+      - restore_cache:
+          keys:
+            - node-modules-v1-{{ arch }}-{{ .Branch }}-{{ checksum "assets/package-lock.json" }}
+            - node-modules-v1-{{ arch }}-{{ .Branch }}
+            - node-modules-v1-{{ arch }}
+      - run:
+          name: Assets Deps
+          working_directory: assets
+          command: npm install
+      - save_cache:
+          key: node-modules-v1-{{ arch }}-{{ .Branch }}-{{ checksum "assets/package-lock.json" }}
+          paths: assets/node_modules
+
+      - run:
+          name: Assets Digest
+          command: mix phx.digest
 
       - run:
           name: Setup DB
