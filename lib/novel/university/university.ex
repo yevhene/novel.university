@@ -42,6 +42,22 @@ defmodule Novel.University do
     Course.changeset(course, %{})
   end
 
+  def update_course_repository(%Course{} = course, attrs) do
+    course
+    |> Course.repository_changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_course_repository(%Course{} = course) do
+    course
+    |> Course.repository_changeset(%{repository: nil})
+    |> Repo.update()
+  end
+
+  def change_course_repository(%Course{} = course) do
+    Course.repository_changeset(course, %{})
+  end
+
   def list_enrollments(%Course{} = course) do
     Enrollment
     |> where(course_id: ^course.id)
@@ -86,9 +102,9 @@ defmodule Novel.University do
     |> Repo.insert()
   end
 
-  def update_enrollment(%Enrollment{} = enrollment, attrs) do
+  def update_enrollment_group(%Enrollment{} = enrollment, attrs) do
     enrollment
-    |> Enrollment.update_changeset(attrs)
+    |> Enrollment.group_changeset(attrs)
     |> Repo.update()
   end
 

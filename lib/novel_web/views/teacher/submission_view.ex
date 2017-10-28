@@ -3,4 +3,5 @@ defmodule NovelWeb.Teacher.SubmissionView do
 
   import NovelWeb.UserHelper
   import NovelWeb.SubmissionHelper
+  import NovelWeb.RepositoryHelper
 end

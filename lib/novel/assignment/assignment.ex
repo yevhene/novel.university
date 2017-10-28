@@ -98,9 +98,9 @@ defmodule Novel.Assignment do
     |> Repo.insert()
   end
 
-  def update_submission(%Submission{} = submission, attrs) do
+  def update_submission_approvement(%Submission{} = submission, attrs) do
     submission
-    |> Submission.update_changeset(attrs)
+    |> Submission.approvement_changeset(attrs)
     |> Repo.update()
   end
 

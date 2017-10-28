@@ -7,7 +7,7 @@ defmodule Novel.Remote do
   alias Tentacat.Client
   alias Tentacat.Repositories
 
-  def list_repositories(%User{} = user) do
+  def list_repositories(%User{} = user, params \\ %{}) do
     %Link{
       data: %{
         "provider" => provider,
@@ -17,28 +17,30 @@ defmodule Novel.Remote do
       }
     } = last_user_link(user)
 
-    fetch_list(provider, token)
+    fetch_list(provider, token, params)
   end
 
   def repository_link(name) do
     "https://github.com/#{name}"
   end
 
-  defp fetch_list("github", token) do
+  defp fetch_list("github", token, params) do
     token
-    |> load_github_repositories
+    |> load_github_repositories(params)
     |> Enum.map(&cleanup_github_repository_data/1)
   end
 
-  defp load_github_repositories(token) do
+  defp load_github_repositories(token, params) do
+    params = Map.merge(%{
+      "visibility" => "public",
+      "affiliation" => "owner",
+      "sort" => "pushed",
+      "direction" => "desc"
+    }, params)
+
     %{access_token: token}
     |> Client.new()
-    |> Repositories.list_mine(
-      visibility: :public,
-      affiliation: :owner,
-      sort: :pushed,
-      direction: :desc
-    )
+    |> Repositories.list_mine(params)
   end
 
   defp cleanup_github_repository_data(repository) do

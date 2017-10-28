@@ -12,6 +12,7 @@ defmodule Novel.University.Course do
     field :name, :string
     field :description, :string
     field :started_at, :date
+    field :repository, :string
 
     belongs_to :head, User
 
@@ -27,5 +28,10 @@ defmodule Novel.University.Course do
     |> cast(attrs, [:name, :description, :started_at, :head_id])
     |> validate_required([:name, :started_at, :head_id])
     |> foreign_key_constraint(:head_id)
+  end
+
+  def repository_changeset(%Course{} = course, attrs) do
+    course
+    |> cast(attrs, [:repository])
   end
 end

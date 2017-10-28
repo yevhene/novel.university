@@ -26,7 +26,7 @@ defmodule Novel.University.Enrollment do
     )
   end
 
-  def update_changeset(%Enrollment{} = enrollment, attrs) do
+  def group_changeset(%Enrollment{} = enrollment, attrs) do
     enrollment
     |> cast(attrs, [:group_id])
   end

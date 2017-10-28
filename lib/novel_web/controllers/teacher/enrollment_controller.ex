@@ -28,7 +28,7 @@ defmodule NovelWeb.Teacher.EnrollmentController do
     course = conn.assigns.course
     enrollment = conn.assigns.enrollment
 
-    case University.update_enrollment(enrollment, enrollment_params) do
+    case University.update_enrollment_group(enrollment, enrollment_params) do
       {:ok, enrollment} ->
         conn
         |> put_flash(:info, gettext "Enrollment updated successfully")
