@@ -1,0 +1,8 @@
+<dl>
+  <dt><%= gettext "Repository" %>:</dt>
+  <dd>-</dd>
+</dl>
+
+<div class="form-group d-flex align-items-center justify-content-left">
+  <%= link gettext("Link"), to: teacher_course_repository_path(@conn, :edit, @course), class: "btn btn-primary" %>
+</div>

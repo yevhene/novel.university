@@ -22,7 +22,7 @@ defmodule Novel.Assignment.Submission do
     |> validate_required([:repository, :enrollment_id, :lab_id])
   end
 
-  def update_changeset(%Submission{} = submission, attrs) do
+  def approvement_changeset(%Submission{} = submission, attrs) do
     submission
     |> cast(attrs, [:is_approved])
   end

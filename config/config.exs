@@ -33,7 +33,7 @@ config :ueberauth, Ueberauth.Strategy.Github.OAuth,
 config :ueberauth, Ueberauth,
   providers: [
     github: {Ueberauth.Strategy.Github, [
-      default_scope: "user:email"
+      default_scope: "user:email,repo"
     ]}
   ]
 

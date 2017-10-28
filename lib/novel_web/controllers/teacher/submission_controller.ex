@@ -27,7 +27,9 @@ defmodule NovelWeb.Teacher.SubmissionController do
     course = conn.assigns.course
     submission = conn.assigns.submission
 
-    case Assignment.update_submission(submission, submission_params) do
+    case Assignment.update_submission_approvement(
+      submission, submission_params
+    ) do
       {:ok, submission} ->
         conn
         |> put_flash(:info, gettext "Submission updated successfully")
