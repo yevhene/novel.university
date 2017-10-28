@@ -3,12 +3,13 @@ defmodule Novel.Repo.Migrations.CreateAssignmentSubmissions do
 
   def change do
     create table(:assignment_submissions) do
-      add :repository, :string
+      add :repository, :string, null: false
       add :is_approved, :boolean
 
       add :enrollment_id,
-        references(:university_enrollments, on_delete: :restrict)
-      add :lab_id, references(:assignment_labs, on_delete: :restrict)
+        references(:university_enrollments, on_delete: :restrict), null: false
+      add :lab_id,
+        references(:assignment_labs, on_delete: :restrict), null: false
 
       timestamps(type: :utc_datetime)
     end
