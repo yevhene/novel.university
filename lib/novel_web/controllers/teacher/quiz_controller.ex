@@ -5,6 +5,7 @@ defmodule NovelWeb.Teacher.QuizController do
   alias Novel.Exam.Quiz
 
   plug :load_resource when action in [:show, :edit, :update, :delete]
+  plug :load_questions when action in [:show]
   plug :put_layout, "teacher.html"
 
   def index(conn, _params) do
@@ -72,6 +73,12 @@ defmodule NovelWeb.Teacher.QuizController do
   defp load_resource(conn, _opts) do
     quiz = Exam.get_quiz!(conn.params["id"])
     assign(conn, :quiz, quiz)
+  end
+
+  defp load_questions(conn, _opts) do
+    quiz = conn.assigns.quiz
+    questions = Exam.list_questions(quiz)
+    assign(conn, :questions, questions)
   end
 
   defp update_params(conn, params) do

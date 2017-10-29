@@ -3,6 +3,7 @@ defmodule Novel.Exam.Quiz do
   import Ecto.Changeset
 
   alias Novel.Exam.Quiz
+  alias Novel.Exam.Question
   alias Novel.University.Course
 
   schema "exam_quizzes" do
@@ -12,6 +13,7 @@ defmodule Novel.Exam.Quiz do
     field :sample_size, :integer
 
     belongs_to :course, Course
+    has_many :questions, Question
 
     timestamps(type: :utc_datetime)
   end

@@ -1,0 +1,16 @@
+<h2>
+  <%= @question.title %>
+</h2>
+
+<p>
+  <%= raw(Earmark.as_html! @question.details) %>
+</p>
+
+<div class="form-group d-flex align-items-center justify-content-between">
+  <%= link gettext("Edit"), to: teacher_course_quiz_question_path(@conn, :edit, @course, @quiz, @question), class: "btn btn-primary" %>
+
+  <%= link gettext("Delete"), to: teacher_course_quiz_question_path(@conn, :delete, @course, @quiz, @question), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
+</div>
+
+<hr />
+<span><%= link gettext("Back"), to: teacher_course_quiz_path(@conn, :show, @course, @quiz) %></span>

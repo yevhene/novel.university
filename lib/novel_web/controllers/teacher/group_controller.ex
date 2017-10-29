@@ -14,8 +14,7 @@ defmodule NovelWeb.Teacher.GroupController do
   end
 
   def new(conn, _params) do
-    course = conn.assigns.course
-    changeset = University.change_group(%Group{course_id: course.id})
+    changeset = University.change_group(%Group{})
     render(conn, "new.html", changeset: changeset)
   end
 

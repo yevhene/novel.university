@@ -2,6 +2,12 @@
   <%= @quiz.name %>
 </h2>
 
+<ul class="list-group mb-3">
+  <%= render_many(@questions, NovelWeb.Teacher.QuestionView, "_question.html", assigns) %>
+
+  <%= render NovelWeb.Teacher.QuestionView, "_new_question_button.html", assigns %>
+</ul>
+
 <div class="form-group d-flex align-items-center justify-content-between">
   <%= link gettext("Edit"), to: teacher_course_quiz_path(@conn, :edit, @course, @quiz), class: "btn btn-primary" %>
 

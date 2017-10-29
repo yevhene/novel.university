@@ -100,7 +100,7 @@ defmodule Novel.University do
     Enrollment.changeset(enrollment, %{})
   end
 
-  def list_groups(%{id: course_id}) do
+  def list_groups(%Course{id: course_id}) do
     Group
     |> where(course_id: ^course_id)
     |> order_by(:name)

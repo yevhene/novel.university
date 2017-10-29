@@ -69,7 +69,9 @@ defmodule NovelWeb.Router do
         resources "/labs", LabController
         resources "/submissions", SubmissionController,
           only: [:index, :show, :edit, :update]
-        resources "/quizzes", QuizController
+        resources "/quizzes", QuizController do
+          resources "/questions", QuestionController, except: [:index]
+        end
       end
     end
 
