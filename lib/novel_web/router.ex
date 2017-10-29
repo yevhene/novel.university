@@ -98,7 +98,7 @@ defmodule NovelWeb.Router do
     resources "/profile", ProfileController, singleton: true,
       only: [:edit, :update]
 
-    resources "/repositories", RepositoryController, only: [:index]
+    resources "/remotes", RemoteController, only: [:index]
   end
 
   scope "/", NovelWeb do
