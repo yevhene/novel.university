@@ -1,0 +1,6 @@
+<li class="list-group-item">
+  <%= link to: teacher_course_quiz_question_option_path(@conn, :new, @course, @quiz, @question) do %>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    <span><%= gettext "New Option" %></span>
+  <% end %>
+</li>

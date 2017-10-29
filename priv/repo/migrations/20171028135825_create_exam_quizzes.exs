@@ -1,8 +1,8 @@
-defmodule Novel.Repo.Migrations.CreateExamTests do
+defmodule Novel.Repo.Migrations.CreateExamQuizs do
   use Ecto.Migration
 
   def change do
-    create table(:exam_tests) do
+    create table(:exam_quizzes) do
       add :name, :string, null: false
       add :description, :text
 
@@ -14,6 +14,6 @@ defmodule Novel.Repo.Migrations.CreateExamTests do
       timestamps(type: :utc_datetime)
     end
 
-    create unique_index(:exam_tests, [:course_id, :name])
+    create unique_index(:exam_quizzes, [:course_id, :name])
   end
 end

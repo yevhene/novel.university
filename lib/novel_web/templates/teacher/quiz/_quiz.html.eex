@@ -1,0 +1,7 @@
+<li class="list-group-item">
+  <div class="d-flex align-items-center justify-content-between">
+    <%= link to: teacher_course_quiz_path(@conn, :show, @course, @quiz) do %>
+      <span><%= @quiz.name %></span>
+    <% end %>
+  </div>
+</li>

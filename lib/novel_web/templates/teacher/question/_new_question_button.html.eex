@@ -1,0 +1,6 @@
+<li class="list-group-item">
+  <%= link to: teacher_course_quiz_question_path(@conn, :new, @course, @quiz) do %>
+    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    <span><%= gettext "New Question" %></span>
+  <% end %>
+</li>

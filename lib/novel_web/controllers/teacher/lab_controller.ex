@@ -14,8 +14,7 @@ defmodule NovelWeb.Teacher.LabController do
   end
 
   def new(conn, _params) do
-    course = conn.assigns.course
-    changeset = Assignment.change_lab(%Lab{course_id: course.id})
+    changeset = Assignment.change_lab(%Lab{})
     render(conn, "new.html", changeset: changeset)
   end
 
