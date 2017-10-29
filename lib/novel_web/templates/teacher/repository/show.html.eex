@@ -1,0 +1,8 @@
+<%= if @repository do %>
+  <%= render "_repository.html", assigns %>
+<% else %>
+  <%= render "_no_repository.html", assigns %>
+<% end %>
+
+<hr />
+<span><%= link gettext("Back"), to: teacher_course_path(@conn, :show, @course) %></span>

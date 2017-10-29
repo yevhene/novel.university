@@ -48,10 +48,10 @@ defmodule NovelWeb.Router do
   scope "/", NovelWeb do
     pipe_through [:browser, :guardian, :require_login, :identify]
 
-    resources "/session", SessionController,
-      only: [:delete], singleton: true
-    resources "/profile", ProfileController,
-      only: [:show], singleton: true
+    resources "/session", SessionController, singleton: true,
+      only: [:delete]
+    resources "/profile", ProfileController, singleton: true,
+      only: [:show]
 
     scope "/teacher", Teacher, as: :teacher do
       pipe_through [:teacher]
@@ -69,14 +69,16 @@ defmodule NovelWeb.Router do
         resources "/labs", LabController
         resources "/submissions", SubmissionController,
           only: [:index, :show, :edit, :update]
+        resources "/repository", RepositoryController, singleton: true,
+          only: [:show, :edit, :update, :delete]
       end
     end
 
     resources "/courses", CourseController, only: [] do
       pipe_through [:course]
 
-      resources "/enrollment", EnrollmentController,
-        only: [:new, :create], singleton: true
+      resources "/enrollment", EnrollmentController, singleton: true,
+        only: [:new, :create]
     end
 
     scope "/student", Student, as: :student do
@@ -93,10 +95,10 @@ defmodule NovelWeb.Router do
   scope "/", NovelWeb do
     pipe_through [:browser, :guardian, :require_login]
 
-    resources "/profile", ProfileController,
-      only: [:edit, :update], singleton: true
+    resources "/profile", ProfileController, singleton: true,
+      only: [:edit, :update]
 
-    resources "/repositories", RepositoryController, only: [:index]
+    resources "/remotes", RemoteController, only: [:index]
   end
 
   scope "/", NovelWeb do

@@ -5,6 +5,8 @@ defmodule Novel.University do
   alias Novel.Account.User
   alias Novel.Assignment.Lab
   alias Novel.Assignment.Submission
+  alias Novel.Remote
+  alias Novel.Remote.Repository
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
@@ -40,6 +42,29 @@ defmodule Novel.University do
 
   def change_course(%Course{} = course) do
     Course.changeset(course, %{})
+  end
+
+  def update_course_repository(
+    %Course{} = course, %Repository{} = repository
+  ) do
+    if course.repository_id do
+      Remote.get_repository(course.repository_id)
+      |> Repo.delete()
+    end
+
+    course
+    |> Course.repository_changeset(%{repository_id: repository.id})
+    |> Repo.update()
+  end
+
+  def delete_course_repository(%Course{} = course) do
+    course
+    |> Course.repository_changeset(%{repository_id: nil})
+    |> Repo.update()
+  end
+
+  def change_course_repository(%Course{} = course) do
+    Course.repository_changeset(course, %{})
   end
 
   def list_enrollments(%Course{} = course) do
@@ -86,9 +111,9 @@ defmodule Novel.University do
     |> Repo.insert()
   end
 
-  def update_enrollment(%Enrollment{} = enrollment, attrs) do
+  def update_enrollment_group(%Enrollment{} = enrollment, attrs) do
     enrollment
-    |> Enrollment.update_changeset(attrs)
+    |> Enrollment.group_changeset(attrs)
     |> Repo.update()
   end
 

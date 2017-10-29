@@ -34,6 +34,8 @@ msgstr "Курс створено"
 #: lib/novel_web/templates/teacher/lab/index.html.eex:8
 #: lib/novel_web/templates/teacher/lab/new.html.eex:4
 #: lib/novel_web/templates/teacher/lab/show.html.eex:12
+#: lib/novel_web/templates/teacher/repository/edit.html.eex:6
+#: lib/novel_web/templates/teacher/repository/show.html.eex:8
 #: lib/novel_web/templates/teacher/submission/edit.html.eex:4
 #: lib/novel_web/templates/teacher/submission/index.html.eex:6
 #: lib/novel_web/templates/teacher/submission/show.html.eex:26
@@ -208,6 +210,7 @@ msgstr "Нова лабораторна"
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:4
 #: lib/novel_web/templates/teacher/group/_form.html.eex:4
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:4
+#: lib/novel_web/templates/teacher/repository/_form.html.eex:4
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:4
 msgid "Oops, something went wrong! Please check the errors below."
 msgstr "Не вдалося зберегти, через помилки, що описані нижче"
@@ -215,6 +218,7 @@ msgstr "Не вдалося зберегти, через помилки, що о
 #: lib/novel_web/templates/teacher/course/show.html.eex:10
 #: lib/novel_web/templates/teacher/group/show.html.eex:8
 #: lib/novel_web/templates/teacher/lab/show.html.eex:8
+#: lib/novel_web/templates/teacher/repository/_repository.html.eex:7
 msgid "Really?"
 msgstr "Ви впевнені?"
 
@@ -316,6 +320,7 @@ msgid "New Submission for Lab \"%{lab}\""
 msgstr "Нове подання для лабораторної \"%{lab}\""
 
 #: lib/novel_web/templates/student/submission/_form.html.eex:9
+#: lib/novel_web/templates/teacher/repository/_form.html.eex:9
 msgid "Choose repository"
 msgstr "Оберіть репозиторій"
 
@@ -332,7 +337,7 @@ msgstr "Нові подання"
 msgid "No"
 msgstr "Ні"
 
-#: lib/novel_web/controllers/teacher/submission_controller.ex:33
+#: lib/novel_web/controllers/teacher/submission_controller.ex:35
 msgid "Submission updated successfully"
 msgstr "Подання оновлено"
 
@@ -344,6 +349,7 @@ msgstr "Подання"
 msgid "Yes"
 msgstr "Так"
 
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:23
 #: lib/novel_web/templates/teacher/submission/show.html.eex:11
 msgid "Repository"
 msgstr "Репозиторій"
@@ -352,3 +358,23 @@ msgstr "Репозиторій"
 #: lib/novel_web/templates/teacher/submission/show.html.eex:3
 msgid "User"
 msgstr "Користувач"
+
+#: lib/novel_web/templates/teacher/repository/_no_repository.html.eex:7
+msgid "Link"
+msgstr "Пов'язати"
+
+#: lib/novel_web/templates/teacher/repository/edit.html.eex:1
+msgid "Link repository"
+msgstr "Пов'язати репозиторій"
+
+#: lib/novel_web/controllers/teacher/repository_controller.ex:20
+msgid "Repository linked"
+msgstr "Репозиторій пов'язаний"
+
+#: lib/novel_web/controllers/teacher/repository_controller.ex:37
+msgid "Repository unlinked"
+msgstr "Репозиторій відв'язаний"
+
+#: lib/novel_web/templates/teacher/repository/_repository.html.eex:7
+msgid "Unlink"
+msgstr "Відв'язати"

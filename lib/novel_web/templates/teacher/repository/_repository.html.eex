@@ -1,0 +1,8 @@
+<dl>
+  <dt><%= gettext "Repository" %>:</dt>
+  <dd><%= repository_link @repository %></dd>
+</dl>
+
+<div class="form-group d-flex align-items-center justify-content-between">
+  <%= link gettext("Unlink"), to: teacher_course_repository_path(@conn, :delete, @course), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
+</div>
