@@ -1,0 +1,17 @@
+<div class="form-group">
+  <%= label :option, :is_correct, gettext("Correct?"), class: "control-label" %>
+  <%= checkbox :option, :is_correct, value: @option.is_correct, disabled: true, class: "checkbox" %>
+</div>
+
+<p>
+  <%= raw(Earmark.as_html! @option.text) %>
+</p>
+
+<div class="form-group d-flex align-items-center justify-content-between">
+  <%= link gettext("Edit"), to: teacher_course_quiz_question_option_path(@conn, :edit, @course, @quiz, @question, @option), class: "btn btn-primary" %>
+
+  <%= link gettext("Delete"), to: teacher_course_quiz_question_option_path(@conn, :delete, @course, @quiz, @question, @option), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
+</div>
+
+<hr />
+<span><%= link gettext("Back"), to: teacher_course_quiz_question_path(@conn, :show, @course, @quiz, @question) %></span>

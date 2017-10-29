@@ -6,6 +6,7 @@ defmodule NovelWeb.Teacher.QuestionController do
 
   plug :load_parent
   plug :load_resource when action in [:show, :edit, :update, :delete]
+  plug :load_options when action in [:show]
   plug :put_layout, "teacher.html"
 
   def new(conn, _params) do
@@ -78,6 +79,12 @@ defmodule NovelWeb.Teacher.QuestionController do
   defp load_parent(conn, _opts) do
     quiz = Exam.get_quiz!(conn.params["quiz_id"])
     assign(conn, :quiz, quiz)
+  end
+
+  defp load_options(conn, _opts) do
+    question = conn.assigns.question
+    options = Exam.list_options(question)
+    assign(conn, :options, options)
   end
 
   defp update_params(conn, params) do

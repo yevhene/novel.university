@@ -2,6 +2,7 @@ defmodule Novel.Exam do
   import Ecto.Query, warn: false
   alias Novel.Repo
 
+  alias Novel.Exam.Option
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
   alias Novel.University.Course
@@ -68,5 +69,37 @@ defmodule Novel.Exam do
 
   def change_question(%Question{} = question) do
     Question.changeset(question, %{})
+  end
+
+  def list_options(%Question{id: question_id}) do
+    Option
+    |> where(question_id: ^question_id)
+    |> order_by(:inserted_at)
+    |> Repo.all
+  end
+
+  def get_option!(id) do
+    Option
+    |> Repo.get!(id)
+  end
+
+  def create_option(attrs \\ %{}) do
+    %Option{}
+    |> Option.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def update_option(%Option{} = option, attrs) do
+    option
+    |> Option.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_option(%Option{} = option) do
+    Repo.delete(option)
+  end
+
+  def change_option(%Option{} = option) do
+    Option.changeset(option, %{})
   end
 end

@@ -6,6 +6,12 @@
   <%= raw(Earmark.as_html! @question.details) %>
 </p>
 
+<ul class="list-group mb-3">
+  <%= render_many(@options, NovelWeb.Teacher.OptionView, "_option.html", assigns) %>
+
+  <%= render NovelWeb.Teacher.OptionView, "_new_option_button.html", assigns %>
+</ul>
+
 <div class="form-group d-flex align-items-center justify-content-between">
   <%= link gettext("Edit"), to: teacher_course_quiz_question_path(@conn, :edit, @course, @quiz, @question), class: "btn btn-primary" %>
 

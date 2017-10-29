@@ -34,9 +34,12 @@ msgstr "Курс створено"
 #: lib/novel_web/templates/teacher/lab/index.html.eex:8
 #: lib/novel_web/templates/teacher/lab/new.html.eex:4
 #: lib/novel_web/templates/teacher/lab/show.html.eex:12
+#: lib/novel_web/templates/teacher/option/edit.html.eex:4
+#: lib/novel_web/templates/teacher/option/new.html.eex:4
+#: lib/novel_web/templates/teacher/option/show.html.eex:17
 #: lib/novel_web/templates/teacher/question/edit.html.eex:4
 #: lib/novel_web/templates/teacher/question/new.html.eex:4
-#: lib/novel_web/templates/teacher/question/show.html.eex:16
+#: lib/novel_web/templates/teacher/question/show.html.eex:22
 #: lib/novel_web/templates/teacher/quiz/edit.html.eex:4
 #: lib/novel_web/templates/teacher/quiz/index.html.eex:8
 #: lib/novel_web/templates/teacher/quiz/new.html.eex:4
@@ -189,7 +192,8 @@ msgstr "Керування курсом \"%{course}\""
 #: lib/novel_web/templates/teacher/course/show.html.eex:10
 #: lib/novel_web/templates/teacher/group/show.html.eex:8
 #: lib/novel_web/templates/teacher/lab/show.html.eex:8
-#: lib/novel_web/templates/teacher/question/show.html.eex:12
+#: lib/novel_web/templates/teacher/option/show.html.eex:13
+#: lib/novel_web/templates/teacher/question/show.html.eex:18
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:14
 msgid "Delete"
 msgstr "Видалити"
@@ -199,7 +203,8 @@ msgstr "Видалити"
 #: lib/novel_web/templates/teacher/enrollment/show.html.eex:13
 #: lib/novel_web/templates/teacher/group/show.html.eex:6
 #: lib/novel_web/templates/teacher/lab/show.html.eex:6
-#: lib/novel_web/templates/teacher/question/show.html.eex:10
+#: lib/novel_web/templates/teacher/option/show.html.eex:11
+#: lib/novel_web/templates/teacher/question/show.html.eex:16
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:12
 #: lib/novel_web/templates/teacher/submission/show.html.eex:22
 msgid "Edit"
@@ -219,6 +224,7 @@ msgstr "Нова лабораторна"
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:4
 #: lib/novel_web/templates/teacher/group/_form.html.eex:4
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:4
+#: lib/novel_web/templates/teacher/option/_form.html.eex:4
 #: lib/novel_web/templates/teacher/question/_form.html.eex:4
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:4
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:4
@@ -228,7 +234,8 @@ msgstr "Не вдалося зберегти, через помилки, що о
 #: lib/novel_web/templates/teacher/course/show.html.eex:10
 #: lib/novel_web/templates/teacher/group/show.html.eex:8
 #: lib/novel_web/templates/teacher/lab/show.html.eex:8
-#: lib/novel_web/templates/teacher/question/show.html.eex:12
+#: lib/novel_web/templates/teacher/option/show.html.eex:13
+#: lib/novel_web/templates/teacher/question/show.html.eex:18
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:14
 msgid "Really?"
 msgstr "Ви впевнені?"
@@ -239,6 +246,7 @@ msgstr "Ви впевнені?"
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:15
 #: lib/novel_web/templates/teacher/group/_form.html.eex:15
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:15
+#: lib/novel_web/templates/teacher/option/_form.html.eex:21
 #: lib/novel_web/templates/teacher/question/_form.html.eex:21
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:15
@@ -416,3 +424,28 @@ msgstr "Питання виделене"
 #: lib/novel_web/controllers/teacher/question_controller.ex:54
 msgid "Question updated successfully"
 msgstr "Питання оновлене"
+
+#: lib/novel_web/templates/teacher/option/_form.html.eex:9
+#: lib/novel_web/templates/teacher/option/show.html.eex:2
+msgid "Correct?"
+msgstr "Привильне?"
+
+#: lib/novel_web/templates/teacher/option/_new_option_button.html.eex:4
+msgid "New Option"
+msgstr "Новий варіант"
+
+#: lib/novel_web/controllers/teacher/option_controller.ex:27
+msgid "Option created successfully"
+msgstr "Варіант створено"
+
+#: lib/novel_web/controllers/teacher/option_controller.ex:73
+msgid "Option deleted successfully"
+msgstr "Варіант видалено"
+
+#: lib/novel_web/controllers/teacher/option_controller.ex:56
+msgid "Option updated successfully"
+msgstr "Варіант оновлено"
+
+#: lib/novel_web/templates/teacher/option/_form.html.eex:15
+msgid "Text"
+msgstr "Текст"

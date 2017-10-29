@@ -14,7 +14,6 @@ defmodule Novel.Exam.Question do
     timestamps(type: :utc_datetime)
   end
 
-  @doc false
   def changeset(%Question{} = question, attrs) do
     question
     |> cast(attrs, [:title, :details, :quiz_id])

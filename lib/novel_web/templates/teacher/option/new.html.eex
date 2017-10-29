@@ -1,0 +1,4 @@
+<%= render "_form.html", Map.put(assigns, :action, teacher_course_quiz_question_option_path(@conn, :create, @course, @quiz, @question)) %>
+
+<hr />
+<span><%= link gettext("Back"), to: teacher_course_quiz_question_path(@conn, :show, @course, @quiz, @question) %></span>
