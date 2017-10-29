@@ -1,0 +1,12 @@
+<h2>
+  <%= @quiz.name %>
+</h2>
+
+<div class="form-group d-flex align-items-center justify-content-between">
+  <%= link gettext("Edit"), to: teacher_course_quiz_path(@conn, :edit, @course, @quiz), class: "btn btn-primary" %>
+
+  <%= link gettext("Delete"), to: teacher_course_quiz_path(@conn, :delete, @course, @quiz), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
+</div>
+
+<hr />
+<span><%= link gettext("Back"), to: teacher_course_quiz_path(@conn, :index, @course) %></span>

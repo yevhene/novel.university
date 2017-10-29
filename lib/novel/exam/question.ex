@@ -2,11 +2,10 @@ defmodule Novel.Exam.Question do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Novel.Exam.Test
+  alias Novel.Exam.Quiz
   alias Novel.Exam.Question
 
   schema "exam_questions" do
-    field :code, :string
     field :text, :string
 
     field :tags, {:array, :string}, default: []
@@ -15,7 +14,7 @@ defmodule Novel.Exam.Question do
 
     field :is_deprecated, :boolean, default: false
 
-    belongs_to :test, Test
+    belongs_to :quiz, Quiz
 
     timestamps(type: :utc_datetime)
   end
@@ -24,10 +23,9 @@ defmodule Novel.Exam.Question do
   def changeset(%Question{} = question, attrs) do
     question
     |> cast(attrs, [
-      :code, :text, :tags, :options, :correct_keys, :is_deprecated, :test_id
+      :text, :tags, :options, :correct_keys, :is_deprecated, :quiz_id
     ])
-    |> validate_required([:code, :text, :options, :correct_keys, :test_id])
-    |> foreign_key_constraint(:test_id)
-    |> unique_constraint(:name, name: :exam_questions_test_id_code_index)
+    |> validate_required([:text, :options, :correct_keys, :quiz_id])
+    |> foreign_key_constraint(:quiz_id)
   end
 end
