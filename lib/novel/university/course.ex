@@ -4,6 +4,7 @@ defmodule Novel.University.Course do
 
   alias Novel.Account.User
   alias Novel.Assignment.Lab
+  alias Novel.Remote.Repository
   alias Novel.University.Course
   alias Novel.University.Enrollment
   alias Novel.University.Group
@@ -12,9 +13,9 @@ defmodule Novel.University.Course do
     field :name, :string
     field :description, :string
     field :started_at, :date
-    field :repository, :string
 
     belongs_to :head, User
+    belongs_to :repository, Repository
 
     has_many :groups, Group
     has_many :enrollments, Enrollment
@@ -32,6 +33,7 @@ defmodule Novel.University.Course do
 
   def repository_changeset(%Course{} = course, attrs) do
     course
-    |> cast(attrs, [:repository])
+    |> cast(attrs, [:repository_id])
+    |> foreign_key_constraint(:repository_id)
   end
 end
