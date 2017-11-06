@@ -3,9 +3,7 @@
   <%= render "_actions.html", assigns %>
 </h2>
 
-<p>
-  <%= markdown @question.details %>
-</p>
+<div><%= markdown @question.details %></div>
 
 <ul class="list-group mb-3">
   <%= render_many(@options, NovelWeb.Teacher.OptionView, "_option.html", assigns) %>

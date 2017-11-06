@@ -3,6 +3,26 @@
   <%= render "_actions.html", assigns %>
 </h2>
 
+<ul>
+  <li>
+    <strong><%= gettext "Description" %>:</strong>
+    <%= markdown @quiz.description %>
+  </li>
+
+  <li>
+    <strong><%= gettext "Sample size" %>:</strong>
+    <%= format_sample_size @quiz.sample_size, length(@questions) %>
+  </li>
+
+  <li>
+    <strong><%= gettext "Duration" %>:</strong>
+    <%= format_duration @quiz.duration %>
+  </li>
+</ul>
+
+<hr />
+<h3><%= gettext "Questions" %></h3>
+
 <ul class="list-group mb-3">
   <%= render_many(@questions, NovelWeb.Teacher.QuestionView, "_question.html", assigns) %>
 
