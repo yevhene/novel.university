@@ -5,6 +5,8 @@
     <% end %>
 
     <%= @enrollment.group && @enrollment.group.name %>
+
+    <%= render "_actions.html", assigns %>
   </div>
 </li>
 

@@ -1,5 +1,6 @@
 defmodule Novel.Exam do
   import Ecto.Query, warn: false
+  import Ecto.Changeset
   alias Novel.Repo
 
   alias Novel.Exam.Option
@@ -32,7 +33,10 @@ defmodule Novel.Exam do
   end
 
   def delete_quiz(%Quiz{} = quiz) do
-    Repo.delete(quiz)
+    quiz
+    |> change
+    |> no_assoc_constraint(:questions)
+    |> Repo.delete()
   end
 
   def change_quiz(%Quiz{} = quiz) do
@@ -64,7 +68,8 @@ defmodule Novel.Exam do
   end
 
   def delete_question(%Question{} = question) do
-    Repo.delete(question)
+    question
+    |> Repo.delete()
   end
 
   def change_question(%Question{} = question) do

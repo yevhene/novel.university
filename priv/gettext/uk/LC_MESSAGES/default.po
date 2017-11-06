@@ -22,31 +22,31 @@ msgstr "Курс створено"
 #: lib/novel_web/templates/student/submission/new.html.eex:7
 #: lib/novel_web/templates/teacher/course/edit.html.eex:4
 #: lib/novel_web/templates/teacher/course/new.html.eex:6
-#: lib/novel_web/templates/teacher/course/show.html.eex:14
+#: lib/novel_web/templates/teacher/course/show.html.eex:9
 #: lib/novel_web/templates/teacher/enrollment/edit.html.eex:4
 #: lib/novel_web/templates/teacher/enrollment/index.html.eex:6
-#: lib/novel_web/templates/teacher/enrollment/show.html.eex:17
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:14
 #: lib/novel_web/templates/teacher/group/edit.html.eex:4
 #: lib/novel_web/templates/teacher/group/index.html.eex:8
 #: lib/novel_web/templates/teacher/group/new.html.eex:4
-#: lib/novel_web/templates/teacher/group/show.html.eex:12
+#: lib/novel_web/templates/teacher/group/show.html.eex:7
 #: lib/novel_web/templates/teacher/lab/edit.html.eex:4
 #: lib/novel_web/templates/teacher/lab/index.html.eex:8
 #: lib/novel_web/templates/teacher/lab/new.html.eex:4
-#: lib/novel_web/templates/teacher/lab/show.html.eex:12
+#: lib/novel_web/templates/teacher/lab/show.html.eex:7
 #: lib/novel_web/templates/teacher/option/edit.html.eex:4
 #: lib/novel_web/templates/teacher/option/new.html.eex:4
-#: lib/novel_web/templates/teacher/option/show.html.eex:17
+#: lib/novel_web/templates/teacher/option/show.html.eex:16
 #: lib/novel_web/templates/teacher/question/edit.html.eex:4
 #: lib/novel_web/templates/teacher/question/new.html.eex:4
-#: lib/novel_web/templates/teacher/question/show.html.eex:22
+#: lib/novel_web/templates/teacher/question/show.html.eex:17
 #: lib/novel_web/templates/teacher/quiz/edit.html.eex:4
 #: lib/novel_web/templates/teacher/quiz/index.html.eex:8
 #: lib/novel_web/templates/teacher/quiz/new.html.eex:4
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:18
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:13
 #: lib/novel_web/templates/teacher/submission/edit.html.eex:4
 #: lib/novel_web/templates/teacher/submission/index.html.eex:6
-#: lib/novel_web/templates/teacher/submission/show.html.eex:26
+#: lib/novel_web/templates/teacher/submission/show.html.eex:29
 msgid "Back"
 msgstr "Назад"
 
@@ -58,7 +58,7 @@ msgstr "Кабінет"
 msgid "Could not authenticate. Error: %{reason}"
 msgstr "Не вдалося автентифікувати. Помилка: %{reason}"
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:56
+#: lib/novel_web/controllers/teacher/course_controller.ex:57
 msgid "Course deleted successfully"
 msgstr "Курс видалено"
 
@@ -102,7 +102,7 @@ msgstr "Не вдалося автентифікувати"
 msgid "Group created successfully"
 msgstr "Групу створено"
 
-#: lib/novel_web/controllers/teacher/group_controller.ex:67
+#: lib/novel_web/controllers/teacher/group_controller.ex:68
 msgid "Group deleted successfully"
 msgstr "Групу видалено"
 
@@ -122,7 +122,7 @@ msgstr "Привіт!"
 msgid "Lab created successfully"
 msgstr "Лабораторну створено"
 
-#: lib/novel_web/controllers/teacher/lab_controller.ex:67
+#: lib/novel_web/controllers/teacher/lab_controller.ex:68
 msgid "Lab deleted successfully"
 msgstr "Лабораторну видалено"
 
@@ -189,24 +189,25 @@ msgstr "Курс \"%{course}\""
 msgid "Course \"%{course}\" Admin"
 msgstr "Керування курсом \"%{course}\""
 
-#: lib/novel_web/templates/teacher/course/show.html.eex:10
-#: lib/novel_web/templates/teacher/group/show.html.eex:8
-#: lib/novel_web/templates/teacher/lab/show.html.eex:8
-#: lib/novel_web/templates/teacher/option/show.html.eex:13
-#: lib/novel_web/templates/teacher/question/show.html.eex:18
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:14
+#: lib/novel_web/templates/student/submission/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/course/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/group/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/lab/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/option/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/question/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/quiz/_actions.html.eex:8
 msgid "Delete"
 msgstr "Видалити"
 
 #: lib/novel_web/templates/profile/show.html.eex:25
-#: lib/novel_web/templates/teacher/course/show.html.eex:8
-#: lib/novel_web/templates/teacher/enrollment/show.html.eex:13
-#: lib/novel_web/templates/teacher/group/show.html.eex:6
-#: lib/novel_web/templates/teacher/lab/show.html.eex:6
-#: lib/novel_web/templates/teacher/option/show.html.eex:11
-#: lib/novel_web/templates/teacher/question/show.html.eex:16
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:12
-#: lib/novel_web/templates/teacher/submission/show.html.eex:22
+#: lib/novel_web/templates/teacher/course/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/enrollment/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/group/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/lab/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/option/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/question/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/quiz/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/submission/_actions.html.eex:6
 msgid "Edit"
 msgstr "Редагувати"
 
@@ -231,12 +232,13 @@ msgstr "Нова лабораторна"
 msgid "Oops, something went wrong! Please check the errors below."
 msgstr "Не вдалося зберегти, через помилки, що описані нижче"
 
-#: lib/novel_web/templates/teacher/course/show.html.eex:10
-#: lib/novel_web/templates/teacher/group/show.html.eex:8
-#: lib/novel_web/templates/teacher/lab/show.html.eex:8
-#: lib/novel_web/templates/teacher/option/show.html.eex:13
-#: lib/novel_web/templates/teacher/question/show.html.eex:18
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:14
+#: lib/novel_web/templates/student/submission/_actions.html.eex:6
+#: lib/novel_web/templates/teacher/course/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/group/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/lab/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/option/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/question/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/quiz/_actions.html.eex:8
 msgid "Really?"
 msgstr "Ви впевнені?"
 
@@ -294,8 +296,8 @@ msgid "First name"
 msgstr "Ім'я"
 
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:9
-#: lib/novel_web/templates/teacher/enrollment/show.html.eex:7
-#: lib/novel_web/templates/teacher/submission/show.html.eex:7
+#: lib/novel_web/templates/teacher/enrollment/show.html.eex:8
+#: lib/novel_web/templates/teacher/submission/show.html.eex:14
 msgid "Group"
 msgstr "Група"
 
@@ -331,7 +333,7 @@ msgstr "Редагувати профіль"
 msgid "New Submission"
 msgstr "Створити подання"
 
-#: lib/novel_web/controllers/student/submission_controller.ex:23
+#: lib/novel_web/controllers/student/submission_controller.ex:24
 msgid "Submission created successfully"
 msgstr "Подання створено"
 
@@ -348,7 +350,7 @@ msgid "Choose repository"
 msgstr "Оберіть репозиторій"
 
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:9
-#: lib/novel_web/templates/teacher/submission/show.html.eex:16
+#: lib/novel_web/templates/teacher/submission/show.html.eex:23
 msgid "Is approved"
 msgstr "Схвалено"
 
@@ -372,14 +374,9 @@ msgstr "Подання"
 msgid "Yes"
 msgstr "Так"
 
-#: lib/novel_web/templates/teacher/submission/show.html.eex:11
+#: lib/novel_web/templates/teacher/submission/show.html.eex:18
 msgid "Repository"
 msgstr "Репозиторій"
-
-#: lib/novel_web/templates/teacher/enrollment/show.html.eex:3
-#: lib/novel_web/templates/teacher/submission/show.html.eex:3
-msgid "User"
-msgstr "Користувач"
 
 #: lib/novel_web/templates/teacher/quiz/_new_quiz_button.html.eex:4
 msgid "New Quiz"
@@ -389,7 +386,7 @@ msgstr "Новий тест"
 msgid "Quiz created successfully"
 msgstr "Тест створено"
 
-#: lib/novel_web/controllers/teacher/quiz_controller.ex:69
+#: lib/novel_web/controllers/teacher/quiz_controller.ex:70
 msgid "Quiz deleted successfully"
 msgstr "Тест видалено"
 
@@ -417,7 +414,7 @@ msgstr "Нове Питання"
 msgid "Question created successfully"
 msgstr "Питання створене"
 
-#: lib/novel_web/controllers/teacher/question_controller.ex:70
+#: lib/novel_web/controllers/teacher/question_controller.ex:73
 msgid "Question deleted successfully"
 msgstr "Питання виделене"
 
@@ -426,7 +423,7 @@ msgid "Question updated successfully"
 msgstr "Питання оновлене"
 
 #: lib/novel_web/templates/teacher/option/_form.html.eex:9
-#: lib/novel_web/templates/teacher/option/show.html.eex:2
+#: lib/novel_web/templates/teacher/option/show.html.eex:7
 msgid "Correct?"
 msgstr "Привильне?"
 
@@ -434,18 +431,66 @@ msgstr "Привильне?"
 msgid "New Option"
 msgstr "Новий варіант"
 
-#: lib/novel_web/controllers/teacher/option_controller.ex:27
+#: lib/novel_web/controllers/teacher/option_controller.ex:25
 msgid "Option created successfully"
 msgstr "Варіант створено"
 
-#: lib/novel_web/controllers/teacher/option_controller.ex:73
+#: lib/novel_web/controllers/teacher/option_controller.ex:71
 msgid "Option deleted successfully"
 msgstr "Варіант видалено"
 
-#: lib/novel_web/controllers/teacher/option_controller.ex:56
+#: lib/novel_web/controllers/teacher/option_controller.ex:54
 msgid "Option updated successfully"
 msgstr "Варіант оновлено"
 
 #: lib/novel_web/templates/teacher/option/_form.html.eex:15
 msgid "Text"
 msgstr "Текст"
+
+#: lib/novel_web/controllers/student/submission_controller.ex:44
+msgid "Submission can't be deleted"
+msgstr "Подання не може бути видалене"
+
+#: lib/novel_web/controllers/student/submission_controller.ex:40
+msgid "Submission deleted successfully"
+msgstr "Подання видалене"
+
+#: lib/novel_web/templates/student/submission/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/course/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/enrollment/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/group/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/lab/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/option/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/question/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/quiz/_actions.html.eex:3
+#: lib/novel_web/templates/teacher/submission/_actions.html.eex:3
+msgid "Actions"
+msgstr "Дії"
+
+#: lib/novel_web/controllers/teacher/course_controller.ex:61
+msgid "Course can't be deleted"
+msgstr "Курс неможливо видалити"
+
+#: lib/novel_web/controllers/teacher/group_controller.ex:72
+msgid "Group can't be deleted"
+msgstr "Групу неможливо видалити"
+
+#: lib/novel_web/templates/teacher/submission/show.html.eex:8
+msgid "Lab"
+msgstr "Лабораторна"
+
+#: lib/novel_web/controllers/teacher/lab_controller.ex:72
+msgid "Lab can't be deleted"
+msgstr "Лабораторну неможливо видалити"
+
+#: lib/novel_web/templates/teacher/option/show.html.eex:2
+msgid "Option"
+msgstr "Опція"
+
+#: lib/novel_web/controllers/teacher/question_controller.ex:77
+msgid "Question can't be deleted"
+msgstr "Питання неможливо видалити"
+
+#: lib/novel_web/controllers/teacher/quiz_controller.ex:74
+msgid "Quiz can't be deleted"
+msgstr "Тест неможливо видалити"

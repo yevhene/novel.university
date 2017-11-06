@@ -20,6 +20,8 @@ defmodule Novel.Assignment.Submission do
     submission
     |> cast(attrs, [:repository, :enrollment_id, :lab_id])
     |> validate_required([:repository, :enrollment_id, :lab_id])
+    |> foreign_key_constraint(:enrollment_id)
+    |> foreign_key_constraint(:lab_id)
   end
 
   def update_changeset(%Submission{} = submission, attrs) do

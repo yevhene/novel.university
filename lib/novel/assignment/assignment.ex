@@ -1,5 +1,6 @@
 defmodule Novel.Assignment do
   import Ecto.Query, warn: false
+  import Ecto.Changeset
   alias Novel.Repo
 
   alias Novel.Assignment.Lab
@@ -34,7 +35,10 @@ defmodule Novel.Assignment do
   end
 
   def delete_lab(%Lab{} = lab) do
-    Repo.delete(lab)
+    lab
+    |> change
+    |> no_assoc_constraint(:submissions)
+    |> Repo.delete()
   end
 
   def change_lab(%Lab{} = lab) do

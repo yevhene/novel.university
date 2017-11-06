@@ -21,6 +21,7 @@ defmodule Novel.University.Enrollment do
     |> validate_required([:course_id, :user_id])
     |> foreign_key_constraint(:course_id)
     |> foreign_key_constraint(:user_id)
+    |> foreign_key_constraint(:group_id)
     |> unique_constraint(:course_id,
       name: :university_enrollments_course_id_user_id_index
     )
@@ -29,5 +30,6 @@ defmodule Novel.University.Enrollment do
   def update_changeset(%Enrollment{} = enrollment, attrs) do
     enrollment
     |> cast(attrs, [:group_id])
+    |> foreign_key_constraint(:group_id)
   end
 end

@@ -61,11 +61,17 @@ defmodule NovelWeb.Teacher.LabController do
   def delete(conn, _params) do
     course = conn.assigns.course
     lab = conn.assigns.lab
-    {:ok, _lab} = Assignment.delete_lab(lab)
 
-    conn
-    |> put_flash(:info, gettext "Lab deleted successfully")
-    |> redirect(to: teacher_course_lab_path(conn, :index, course))
+    case Assignment.delete_lab(lab) do
+      {:ok, _lab} ->
+        conn
+        |> put_flash(:info, gettext "Lab deleted successfully")
+        |> redirect(to: teacher_course_lab_path(conn, :index, course))
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        conn
+        |> put_flash(:error, gettext "Lab can't be deleted")
+        |> redirect(to: teacher_course_lab_path(conn, :show, course, lab))
+    end
   end
 
   defp load_resource(conn, _opts) do

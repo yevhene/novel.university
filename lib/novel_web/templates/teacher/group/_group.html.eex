@@ -3,5 +3,7 @@
     <%= link to: teacher_course_group_path(@conn, :show, @course, @group) do %>
       <span><%= @group.name %></span>
     <% end %>
+
+    <%= render "_actions.html", assigns %>
   </div>
 </li>

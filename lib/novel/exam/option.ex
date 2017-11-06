@@ -18,5 +18,6 @@ defmodule Novel.Exam.Option do
     option
     |> cast(attrs, [:text, :is_correct, :question_id])
     |> validate_required([:text, :is_correct, :question_id])
+    |> foreign_key_constraint(:question_id)
   end
 end

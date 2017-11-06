@@ -23,9 +23,9 @@ defmodule NovelWeb.Teacher.QuestionController do
       {:ok, _question} ->
         conn
         |> put_flash(:info, gettext "Question created successfully")
-        |> redirect(to:
-          teacher_course_quiz_path(conn, :show, course, quiz)
-        )
+        |> redirect(to: teacher_course_quiz_path(
+          conn, :show, course, quiz
+        ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
@@ -52,9 +52,9 @@ defmodule NovelWeb.Teacher.QuestionController do
       {:ok, question} ->
         conn
         |> put_flash(:info, gettext "Question updated successfully")
-        |> redirect(to:
-          teacher_course_quiz_question_path(conn, :show, course, quiz, question)
-        )
+        |> redirect(to: teacher_course_quiz_question_path(
+          conn, :show, course, quiz, question
+        ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", question: question, changeset: changeset)
     end
@@ -64,11 +64,19 @@ defmodule NovelWeb.Teacher.QuestionController do
     course = conn.assigns.course
     quiz = conn.assigns.quiz
     question = conn.assigns.question
-    {:ok, _question} = Exam.delete_question(question)
 
-    conn
-    |> put_flash(:info, gettext "Question deleted successfully")
-    |> redirect(to: teacher_course_quiz_path(conn, :show, course, quiz))
+    case Exam.delete_question(question) do
+      {:ok, _question} ->
+        conn
+        |> put_flash(:info, gettext "Question deleted successfully")
+        |> redirect(to: teacher_course_quiz_path(conn, :show, course, quiz))
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        conn
+        |> put_flash(:error, gettext "Question can't be deleted")
+        |> redirect(to: teacher_course_quiz_question_path(
+          conn, :show, course, quiz, question
+        ))
+    end
   end
 
   defp load_resource(conn, _opts) do

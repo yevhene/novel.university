@@ -61,11 +61,17 @@ defmodule NovelWeb.Teacher.GroupController do
   def delete(conn, _params) do
     course = conn.assigns.course
     group = conn.assigns.group
-    {:ok, _group} = University.delete_group(group)
 
-    conn
-    |> put_flash(:info, gettext "Group deleted successfully")
-    |> redirect(to: teacher_course_group_path(conn, :index, course))
+    case University.delete_group(group) do
+      {:ok, _group} ->
+        conn
+        |> put_flash(:info, gettext "Group deleted successfully")
+        |> redirect(to: teacher_course_group_path(conn, :index, course))
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        conn
+        |> put_flash(:error, gettext "Group can't be deleted")
+        |> redirect(to: teacher_course_group_path(conn, :show, course, group))
+    end
   end
 
   defp load_resource(conn, _opts) do

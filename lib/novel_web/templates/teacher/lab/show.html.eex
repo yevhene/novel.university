@@ -1,12 +1,7 @@
 <h2>
   <%= @lab.title %>
+  <%= render "_actions.html", assigns %>
 </h2>
-
-<div class="form-group d-flex align-items-center justify-content-between">
-  <%= link gettext("Edit"), to: teacher_course_lab_path(@conn, :edit, @course, @lab), class: "btn btn-primary" %>
-
-  <%= link gettext("Delete"), to: teacher_course_lab_path(@conn, :delete, @course, @lab), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
-</div>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_lab_path(@conn, :index, @course) %></span>

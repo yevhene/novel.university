@@ -50,11 +50,17 @@ defmodule NovelWeb.Teacher.CourseController do
 
   def delete(conn, _params) do
     course = conn.assigns.course
-    {:ok, _course} = University.delete_course(course)
 
-    conn
-    |> put_flash(:info, gettext "Course deleted successfully")
-    |> redirect(to: course_path(conn, :index))
+    case University.delete_course(course) do
+      {:ok, _course} ->
+        conn
+        |> put_flash(:info, gettext "Course deleted successfully")
+        |> redirect(to: course_path(conn, :index))
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        conn
+        |> put_flash(:error, gettext "Course can't be deleted")
+        |> redirect(to: course_path(conn, :show, course))
+    end
   end
 
   defp update_params(conn, params) do
