@@ -5,7 +5,7 @@ defmodule Novel.Repo.Migrations.CreateEnrollments do
     create table(:university_enrollments) do
       add :course_id, references(:university_courses, on_delete: :restrict),
         null: false
-      add :group_id, references(:university_groups, on_delete: :nilify_all)
+      add :group_id, references(:university_groups, on_delete: :restrict)
       add :user_id, references(:account_users, on_delete: :restrict),
         null: false
 

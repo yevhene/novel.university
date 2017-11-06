@@ -3,5 +3,6 @@
     <%= link to: teacher_course_lab_path(@conn, :show, @course, @lab) do %>
       <span><%= @lab.title %></span>
     <% end %>
+    <%= render "_actions.html", assigns %>
   </div>
 </li>

@@ -1,5 +1,6 @@
 defmodule Novel.Assignment do
   import Ecto.Query, warn: false
+  import Ecto.Changeset
   alias Novel.Repo
 
   alias Novel.Assignment.Lab
@@ -34,7 +35,10 @@ defmodule Novel.Assignment do
   end
 
   def delete_lab(%Lab{} = lab) do
-    Repo.delete(lab)
+    lab
+    |> change
+    |> no_assoc_constraint(:submissions)
+    |> Repo.delete()
   end
 
   def change_lab(%Lab{} = lab) do
@@ -45,14 +49,15 @@ defmodule Novel.Assignment do
     student_submissions = lab.submissions
       |> Enum.filter(&(&1.enrollment_id == enrollment.id))
 
-    if student_submissions |> Enum.any?(&(&1.is_approved)) do
-      true
-    else
-      if student_submissions |> Enum.any?(&(&1.is_approved == nil)) do
+    cond do
+      length(student_submissions) == 0 ->
         nil
-      else
+      student_submissions |> Enum.any?(&(&1.is_approved)) ->
+        true
+      student_submissions |> Enum.any?(&(&1.is_approved == nil)) ->
+        nil
+      true ->
         false
-      end
     end
   end
 
@@ -102,6 +107,10 @@ defmodule Novel.Assignment do
     submission
     |> Submission.update_changeset(attrs)
     |> Repo.update()
+  end
+
+  def delete_submission(%Submission{} = submission) do
+    Repo.delete(submission)
   end
 
   def change_submission(%Submission{} = submission) do

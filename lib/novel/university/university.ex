@@ -1,5 +1,6 @@
 defmodule Novel.University do
   import Ecto.Query, warn: false
+  import Ecto.Changeset
   alias Novel.Repo
 
   alias Novel.Account.User
@@ -35,7 +36,13 @@ defmodule Novel.University do
   end
 
   def delete_course(%Course{} = course) do
-    Repo.delete(course)
+    course
+    |> change
+    |> no_assoc_constraint(:groups)
+    |> no_assoc_constraint(:enrollments)
+    |> no_assoc_constraint(:labs)
+    |> no_assoc_constraint(:quizzes)
+    |> Repo.delete()
   end
 
   def change_course(%Course{} = course) do
@@ -93,7 +100,10 @@ defmodule Novel.University do
   end
 
   def delete_enrollment(%Enrollment{} = enrollment) do
-    Repo.delete(enrollment)
+    enrollment
+    |> change
+    |> no_assoc_constraint(:submissions)
+    |> Repo.delete()
   end
 
   def change_enrollment(%Enrollment{} = enrollment) do
@@ -126,7 +136,10 @@ defmodule Novel.University do
   end
 
   def delete_group(%Group{} = group) do
-    Repo.delete(group)
+    group
+    |> change
+    |> no_assoc_constraint(:enrollments)
+    |> Repo.delete()
   end
 
   def change_group(%Group{} = group) do

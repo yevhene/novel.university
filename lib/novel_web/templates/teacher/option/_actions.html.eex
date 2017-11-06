@@ -1,0 +1,10 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <%= gettext "Actions" %>
+  </button>
+  <div class="dropdown-menu">
+    <%= link gettext("Edit"), to: teacher_course_quiz_question_option_path(@conn, :edit, @course, @quiz, @question, @option), class: "dropdown-item" %>
+
+    <%= link gettext("Delete"), to: teacher_course_quiz_question_option_path(@conn, :delete, @course, @quiz, @question, @option), method: "delete", class: "dropdown-item text-danger", data: [confirm: gettext("Really?")] %>
+  </div>
+</div>

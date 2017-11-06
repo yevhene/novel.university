@@ -32,9 +32,9 @@ defmodule NovelWeb.Teacher.EnrollmentController do
       {:ok, enrollment} ->
         conn
         |> put_flash(:info, gettext "Enrollment updated successfully")
-        |> redirect(
-          to: teacher_course_enrollment_path(conn, :show, course, enrollment)
-        )
+        |> redirect(to: teacher_course_enrollment_path(
+          conn, :show, course, enrollment
+        ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", changeset: changeset)
     end

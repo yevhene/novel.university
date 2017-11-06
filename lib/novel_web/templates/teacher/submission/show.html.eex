@@ -1,7 +1,14 @@
+<h2>
+  <%= full_name @submission.enrollment.user %>
+  <%= render "_actions.html", assigns %>
+</h2>
+
 <ul>
   <li>
-    <strong><%= gettext "User" %>:</strong>
-    <%= full_name @submission.enrollment.user %>
+    <strong><%= gettext "Lab" %>:</strong>
+    <%= link to: teacher_course_submission_path(@conn, :show, @course, @submission) do %>
+      <%= @submission.lab.title %>
+    <% end %>
   </li>
   <li>
     <strong><%= gettext "Group" %>:</strong>
@@ -17,10 +24,6 @@
     <%= approved_format(@submission.is_approved) %>
   </li>
 </ul>
-
-<div class="d-flex align-items-center justify-content-between">
-  <%= link gettext("Edit"), to: teacher_course_submission_path(@conn, :edit, @course, @submission), class: "btn btn-primary" %>
-</div>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_submission_path(@conn, :index, @course) %></span>

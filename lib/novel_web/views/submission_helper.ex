@@ -21,7 +21,7 @@ defmodule NovelWeb.SubmissionHelper do
     case is_approved do
       true -> content_tag(:i, "", class: "fa fa-check text-success")
       false -> content_tag(:i, "", class: "fa fa-times text-danger")
-      _ -> ""
+      _ -> content_tag(:i, "", class: "fa fa-question text-warning")
     end
   end
 

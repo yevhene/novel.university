@@ -3,5 +3,6 @@
     <%= link to: teacher_course_quiz_path(@conn, :show, @course, @quiz) do %>
       <span><%= @quiz.name %></span>
     <% end %>
+    <%= render "_actions.html", assigns %>
   </div>
 </li>

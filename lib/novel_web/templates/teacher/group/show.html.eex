@@ -1,12 +1,7 @@
 <h2>
   <%= @group.name %>
+  <%= render "_actions.html", assigns %>
 </h2>
-
-<div class="form-group d-flex align-items-center justify-content-between">
-  <%= link gettext("Edit"), to: teacher_course_group_path(@conn, :edit, @course, @group), class: "btn btn-primary" %>
-
-  <%= link gettext("Delete"), to: teacher_course_group_path(@conn, :delete, @course, @group), method: "delete", class: "btn btn-danger", data: [confirm: gettext("Really?")] %>
-</div>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_group_path(@conn, :index, @course) %></span>

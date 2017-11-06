@@ -1,17 +1,14 @@
+<h2>
+  <%= full_name @enrollment.user %>
+  <%= render "_actions.html", assigns %>
+</h2>
+
 <ul>
-  <li>
-    <strong><%= gettext "User" %>:</strong>
-    <%= full_name @enrollment.user %>
-  </li>
   <li>
     <strong><%= gettext "Group" %>:</strong>
     <%= @enrollment.group && @enrollment.group.name %>
   </li>
 </ul>
-
-<div class="d-flex align-items-center justify-content-between">
-  <%= link gettext("Edit"), to: teacher_course_enrollment_path(@conn, :edit, @course, @enrollment), class: "btn btn-primary" %>
-</div>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_enrollment_path(@conn, :index, @course) %></span>

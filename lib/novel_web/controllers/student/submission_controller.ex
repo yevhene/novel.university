@@ -4,7 +4,8 @@ defmodule NovelWeb.Student.SubmissionController do
   alias Novel.Assignment
   alias Novel.Assignment.Submission
 
-  plug :load_lab
+  plug :load_parent
+  plug :load_resource when action in [:delete]
   plug :put_layout, "student.html"
 
   def new(conn, _params) do
@@ -27,7 +28,30 @@ defmodule NovelWeb.Student.SubmissionController do
     end
   end
 
-  defp load_lab(conn, _opts) do
+  def delete(conn, _params) do
+    course = conn.assigns.course
+    lab = conn.assigns.lab
+    submission = conn.assigns.submission
+
+    if submission.is_approved == nil do
+      {:ok, _submission} = Assignment.delete_submission(submission)
+
+      conn
+      |> put_flash(:info, gettext "Submission deleted successfully")
+      |> redirect(to: student_course_lab_path(conn, :show, course, lab))
+    else
+      conn
+      |> put_flash(:error, gettext "Submission can't be deleted")
+      |> redirect(to: student_course_lab_path(conn, :show, course, lab))
+    end
+  end
+
+  defp load_resource(conn, _opts) do
+    submission = Assignment.get_submission!(conn.params["id"])
+    assign(conn, :submission, submission)
+  end
+
+  defp load_parent(conn, _opts) do
     lab = Assignment.get_lab!(conn.params["lab_id"])
     assign(conn, :lab, lab)
   end

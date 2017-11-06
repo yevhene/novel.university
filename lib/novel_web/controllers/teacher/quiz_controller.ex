@@ -63,11 +63,17 @@ defmodule NovelWeb.Teacher.QuizController do
   def delete(conn, _params) do
     course = conn.assigns.course
     quiz = conn.assigns.quiz
-    {:ok, _quiz} = Exam.delete_quiz(quiz)
 
-    conn
-    |> put_flash(:info, gettext "Quiz deleted successfully")
-    |> redirect(to: teacher_course_quiz_path(conn, :index, course))
+    case Exam.delete_quiz(quiz) do
+      {:ok, _quiz} ->
+        conn
+        |> put_flash(:info, gettext "Quiz deleted successfully")
+        |> redirect(to: teacher_course_quiz_path(conn, :index, course))
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        conn
+        |> put_flash(:error, gettext "Quiz can't be deleted")
+        |> redirect(to: teacher_course_quiz_path(conn, :show, course, quiz))
+    end
   end
 
   defp load_resource(conn, _opts) do

@@ -89,7 +89,8 @@ defmodule NovelWeb.Router do
 
       resources "/courses", CourseController, only: [:show] do
         resources "/labs", LabController, only: [:index, :show] do
-          resources "/submissions", SubmissionController, only: [:new, :create]
+          resources "/submissions", SubmissionController,
+            only: [:new, :create, :delete]
         end
       end
     end
