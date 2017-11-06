@@ -20,11 +20,11 @@ defmodule NovelWeb.Teacher.QuestionController do
     question_params = update_params(conn, question_params)
 
     case Exam.create_question(question_params) do
-      {:ok, _question} ->
+      {:ok, question} ->
         conn
         |> put_flash(:info, gettext "Question created successfully")
-        |> redirect(to: teacher_course_quiz_path(
-          conn, :show, course, quiz
+        |> redirect(to: teacher_course_quiz_question_path(
+          conn, :show, course, quiz, question
         ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)

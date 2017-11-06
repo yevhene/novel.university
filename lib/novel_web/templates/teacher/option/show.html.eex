@@ -8,9 +8,12 @@
   <%= checkbox :option, :is_correct, value: @option.is_correct, disabled: true, class: "checkbox" %>
 </div>
 
-<p>
-  <%= markdown @option.text %>
-</p>
+<ul>
+  <li>
+    <strong><%= gettext "Text" %>:</strong>
+    <%= markdown @option.text %>
+  </li>
+</ul>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_quiz_question_path(@conn, :show, @course, @quiz, @question) %></span>

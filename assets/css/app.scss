@@ -25,5 +25,8 @@ header {
   animation:spin 2s linear infinite;
 }
 
+p {
+  margin: 0;
+}
 
 @keyframes spin { 100% { transform:rotate(360deg); } }

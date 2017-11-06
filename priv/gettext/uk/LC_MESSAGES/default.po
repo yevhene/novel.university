@@ -36,14 +36,14 @@ msgstr "Курс створено"
 #: lib/novel_web/templates/teacher/lab/show.html.eex:7
 #: lib/novel_web/templates/teacher/option/edit.html.eex:4
 #: lib/novel_web/templates/teacher/option/new.html.eex:4
-#: lib/novel_web/templates/teacher/option/show.html.eex:16
+#: lib/novel_web/templates/teacher/option/show.html.eex:19
 #: lib/novel_web/templates/teacher/question/edit.html.eex:4
 #: lib/novel_web/templates/teacher/question/new.html.eex:4
-#: lib/novel_web/templates/teacher/question/show.html.eex:17
+#: lib/novel_web/templates/teacher/question/show.html.eex:15
 #: lib/novel_web/templates/teacher/quiz/edit.html.eex:4
 #: lib/novel_web/templates/teacher/quiz/index.html.eex:8
 #: lib/novel_web/templates/teacher/quiz/new.html.eex:4
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:13
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:33
 #: lib/novel_web/templates/teacher/submission/edit.html.eex:4
 #: lib/novel_web/templates/teacher/submission/index.html.eex:6
 #: lib/novel_web/templates/teacher/submission/show.html.eex:29
@@ -250,7 +250,7 @@ msgstr "Ви впевнені?"
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:15
 #: lib/novel_web/templates/teacher/option/_form.html.eex:21
 #: lib/novel_web/templates/teacher/question/_form.html.eex:21
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:34
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:15
 msgid "Submit"
 msgstr "Відправити"
@@ -281,7 +281,8 @@ msgid "Sign Out"
 msgstr "Вийти"
 
 #: lib/novel_web/templates/teacher/course/_form.html.eex:15
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:21
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:28
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:8
 msgid "Description"
 msgstr "Опис"
 
@@ -414,7 +415,7 @@ msgstr "Нове Питання"
 msgid "Question created successfully"
 msgstr "Питання створене"
 
-#: lib/novel_web/controllers/teacher/question_controller.ex:73
+#: lib/novel_web/controllers/teacher/question_controller.ex:71
 msgid "Question deleted successfully"
 msgstr "Питання виделене"
 
@@ -444,6 +445,7 @@ msgid "Option updated successfully"
 msgstr "Варіант оновлено"
 
 #: lib/novel_web/templates/teacher/option/_form.html.eex:15
+#: lib/novel_web/templates/teacher/option/show.html.eex:13
 msgid "Text"
 msgstr "Текст"
 
@@ -487,10 +489,38 @@ msgstr "Лабораторну неможливо видалити"
 msgid "Option"
 msgstr "Опція"
 
-#: lib/novel_web/controllers/teacher/question_controller.ex:77
+#: lib/novel_web/controllers/teacher/question_controller.ex:75
 msgid "Question can't be deleted"
 msgstr "Питання неможливо видалити"
 
 #: lib/novel_web/controllers/teacher/quiz_controller.ex:74
 msgid "Quiz can't be deleted"
 msgstr "Тест неможливо видалити"
+
+#: lib/novel_web/views/teacher/quiz_view.ex:17
+msgid "%{duration} minute(s)"
+msgstr "%{duration} хвилин(а)"
+
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:18
+msgid "Duration"
+msgstr "Тривалість"
+
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:24
+msgid "Questions"
+msgstr "Питання"
+
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:13
+msgid "Sample size"
+msgstr "Розмір вибірки"
+
+#: lib/novel_web/views/teacher/quiz_view.ex:11
+msgid "all/%{all_size}"
+msgstr "всі/%{all_size}"
+
+#: lib/novel_web/views/teacher/quiz_view.ex:19
+msgid "unlimited"
+msgstr "без обмежень"
+
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:21
+msgid "Duration (minutes)"
+msgstr "Тривалість (хвилини)"

@@ -3,6 +3,7 @@ defmodule NovelWeb.CourseView do
 
   import NovelWeb.StringHelper
   import NovelWeb.UserHelper
+  import NovelWeb.MarkdownHelper
 
   alias Novel.University.Enrollment
   alias Novel.University.Group

@@ -4,7 +4,7 @@
   <%= render "_actions.html", assigns %>
 </h2>
 
-<p><%= @course.description %></p>
+<div><%= markdown @course.description %></div>
 
 <hr />
 <span><%= link gettext("Back"), to: course_path(@conn, :index) %></span>
