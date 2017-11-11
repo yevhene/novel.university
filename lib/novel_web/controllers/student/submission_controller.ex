@@ -47,7 +47,8 @@ defmodule NovelWeb.Student.SubmissionController do
   end
 
   defp load_resource(conn, _opts) do
-    submission = Assignment.get_submission!(conn.params["id"])
+    enrollment = conn.assigns.enrollment
+    submission = Assignment.get_submission!(enrollment, conn.params["id"])
     assign(conn, :submission, submission)
   end
 

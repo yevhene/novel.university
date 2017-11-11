@@ -2,6 +2,7 @@ defmodule Novel.Exam.Question do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Novel.Exam.Option
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
 
@@ -10,6 +11,8 @@ defmodule Novel.Exam.Question do
     field :details, :string
 
     belongs_to :quiz, Quiz
+
+    has_many :options, Option
 
     timestamps(type: :utc_datetime)
   end

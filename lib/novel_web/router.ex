@@ -93,7 +93,11 @@ defmodule NovelWeb.Router do
             only: [:new, :create, :delete]
         end
 
-        resources "/quizzes", QuizController, only: [:index, :show]
+        resources "/quizzes", QuizController, only: [:index, :show] do
+          resources "/attempts", AttemptController, only: [:new, :create] do
+            resources "/answers", AnswerController, only: [:edit, :update]
+          end
+        end
       end
     end
   end

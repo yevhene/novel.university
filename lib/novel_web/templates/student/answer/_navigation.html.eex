@@ -1,0 +1,29 @@
+<nav>
+  <ul class="pagination">
+    <%= if @index == 0 do %>
+      <li class="page-item disabled">
+        <span class="page-link"><%= gettext "Previous" %></span>
+      </li>
+    <% else %>
+      <li class="page-item">
+        <%= link gettext("Previous"), to: student_course_quiz_attempt_answer_path(@conn, :edit, @course, @quiz, @attempt, @attempt.answers |> Enum.at(@index - 1)), class: "page-link" %>
+      </li>
+    <% end %>
+
+    <%= for {answer, index} <- @attempt.answers |> Enum.with_index() do %>
+      <li class="<%= navigation_item_class(index, @index) %>">
+        <%= link index + 1, to: student_course_quiz_attempt_answer_path(@conn, :edit, @course, @quiz, @attempt, answer), class: "page-link" %>
+      </li>
+    <% end %>
+
+    <%= if @index == length(@attempt.answers) - 1 do %>
+      <li class="page-item disabled">
+        <span class="page-link"><%= gettext "Next" %></span>
+      </li>
+    <% else %>
+      <li class="page-item">
+        <%= link gettext("Next"), to: student_course_quiz_attempt_answer_path(@conn, :edit, @course, @quiz, @attempt, @attempt.answers |> Enum.at(@index + 1)), class: "page-link" %>
+      </li>
+    <% end %>
+  </ul>
+</nav>

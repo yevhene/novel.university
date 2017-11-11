@@ -11,7 +11,7 @@ defmodule Novel.Exam.Option do
 
     belongs_to :question, Question
 
-    timestamps()
+    timestamps(type: :utc_datetime)
   end
 
   def changeset(%Option{} = option, attrs) do

@@ -2,6 +2,7 @@ defmodule Novel.Exam.Quiz do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Novel.Exam.Attempt
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
   alias Novel.University.Course
@@ -18,6 +19,7 @@ defmodule Novel.Exam.Quiz do
     belongs_to :course, Course
 
     has_many :questions, Question
+    has_many :attempts, Attempt
 
     timestamps(type: :utc_datetime)
   end

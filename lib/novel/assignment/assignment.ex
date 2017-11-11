@@ -97,6 +97,16 @@ defmodule Novel.Assignment do
     |> Repo.preload(enrollment: [:user, :group])
   end
 
+  def get_submission!(%Enrollment{} = enrollment, id) do
+    Submission
+    |> where(enrollment_id: ^enrollment.id)
+    |> where(id: ^id)
+    |> limit(1)
+    |> Repo.one()
+    |> Repo.preload(:lab)
+    |> Repo.preload(enrollment: [:user, :group])
+  end
+
   def create_submission(attrs \\ %{}) do
     %Submission{}
     |> Submission.changeset(attrs)
