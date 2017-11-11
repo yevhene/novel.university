@@ -1,9 +1,9 @@
 defmodule NovelWeb.CourseView do
   use NovelWeb, :view
 
-  import NovelWeb.StringHelper
-  import NovelWeb.UserHelper
-  import NovelWeb.MarkdownHelper
+  import NovelWeb.StringHelpers
+  import NovelWeb.UserHelpers
+  import NovelWeb.MarkdownHelpers
 
   alias Novel.University.Enrollment
   alias Novel.University.Group

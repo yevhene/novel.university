@@ -9,6 +9,8 @@ defmodule Novel.Repo.Migrations.CreateExamQuizs do
       add :sample_size, :integer
       add :duration, :integer
 
+      add :started_at, :utc_datetime
+
       add :course_id,
         references(:university_courses, on_delete: :restrict), null: false
 

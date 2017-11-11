@@ -7,10 +7,11 @@ defmodule Novel.Repo.Migrations.CreateUsers do
 
       add :email, :string
       add :nickname, :string
-      add :is_teacher, :boolean, default: false, null: false
 
       add :first_name, :string
       add :last_name, :string
+
+      add :is_teacher, :boolean, default: false, null: false
 
       timestamps(type: :utc_datetime)
     end

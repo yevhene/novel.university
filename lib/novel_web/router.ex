@@ -92,6 +92,8 @@ defmodule NovelWeb.Router do
           resources "/submissions", SubmissionController,
             only: [:new, :create, :delete]
         end
+
+        resources "/quizzes", QuizController, only: [:index, :show]
       end
     end
   end

@@ -1,7 +1,7 @@
 defmodule NovelWeb.LayoutView do
   use NovelWeb, :view
 
-  import NovelWeb.UserHelper
+  import NovelWeb.UserHelpers
 
   def base_layout(assigns, do: contents) do
     render "base.html", Map.put(assigns, :contents, contents)

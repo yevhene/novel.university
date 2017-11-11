@@ -15,8 +15,7 @@ defmodule NovelWeb.Teacher.QuizController do
   end
 
   def new(conn, _params) do
-    course = conn.assigns.course
-    changeset = Exam.change_quiz(%Quiz{course_id: course.id})
+    changeset = Exam.change_quiz(%Quiz{started_at: Ecto.DateTime.utc})
     render(conn, "new.html", changeset: changeset)
   end
 

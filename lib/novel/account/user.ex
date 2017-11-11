@@ -11,10 +11,11 @@ defmodule Novel.Account.User do
 
     field :email, :string
     field :nickname, :string
-    field :is_teacher, :boolean
 
     field :first_name, :string
     field :last_name, :string
+
+    field :is_teacher, :boolean
 
     has_many :links, Link
 

@@ -15,6 +15,16 @@ defmodule Novel.Exam do
     |> Repo.all
   end
 
+  def list_active_quizzes(%Course{id: course_id}) do
+    now = Ecto.DateTime.utc
+
+    Quiz
+    |> where(course_id: ^course_id)
+    |> where([q], q.started_at <= type(^now, Ecto.DateTime))
+    |> order_by(:name)
+    |> Repo.all
+  end
+
   def get_quiz!(id) do
     Quiz
     |> Repo.get!(id)

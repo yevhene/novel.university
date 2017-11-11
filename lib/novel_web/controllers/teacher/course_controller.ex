@@ -7,7 +7,7 @@ defmodule NovelWeb.Teacher.CourseController do
   plug :put_layout, "teacher.html" when action not in [:new, :create]
 
   def new(conn, _params) do
-    changeset = University.change_course(%Course{})
+    changeset = University.change_course(%Course{started_at: Ecto.Date.utc})
     render(conn, "new.html", changeset: changeset)
   end
 
