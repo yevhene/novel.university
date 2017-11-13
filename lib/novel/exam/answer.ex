@@ -4,11 +4,14 @@ defmodule Novel.Exam.Answer do
 
   alias Novel.Exam.Answer
   alias Novel.Exam.Attempt
+  alias Novel.Exam.Pick
   alias Novel.Exam.Question
 
   schema "exam_answers" do
     belongs_to :attempt, Attempt
     belongs_to :question, Question
+
+    has_many :picks, Pick
 
     timestamps(type: :utc_datetime)
   end

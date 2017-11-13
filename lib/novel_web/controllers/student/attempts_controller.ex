@@ -5,6 +5,7 @@ defmodule NovelWeb.Student.AttemptController do
   alias Novel.Exam.Attempt
 
   plug :load_parent
+  plug :load_resource when action in [:show]
   plug :put_layout, "student.html"
 
   def new(conn, _params) do
@@ -20,13 +21,28 @@ defmodule NovelWeb.Student.AttemptController do
     case Exam.create_attempt(attempt_params) do
       {:ok, attempt} ->
         conn
-        |> put_flash(:info, gettext "Attempt started")
-        |> redirect(to: student_course_quiz_attempt_answer_path(
-          conn, :edit, course, quiz, attempt, Enum.at(attempt.answers, 0)
+        |> redirect(to: student_course_quiz_attempt_path(
+          conn, :show, course, quiz, attempt
         ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
+  end
+
+  def show(conn, _params) do
+    course = conn.assigns.course
+    quiz = conn.assigns.quiz
+    attempt = conn.assigns.attempt
+
+    conn
+    |> redirect(to: student_course_quiz_attempt_answer_path(
+      conn, :show, course, quiz, attempt, Enum.at(attempt.answers, 0)
+    ))
+  end
+
+  defp load_resource(conn, _opts) do
+    attempt = Exam.get_attempt!(conn.params["id"])
+    assign(conn, :attempt, attempt)
   end
 
   defp load_parent(conn, _opts) do

@@ -3,7 +3,6 @@
 </h2>
 
 <%= link to: student_course_quiz_attempt_path(@conn, :create, @course, @quiz), method: :post, class: "btn btn-primary" do %>
-  <i class="fa fa-plus" aria-hidden="true"></i>
   <%= gettext "Start" %>
 <% end %>
 

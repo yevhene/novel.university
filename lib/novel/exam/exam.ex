@@ -6,6 +6,7 @@ defmodule Novel.Exam do
   alias Novel.Exam.Answer
   alias Novel.Exam.Attempt
   alias Novel.Exam.Option
+  alias Novel.Exam.Pick
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
   alias Novel.University.Course
@@ -134,8 +135,7 @@ defmodule Novel.Exam do
   def get_attempt!(id) do
     Attempt
     |> Repo.get!(id)
-    |> Repo.preload(:quiz)
-    |> Repo.preload(:answers)
+    |> Repo.preload([:quiz, :answers])
   end
 
   def get_attempt!(%Enrollment{} = enrollment, id) do
@@ -144,8 +144,7 @@ defmodule Novel.Exam do
     |> where(id: ^id)
     |> limit(1)
     |> Repo.one()
-    |> Repo.preload(:quiz)
-    |> Repo.preload(:answers)
+    |> Repo.preload([:quiz, :answers])
   end
 
   def create_attempt(attrs \\ %{}) do
@@ -172,12 +171,37 @@ defmodule Novel.Exam do
     |> where(id: ^id)
     |> limit(1)
     |> Repo.one()
-    |> Repo.preload(question: [:options])
+    |> Repo.preload([:question, picks: :option])
+  end
+
+  def get_pick!(%Answer{} = answer, id) do
+    Pick
+    |> where(answer_id: ^answer.id)
+    |> where(id: ^id)
+    |> limit(1)
+    |> Repo.one()
+    |> Repo.preload(:option)
+  end
+
+  def update_pick(%Pick{} = pick, attrs) do
+    pick
+    |> Pick.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def change_pick(%Pick{} = pick) do
+    Pick.update_changeset(pick, %{})
   end
 
   defp create_answer(attrs) do
     %Answer{}
     |> Answer.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  defp create_pick(attrs) do
+    %Pick{}
+    |> Pick.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -191,14 +215,31 @@ defmodule Novel.Exam do
       |> Enum.take(quiz.sample_size || total)
       |> Enum.map(fn index ->
         question = quiz.questions |> Enum.at(index)
-        {:ok, answer} = create_answer(%{
+        {:ok, answer} = %{
           attempt_id: attempt.id, question_id: question.id
-        })
+        }
+        |> create_answer()
+        |> create_answer_picks()
+
         answer
       end)
 
     attempt = %Attempt{attempt | answers: answers}
 
     {:ok, attempt}
+  end
+
+  defp create_answer_picks({:ok, answer}) do
+    answer = answer |> Repo.preload(question: :options)
+
+    answer.question.options
+    |> Enum.shuffle()
+    |> Enum.each(fn option ->
+      {:ok, _pick} = create_pick(%{
+        answer_id: answer.id, option_id: option.id
+      })
+    end)
+
+    {:ok, answer}
   end
 end

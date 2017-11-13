@@ -17,7 +17,7 @@ msgstr "Курс створено"
 #: lib/novel_web/templates/course/show.html.eex:10
 #: lib/novel_web/templates/profile/edit.html.eex:6
 #: lib/novel_web/templates/profile/show.html.eex:28
-#: lib/novel_web/templates/student/attempt/new.html.eex:11
+#: lib/novel_web/templates/student/attempt/new.html.eex:10
 #: lib/novel_web/templates/student/lab/index.html.eex:6
 #: lib/novel_web/templates/student/lab/show.html.eex:19
 #: lib/novel_web/templates/student/quiz/index.html.eex:6
@@ -317,7 +317,7 @@ msgstr "Прізвище"
 msgid "Name"
 msgstr "Назва"
 
-#: lib/novel_web/templates/student/attempt/new.html.eex:7
+#: lib/novel_web/templates/student/attempt/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/_form.html.eex:21
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
 msgid "Start"
@@ -504,7 +504,7 @@ msgstr "Питання неможливо видалити"
 msgid "Quiz can't be deleted"
 msgstr "Тест неможливо видалити"
 
-#: lib/novel_web/views/helpers/format_helpers.ex:6
+#: lib/novel_web/views/helpers/format_helpers.ex:7
 msgid "%{duration} minute(s)"
 msgstr "%{duration} хвилин(а)"
 
@@ -526,7 +526,7 @@ msgstr "Розмір вибірки"
 msgid "all/%{all_size}"
 msgstr "всі/%{all_size}"
 
-#: lib/novel_web/views/helpers/format_helpers.ex:8
+#: lib/novel_web/views/helpers/format_helpers.ex:9
 msgid "unlimited"
 msgstr "без обмежень"
 
@@ -538,11 +538,11 @@ msgstr "Тривалість (хвилини)"
 msgid "Are you ready?"
 msgstr "Ви готові?"
 
-#: lib/novel_web/views/helpers/attempt_helpers.ex:15
+#: lib/novel_web/views/helpers/attempt_helpers.ex:17
 msgid "Evaluating"
 msgstr "Оцінювання"
 
-#: lib/novel_web/views/helpers/attempt_helpers.ex:10
+#: lib/novel_web/views/helpers/attempt_helpers.ex:12
 msgid "In progress"
 msgstr "В процесі"
 
@@ -554,10 +554,20 @@ msgstr "Нова спроба"
 msgid "Your attempts"
 msgstr "Ваші спроби"
 
-#: lib/novel_web/controllers/student/attempts_controller.ex:23
-msgid "Attempt started"
-msgstr "Спробу розпочато"
-
-#: lib/novel_web/controllers/student/answer_controller.ex:37
+#: lib/novel_web/plug/check_quiz_attempt_time_scope.ex:29
 msgid "Attempt time elapsed"
 msgstr "Час спроби вичерпано"
+
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:21
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:25
+msgid "Next"
+msgstr "Вперед"
+
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:5
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:9
+msgid "Previous"
+msgstr "Назад"
+
+#: lib/novel_web/controllers/student/pick_controller.ex:25
+msgid "Unknown error"
+msgstr "Невідома помилка"
