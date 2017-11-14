@@ -3,8 +3,6 @@ defmodule Novel.Repo.Migrations.CreateExamAttempts do
 
   def change do
     create table(:exam_attempts) do
-      add :score, :float
-
       add :enrollment_id,
         references(:university_enrollments, on_delete: :restrict)
       add :quiz_id, references(:exam_quizzes, on_delete: :restrict)

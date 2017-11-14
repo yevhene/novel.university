@@ -129,7 +129,7 @@ defmodule Novel.Exam do
     |> where(quiz_id: ^quiz_id)
     |> order_by(desc: :inserted_at)
     |> Repo.all
-    |> Repo.preload(:quiz)
+    |> Repo.preload([:quiz, :score])
   end
 
   def get_attempt!(id) do

@@ -5,15 +5,15 @@ defmodule Novel.Exam.Attempt do
   alias Novel.Exam.Answer
   alias Novel.Exam.Attempt
   alias Novel.Exam.Quiz
+  alias Novel.Exam.Score
   alias Novel.University.Enrollment
 
   schema "exam_attempts" do
-    field :score, :float
-
     belongs_to :enrollment, Enrollment
     belongs_to :quiz, Quiz
 
     has_many :answers, Answer
+    has_one :score, Score
 
     timestamps(type: :utc_datetime)
   end

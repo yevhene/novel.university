@@ -538,10 +538,6 @@ msgstr "Тривалість (хвилини)"
 msgid "Are you ready?"
 msgstr "Ви готові?"
 
-#: lib/novel_web/views/helpers/attempt_helpers.ex:17
-msgid "Evaluating"
-msgstr "Оцінювання"
-
 #: lib/novel_web/views/helpers/attempt_helpers.ex:12
 msgid "In progress"
 msgstr "В процесі"

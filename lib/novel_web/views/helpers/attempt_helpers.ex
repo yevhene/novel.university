@@ -12,9 +12,9 @@ defmodule NovelWeb.AttemptHelpers do
       gettext "In progress"
     else
       if attempt.score do
-        :erlang.float_to_binary(attempt.score * 100, [decimals: 1]) ++ "%"
+        :erlang.float_to_binary(attempt.score.value * 100, [decimals: 1]) <> "%"
       else
-        gettext "Evaluating"
+        "-"
       end
     end
   end

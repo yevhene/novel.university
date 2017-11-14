@@ -538,10 +538,6 @@ msgstr ""
 msgid "Are you ready?"
 msgstr ""
 
-#: lib/novel_web/views/helpers/attempt_helpers.ex:17
-msgid "Evaluating"
-msgstr ""
-
 #: lib/novel_web/views/helpers/attempt_helpers.ex:12
 msgid "In progress"
 msgstr ""
