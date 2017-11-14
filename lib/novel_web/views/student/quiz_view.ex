@@ -3,4 +3,5 @@ defmodule NovelWeb.Student.QuizView do
 
   import NovelWeb.MarkdownHelpers
   import NovelWeb.FormatHelpers
+  import NovelWeb.StatusHelpers
 end

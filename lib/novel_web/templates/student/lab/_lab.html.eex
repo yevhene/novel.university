@@ -4,6 +4,6 @@
       <span><%= @lab.title %></span>
     <% end %>
 
-    <%= Novel.Assignment.is_approved?(@lab, @enrollment) |> approved_icon %>
+    <%= Novel.Assignment.is_approved?(@enrollment, @lab) |> status_icon %>
   </div>
 </li>

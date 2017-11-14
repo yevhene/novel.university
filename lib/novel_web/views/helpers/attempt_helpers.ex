@@ -1,5 +1,6 @@
 defmodule NovelWeb.AttemptHelpers do
   import NovelWeb.Gettext
+  import NovelWeb.StatusHelpers
 
   alias Novel.Exam
 
@@ -8,11 +9,15 @@ defmodule NovelWeb.AttemptHelpers do
   end
 
   def format_attempt_status(attempt) do
-    if Exam.is_attempt_active?(attempt) do
+    if Exam.is_active?(attempt) do
       gettext "In progress"
     else
-      if attempt.score do
-        :erlang.float_to_binary(attempt.score.value * 100, [decimals: 1]) <> "%"
+      score = attempt.score
+      if score do
+        [
+          :erlang.float_to_binary(score.value * 100, [decimals: 1]) <> "%",
+          status_icon(Exam.is_successful?(attempt))
+        ]
       else
         "-"
       end

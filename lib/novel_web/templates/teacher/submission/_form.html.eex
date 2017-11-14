@@ -7,7 +7,7 @@
 
   <div class="form-group">
     <%= label f, :is_approved, gettext("Is approved"), class: "control-label" %>
-    <%= select f, :is_approved, submission_approvement_options(), class: "form-control" %>
+    <%= select f, :is_approved, submission_status_options(), class: "form-control" %>
     <%= error_tag f, :is_approved %>
   </div>
 

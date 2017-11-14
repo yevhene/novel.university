@@ -158,11 +158,30 @@ defmodule Novel.Exam do
     Attempt.changeset(attempt, %{})
   end
 
-  def is_attempt_active?(%Attempt{} = attempt) do
+  def is_active?(%Attempt{} = attempt) do
     inserted_at = DateTime.to_unix(attempt.inserted_at)
     duration_ago = inserted_at + attempt.quiz.duration * 60
     now = DateTime.to_unix DateTime.utc_now
     duration_ago > now
+  end
+
+  def is_successful?(%Attempt{} = attempt) do
+    attempt.score.value >= attempt.quiz.threshold
+  end
+
+  def is_successful?(%Enrollment{} = enrollment, %Quiz{} = quiz) do
+    student_attempts = enrollment
+      |> list_attempts(quiz)
+      |> Enum.filter(&(not is_active?(&1)))
+
+    cond do
+      length(student_attempts) == 0 ->
+        nil
+      student_attempts |> Enum.any?(&(is_successful?(&1))) ->
+        true
+      true ->
+        false
+    end
   end
 
   def get_answer!(%Attempt{} = attempt, id) do
@@ -171,7 +190,10 @@ defmodule Novel.Exam do
     |> where(id: ^id)
     |> limit(1)
     |> Repo.one()
-    |> Repo.preload([:question, picks: :option])
+    |> Repo.preload(:question)
+    |> Repo.preload(picks: from(
+      p in Pick, order_by: p.inserted_at, preload: :option
+    ))
   end
 
   def get_pick!(%Answer{} = answer, id) do

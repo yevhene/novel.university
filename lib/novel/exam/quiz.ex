@@ -13,6 +13,7 @@ defmodule Novel.Exam.Quiz do
 
     field :sample_size, :integer
     field :duration, :integer
+    field :threshold, :float
 
     field :started_at, :utc_datetime
 
@@ -27,9 +28,13 @@ defmodule Novel.Exam.Quiz do
   def changeset(%Quiz{} = quiz, attrs) do
     quiz
     |> cast(attrs, [
-      :name, :description, :sample_size, :duration, :started_at, :course_id
+      :name, :description, :sample_size, :duration, :threshold,
+      :started_at, :course_id
     ])
     |> validate_required([:name, :started_at, :course_id])
+    |> validate_number(:threshold,
+      greater_than_or_equal_to: 0, less_than_or_equal_to: 1
+    )
     |> foreign_key_constraint(:course_id)
     |> unique_constraint(:name, name: :exam_quizzes_course_id_name_index)
   end

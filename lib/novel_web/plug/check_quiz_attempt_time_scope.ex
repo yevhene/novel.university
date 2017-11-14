@@ -11,7 +11,7 @@ defmodule NovelWeb.Plug.CheckQuizAttemptTimeScope do
   def call(conn, _opts) do
     attempt = conn.assigns.attempt
 
-    if Exam.is_attempt_active? attempt do
+    if Exam.is_active? attempt do
       conn
     else
       error_response(conn)

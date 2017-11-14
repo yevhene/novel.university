@@ -3,5 +3,7 @@
     <%= link to: student_course_quiz_path(@conn, :show, @course, @quiz) do %>
       <span><%= @quiz.name %></span>
     <% end %>
+
+    <%= Novel.Exam.is_successful?(@enrollment, @quiz) |> status_icon %>
   </div>
 </li>
