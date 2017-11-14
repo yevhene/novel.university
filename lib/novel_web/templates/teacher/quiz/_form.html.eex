@@ -23,6 +23,11 @@
     <%= error_tag f, :duration %>
   </div>
 
+  <div class="form-group">
+    <%= label f, :started_at, gettext("Start"), class: "control-label" %>
+    <%= datetime_select f, :started_at, class: "form-control" %>
+    <%= error_tag f, :started_at %>
+  </div>
 
   <div class="form-group">
     <%= label f, :description, gettext("Description"), class: "control-label" %>

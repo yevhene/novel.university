@@ -52,6 +52,7 @@ defmodule Novel.Mixfile do
       {:guardian, "~> 1.0-beta"},
       {:tentacat, "~> 0.7.1"},
       {:earmark, "~> 1.2.3"},
+      {:calendar, "~> 0.17.2"},
 
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},

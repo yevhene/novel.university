@@ -1,0 +1,10 @@
+<h2>
+  <%= gettext "Are you ready?" %>
+</h2>
+
+<%= link to: student_course_quiz_attempt_path(@conn, :create, @course, @quiz), method: :post, class: "btn btn-primary" do %>
+  <%= gettext "Start" %>
+<% end %>
+
+<hr />
+<span><%= link gettext("Back"), to: student_course_quiz_path(@conn, :show, @course, @quiz) %></span>

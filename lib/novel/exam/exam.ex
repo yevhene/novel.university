@@ -3,10 +3,14 @@ defmodule Novel.Exam do
   import Ecto.Changeset
   alias Novel.Repo
 
+  alias Novel.Exam.Answer
+  alias Novel.Exam.Attempt
   alias Novel.Exam.Option
+  alias Novel.Exam.Pick
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
   alias Novel.University.Course
+  alias Novel.University.Enrollment
 
   def list_quizzes(%Course{id: course_id}) do
     Quiz
@@ -15,9 +19,20 @@ defmodule Novel.Exam do
     |> Repo.all
   end
 
+  def list_active_quizzes(%Course{id: course_id}) do
+    now = Ecto.DateTime.utc
+
+    Quiz
+    |> where(course_id: ^course_id)
+    |> where([q], q.started_at <= type(^now, Ecto.DateTime))
+    |> order_by(:name)
+    |> Repo.all
+  end
+
   def get_quiz!(id) do
     Quiz
     |> Repo.get!(id)
+    |> Repo.preload(:questions)
   end
 
   def create_quiz(attrs \\ %{}) do
@@ -106,5 +121,125 @@ defmodule Novel.Exam do
 
   def change_option(%Option{} = option) do
     Option.changeset(option, %{})
+  end
+
+  def list_attempts(%Enrollment{id: enrollment_id}, %Quiz{id: quiz_id}) do
+    Attempt
+    |> where(enrollment_id: ^enrollment_id)
+    |> where(quiz_id: ^quiz_id)
+    |> order_by(desc: :inserted_at)
+    |> Repo.all
+    |> Repo.preload([:quiz, :score])
+  end
+
+  def get_attempt!(id) do
+    Attempt
+    |> Repo.get!(id)
+    |> Repo.preload([:quiz, :answers])
+  end
+
+  def get_attempt!(%Enrollment{} = enrollment, id) do
+    Attempt
+    |> where(enrollment_id: ^enrollment.id)
+    |> where(id: ^id)
+    |> limit(1)
+    |> Repo.one()
+    |> Repo.preload([:quiz, :answers])
+  end
+
+  def create_attempt(attrs \\ %{}) do
+    %Attempt{}
+    |> Attempt.changeset(attrs)
+    |> Repo.insert()
+    |> create_attempt_answers()
+  end
+
+  def change_attempt(%Attempt{} = attempt) do
+    Attempt.changeset(attempt, %{})
+  end
+
+  def is_attempt_active?(%Attempt{} = attempt) do
+    inserted_at = DateTime.to_unix(attempt.inserted_at)
+    duration_ago = inserted_at + attempt.quiz.duration * 60
+    now = DateTime.to_unix DateTime.utc_now
+    duration_ago > now
+  end
+
+  def get_answer!(%Attempt{} = attempt, id) do
+    Answer
+    |> where(attempt_id: ^attempt.id)
+    |> where(id: ^id)
+    |> limit(1)
+    |> Repo.one()
+    |> Repo.preload([:question, picks: :option])
+  end
+
+  def get_pick!(%Answer{} = answer, id) do
+    Pick
+    |> where(answer_id: ^answer.id)
+    |> where(id: ^id)
+    |> limit(1)
+    |> Repo.one()
+    |> Repo.preload(:option)
+  end
+
+  def update_pick(%Pick{} = pick, attrs) do
+    pick
+    |> Pick.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def change_pick(%Pick{} = pick) do
+    Pick.update_changeset(pick, %{})
+  end
+
+  defp create_answer(attrs) do
+    %Answer{}
+    |> Answer.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  defp create_pick(attrs) do
+    %Pick{}
+    |> Pick.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  defp create_attempt_answers({:ok, %Attempt{} = attempt}) do
+    quiz = get_quiz!(attempt.quiz_id)
+    total = length(quiz.questions)
+
+    answers = 0..(total - 1)
+      |> Enum.to_list()
+      |> Enum.shuffle()
+      |> Enum.take(quiz.sample_size || total)
+      |> Enum.map(fn index ->
+        question = quiz.questions |> Enum.at(index)
+        {:ok, answer} = %{
+          attempt_id: attempt.id, question_id: question.id
+        }
+        |> create_answer()
+        |> create_answer_picks()
+
+        answer
+      end)
+
+    attempt = %Attempt{attempt | answers: answers}
+
+    {:ok, attempt}
+  end
+
+  defp create_answer_picks({:ok, answer}) do
+    answer = answer |> Repo.preload(question: :options)
+
+    answer.question.options
+    |> Enum.shuffle()
+    |> Enum.each(fn option ->
+      {:ok, _pick} = create_pick(%{
+        answer_id: answer.id, option_id: option.id
+      })
+    end)
+
+    {:ok, answer}
   end
 end

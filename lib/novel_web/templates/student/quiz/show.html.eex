@@ -1,0 +1,34 @@
+<h2>
+  <%= @quiz.name %>
+</h2>
+
+<ul>
+  <li>
+    <strong><%= gettext "Description" %>:</strong>
+    <%= markdown @quiz.description %>
+  </li>
+
+  <li>
+    <strong><%= gettext "Questions" %>:</strong>
+    <%= @quiz.sample_size %>
+  </li>
+
+  <li>
+    <strong><%= gettext "Duration" %>:</strong>
+    <%= format_duration @quiz.duration %>
+  </li>
+</ul>
+
+<h3><%= gettext "Your attempts" %>:</h3>
+
+<ul class="list-group mb-3">
+  <%= render_many(@attempts, NovelWeb.Student.AttemptView, "_attempt.html", assigns) %>
+</ul>
+
+<%= link to: student_course_quiz_attempt_path(@conn, :new, @course, @quiz), class: "btn btn-primary" do %>
+  <i class="fa fa-plus" aria-hidden="true"></i>
+  <%= gettext "New Attempt" %>
+<% end %>
+
+<hr />
+<span><%= link gettext("Back"), to: student_course_quiz_path(@conn, :index, @course) %></span>

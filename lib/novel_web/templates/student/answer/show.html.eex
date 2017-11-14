@@ -1,0 +1,11 @@
+<%= render "_navigation.html", assigns %>
+
+<h2>
+  <%= @answer.question.title %>
+</h2>
+
+<div><%= markdown @answer.question.details %></div>
+
+<ul class="list-group mb-3">
+  <%= render_many(@answer.picks, NovelWeb.Student.PickView, "_form.html", assigns) %>
+</ul>

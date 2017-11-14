@@ -45,6 +45,11 @@ defmodule NovelWeb.Router do
     plug NovelWeb.Plug.AuthorizeEnrollment
   end
 
+  pipeline :quiz_attempt do
+    plug NovelWeb.Plug.LoadQuizAttempt
+    plug NovelWeb.Plug.CheckQuizAttemptTimeScope
+  end
+
   scope "/", NovelWeb do
     pipe_through [:browser, :guardian, :require_login, :identify]
 
@@ -91,6 +96,18 @@ defmodule NovelWeb.Router do
         resources "/labs", LabController, only: [:index, :show] do
           resources "/submissions", SubmissionController,
             only: [:new, :create, :delete]
+        end
+
+        resources "/quizzes", QuizController, only: [:index, :show] do
+          resources "/attempts", AttemptController,
+            only: [:new, :create, :show] do
+
+            pipe_through [:quiz_attempt]
+
+            resources "/answers", AnswerController, only: [:show] do
+              resources "/pick", PickController, only: [:update]
+            end
+          end
         end
       end
     end

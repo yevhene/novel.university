@@ -17,8 +17,11 @@ msgstr ""
 #: lib/novel_web/templates/course/show.html.eex:10
 #: lib/novel_web/templates/profile/edit.html.eex:6
 #: lib/novel_web/templates/profile/show.html.eex:28
+#: lib/novel_web/templates/student/attempt/new.html.eex:10
 #: lib/novel_web/templates/student/lab/index.html.eex:6
 #: lib/novel_web/templates/student/lab/show.html.eex:19
+#: lib/novel_web/templates/student/quiz/index.html.eex:6
+#: lib/novel_web/templates/student/quiz/show.html.eex:34
 #: lib/novel_web/templates/student/submission/new.html.eex:7
 #: lib/novel_web/templates/teacher/course/edit.html.eex:4
 #: lib/novel_web/templates/teacher/course/new.html.eex:6
@@ -144,7 +147,7 @@ msgstr ""
 msgid "Novel University"
 msgstr ""
 
-#: lib/novel_web/plugs/identify_current_user.ex:24
+#: lib/novel_web/plug/identify_current_user.ex:24
 msgid "Please fill your profile"
 msgstr ""
 
@@ -250,24 +253,24 @@ msgstr ""
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:15
 #: lib/novel_web/templates/teacher/option/_form.html.eex:21
 #: lib/novel_web/templates/teacher/question/_form.html.eex:21
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:34
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:39
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:15
 msgid "Submit"
 msgstr ""
 
-#: lib/novel_web/plugs/authorize_enrollment.ex:49
+#: lib/novel_web/plug/authorize_enrollment.ex:49
 msgid "You are not enrolled"
 msgstr ""
 
-#: lib/novel_web/plugs/authorize_head.ex:24
+#: lib/novel_web/plug/authorize_head.ex:24
 msgid "You should be a course head"
 msgstr ""
 
-#: lib/novel_web/plugs/authorize_teacher.ex:23
+#: lib/novel_web/plug/authorize_teacher.ex:23
 msgid "You should be a teacher"
 msgstr ""
 
-#: lib/novel_web/plugs/authorize_enrollment.ex:32
+#: lib/novel_web/plug/authorize_enrollment.ex:32
 msgid "Your enrollment is not yet approved"
 msgstr ""
 
@@ -280,8 +283,9 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
+#: lib/novel_web/templates/student/quiz/show.html.eex:7
 #: lib/novel_web/templates/teacher/course/_form.html.eex:15
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:28
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:33
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:8
 msgid "Description"
 msgstr ""
@@ -313,7 +317,9 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
+#: lib/novel_web/templates/student/attempt/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/_form.html.eex:21
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
 msgid "Start"
 msgstr ""
 
@@ -359,7 +365,7 @@ msgstr ""
 msgid "New enrollments"
 msgstr ""
 
-#: lib/novel_web/views/submission_helper.ex:15
+#: lib/novel_web/views/helpers/submission_helpers.ex:15
 msgid "No"
 msgstr ""
 
@@ -371,7 +377,7 @@ msgstr ""
 msgid "Submissions"
 msgstr ""
 
-#: lib/novel_web/views/submission_helper.ex:14
+#: lib/novel_web/views/helpers/submission_helpers.ex:14
 msgid "Yes"
 msgstr ""
 
@@ -383,18 +389,19 @@ msgstr ""
 msgid "New Quiz"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/quiz_controller.ex:30
+#: lib/novel_web/controllers/teacher/quiz_controller.ex:29
 msgid "Quiz created successfully"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/quiz_controller.ex:70
+#: lib/novel_web/controllers/teacher/quiz_controller.ex:69
 msgid "Quiz deleted successfully"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/quiz_controller.ex:56
+#: lib/novel_web/controllers/teacher/quiz_controller.ex:55
 msgid "Quiz updated successfully"
 msgstr ""
 
+#: lib/novel_web/templates/layout/_student_navigation.html.eex:11
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:23
 msgid "Quizzes"
 msgstr ""
@@ -493,18 +500,20 @@ msgstr ""
 msgid "Question can't be deleted"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/quiz_controller.ex:74
+#: lib/novel_web/controllers/teacher/quiz_controller.ex:73
 msgid "Quiz can't be deleted"
 msgstr ""
 
-#: lib/novel_web/views/teacher/quiz_view.ex:17
+#: lib/novel_web/views/helpers/format_helpers.ex:7
 msgid "%{duration} minute(s)"
 msgstr ""
 
+#: lib/novel_web/templates/student/quiz/show.html.eex:17
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:18
 msgid "Duration"
 msgstr ""
 
+#: lib/novel_web/templates/student/quiz/show.html.eex:12
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:24
 msgid "Questions"
 msgstr ""
@@ -513,14 +522,48 @@ msgstr ""
 msgid "Sample size"
 msgstr ""
 
-#: lib/novel_web/views/teacher/quiz_view.ex:11
+#: lib/novel_web/views/teacher/quiz_view.ex:12
 msgid "all/%{all_size}"
 msgstr ""
 
-#: lib/novel_web/views/teacher/quiz_view.ex:19
+#: lib/novel_web/views/helpers/format_helpers.ex:9
 msgid "unlimited"
 msgstr ""
 
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:21
 msgid "Duration (minutes)"
+msgstr ""
+
+#: lib/novel_web/templates/student/attempt/new.html.eex:2
+msgid "Are you ready?"
+msgstr ""
+
+#: lib/novel_web/views/helpers/attempt_helpers.ex:12
+msgid "In progress"
+msgstr ""
+
+#: lib/novel_web/templates/student/quiz/show.html.eex:30
+msgid "New Attempt"
+msgstr ""
+
+#: lib/novel_web/templates/student/quiz/show.html.eex:22
+msgid "Your attempts"
+msgstr ""
+
+#: lib/novel_web/plug/check_quiz_attempt_time_scope.ex:29
+msgid "Attempt time elapsed"
+msgstr ""
+
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:21
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:25
+msgid "Next"
+msgstr ""
+
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:5
+#: lib/novel_web/templates/student/answer/_navigation.html.eex:9
+msgid "Previous"
+msgstr ""
+
+#: lib/novel_web/controllers/student/pick_controller.ex:25
+msgid "Unknown error"
 msgstr ""

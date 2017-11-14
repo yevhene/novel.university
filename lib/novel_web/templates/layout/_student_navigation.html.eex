@@ -6,4 +6,8 @@
   <li class="nav-item">
     <%= nav_item @conn, gettext("Labs"), student_course_lab_path(@conn, :index, @course) %>
   </li>
+
+  <li class="nav-item">
+    <%= nav_item @conn, gettext("Quizzes"), student_course_quiz_path(@conn, :index, @course) %>
+  </li>
 </ul>

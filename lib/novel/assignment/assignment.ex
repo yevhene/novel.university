@@ -68,8 +68,7 @@ defmodule Novel.Assignment do
     )
     |> order_by(desc: :inserted_at)
     |> Repo.all
-    |> Repo.preload(:lab)
-    |> Repo.preload(enrollment: [:user, :group])
+    |> Repo.preload([:lab, enrollment: [:user, :group]])
   end
 
   def list_submissions(%Enrollment{id: enrollment_id}, %Lab{id: lab_id}) do
@@ -93,8 +92,16 @@ defmodule Novel.Assignment do
   def get_submission!(id) do
     Submission
     |> Repo.get!(id)
-    |> Repo.preload(:lab)
-    |> Repo.preload(enrollment: [:user, :group])
+    |> Repo.preload([:lab, enrollment: [:user, :group]])
+  end
+
+  def get_submission!(%Enrollment{} = enrollment, id) do
+    Submission
+    |> where(enrollment_id: ^enrollment.id)
+    |> where(id: ^id)
+    |> limit(1)
+    |> Repo.one()
+    |> Repo.preload([:lab, enrollment: [:user, :group]])
   end
 
   def create_submission(attrs \\ %{}) do

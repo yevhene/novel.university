@@ -1,4 +1,4 @@
-defmodule NovelWeb.MarkdownHelper do
+defmodule NovelWeb.MarkdownHelpers do
   import Phoenix.HTML, only: [raw: 1]
   import Earmark
 

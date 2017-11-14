@@ -1,4 +1,4 @@
-defmodule NovelWeb.SubmissionHelper do
+defmodule NovelWeb.SubmissionHelpers do
   import NovelWeb.Gettext
   use Phoenix.HTML
 
