@@ -8,7 +8,7 @@
 
     <span><%= @submission.enrollment.group && @submission.enrollment.group.name %></span>
 
-    <%= approved_icon @submission.is_approved %>
+    <%= status_icon @submission.is_approved %>
 
     <%= render "_actions.html", assigns %>
   </div>

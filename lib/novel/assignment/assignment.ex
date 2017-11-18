@@ -45,7 +45,7 @@ defmodule Novel.Assignment do
     Lab.changeset(lab, %{})
   end
 
-  def is_approved?(%Lab{} = lab, %Enrollment{} = enrollment) do
+  def is_approved?(%Enrollment{} = enrollment, %Lab{} = lab) do
     student_submissions = lab.submissions
       |> Enum.filter(&(&1.enrollment_id == enrollment.id))
 

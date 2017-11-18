@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center justify-content-between">
     <span><%= repository_link @submission.repository %></span>
     <span><%= @submission.inserted_at %></span>
-    <%= approved_icon @submission.is_approved %>
+    <%= status_icon @submission.is_approved %>
     <%= render "_actions.html", assigns %>
   </div>
 </li>

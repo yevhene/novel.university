@@ -45,6 +45,7 @@ defmodule NovelWeb.Teacher.OptionController do
   def update(conn, %{"option" => option_params}) do
     course = conn.assigns.course
     quiz = conn.assigns.quiz
+    question = conn.assigns.question
     option = conn.assigns.option
     option_params = update_params(conn, option_params)
 
@@ -53,7 +54,7 @@ defmodule NovelWeb.Teacher.OptionController do
         conn
         |> put_flash(:info, gettext "Option updated successfully")
         |> redirect(to: teacher_course_quiz_question_option_path(
-          conn, :show, course, quiz, option
+          conn, :show, course, quiz, question, option
         ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", option: option, changeset: changeset)

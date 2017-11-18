@@ -8,6 +8,7 @@ defmodule Novel.Repo.Migrations.CreateExamQuizs do
 
       add :sample_size, :integer
       add :duration, :integer
+      add :threshold, :float, null: false, default: 0
 
       add :started_at, :utc_datetime
 

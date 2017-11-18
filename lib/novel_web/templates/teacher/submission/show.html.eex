@@ -21,7 +21,7 @@
 
   <li>
     <strong><%= gettext "Is approved" %>:</strong>
-    <%= approved_format(@submission.is_approved) %>
+    <%= submission_status_format(@submission.is_approved) %>
   </li>
 </ul>
 

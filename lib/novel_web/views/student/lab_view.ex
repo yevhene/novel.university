@@ -1,5 +1,5 @@
 defmodule NovelWeb.Student.LabView do
   use NovelWeb, :view
 
-  import NovelWeb.SubmissionHelpers
+  import NovelWeb.StatusHelpers
 end

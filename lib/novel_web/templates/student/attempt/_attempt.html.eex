@@ -1,6 +1,6 @@
 <li class="list-group-item">
   <div class="d-flex align-items-center justify-content-between">
-    <%= if Novel.Exam.is_attempt_active?(@attempt) do %>
+    <%= if Novel.Exam.is_active?(@attempt) do %>
       <%= link to: student_course_quiz_attempt_path(@conn, :show, @course, @quiz, @attempt) do %>
         <span><%= format_datetime @attempt.inserted_at %></span>
       <% end %>
