@@ -22,4 +22,8 @@
   <li class="nav-item">
     <%= nav_item @conn, gettext("Quizzes"), teacher_course_quiz_path(@conn, :index, @course) %>
   </li>
+
+  <li class="nav-item">
+    <%= nav_item @conn, gettext("Attempts"), teacher_course_attempt_path(@conn, :index, @course) %>
+  </li>
 </ul>

@@ -23,6 +23,7 @@ msgstr ""
 #: lib/novel_web/templates/student/quiz/index.html.eex:6
 #: lib/novel_web/templates/student/quiz/show.html.eex:34
 #: lib/novel_web/templates/student/submission/new.html.eex:7
+#: lib/novel_web/templates/teacher/attempt/index.html.eex:6
 #: lib/novel_web/templates/teacher/course/edit.html.eex:4
 #: lib/novel_web/templates/teacher/course/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/show.html.eex:9
@@ -253,7 +254,7 @@ msgstr ""
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:15
 #: lib/novel_web/templates/teacher/option/_form.html.eex:21
 #: lib/novel_web/templates/teacher/question/_form.html.eex:21
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:39
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:45
 #: lib/novel_web/templates/teacher/submission/_form.html.eex:15
 msgid "Submit"
 msgstr ""
@@ -285,7 +286,7 @@ msgstr ""
 
 #: lib/novel_web/templates/student/quiz/show.html.eex:7
 #: lib/novel_web/templates/teacher/course/_form.html.eex:15
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:33
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:39
 #: lib/novel_web/templates/teacher/quiz/show.html.eex:8
 msgid "Description"
 msgstr ""
@@ -319,7 +320,7 @@ msgstr ""
 
 #: lib/novel_web/templates/student/attempt/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/_form.html.eex:21
-#: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:33
 msgid "Start"
 msgstr ""
 
@@ -365,7 +366,7 @@ msgstr ""
 msgid "New enrollments"
 msgstr ""
 
-#: lib/novel_web/views/helpers/submission_helpers.ex:15
+#: lib/novel_web/views/helpers/submission_helpers.ex:16
 msgid "No"
 msgstr ""
 
@@ -377,7 +378,7 @@ msgstr ""
 msgid "Submissions"
 msgstr ""
 
-#: lib/novel_web/views/helpers/submission_helpers.ex:14
+#: lib/novel_web/views/helpers/submission_helpers.ex:15
 msgid "Yes"
 msgstr ""
 
@@ -443,11 +444,11 @@ msgstr ""
 msgid "Option created successfully"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/option_controller.ex:71
+#: lib/novel_web/controllers/teacher/option_controller.ex:72
 msgid "Option deleted successfully"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/option_controller.ex:54
+#: lib/novel_web/controllers/teacher/option_controller.ex:55
 msgid "Option updated successfully"
 msgstr ""
 
@@ -538,7 +539,7 @@ msgstr ""
 msgid "Are you ready?"
 msgstr ""
 
-#: lib/novel_web/views/helpers/attempt_helpers.ex:12
+#: lib/novel_web/views/helpers/attempt_helpers.ex:13
 msgid "In progress"
 msgstr ""
 
@@ -566,4 +567,12 @@ msgstr ""
 
 #: lib/novel_web/controllers/student/pick_controller.ex:25
 msgid "Unknown error"
+msgstr ""
+
+#: lib/novel_web/templates/layout/_teacher_navigation.html.eex:27
+msgid "Attempts"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
+msgid "Threshold (0..1)"
 msgstr ""
