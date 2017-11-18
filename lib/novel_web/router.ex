@@ -79,6 +79,7 @@ defmodule NovelWeb.Router do
             resources "/options", OptionController, except: [:index]
           end
         end
+        resources "/attempts", AttemptController, only: [:index]
       end
     end
 

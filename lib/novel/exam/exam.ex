@@ -123,6 +123,14 @@ defmodule Novel.Exam do
     Option.changeset(option, %{})
   end
 
+  def list_attempts(%Course{id: course_id}) do
+    Repo.all from a in Attempt,
+      join: q in Quiz, on: q.id == a.quiz_id,
+      where: q.course_id == ^course_id,
+      order_by: [desc: :inserted_at],
+      preload: [:quiz, :score, enrollment: :user]
+  end
+
   def list_attempts(%Enrollment{id: enrollment_id}, %Quiz{id: quiz_id}) do
     Attempt
     |> where(enrollment_id: ^enrollment_id)
