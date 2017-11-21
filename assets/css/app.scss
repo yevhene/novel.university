@@ -29,4 +29,8 @@ p {
   margin: 0;
 }
 
+.pick-form label pre {
+  margin: 0;
+}
+
 @keyframes spin { 100% { transform:rotate(360deg); } }

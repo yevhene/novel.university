@@ -2,7 +2,7 @@
   <div class="d-flex align-items-center justify-content-between">
     <%= link to: teacher_course_quiz_question_option_path(@conn, :show, @course, @quiz, @question, @option) do %>
       <span><%= checkbox :option, :is_correct, value: @option.is_correct, disabled: true %></span>
-      <span><%= @option.text %></span>
+      <%= markdown @option.text %>
     <% end %>
 
     <%= render "_actions.html", assigns %>

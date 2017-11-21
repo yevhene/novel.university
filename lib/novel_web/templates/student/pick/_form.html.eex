@@ -1,8 +1,10 @@
-<%= form_for Novel.Exam.change_pick(@pick), student_course_quiz_attempt_answer_pick_path(@conn, :update, @course, @quiz, @attempt, @answer, @pick), fn f -> %>
+<%= form_for Novel.Exam.change_pick(@pick), student_course_quiz_attempt_answer_pick_path(@conn, :update, @course, @quiz, @attempt, @answer, @pick), [class: "pick-form"], fn f -> %>
   <li class="list-group-item">
     <div class="form-group">
       <%= checkbox f, :is_picked, class: "checkbox", id: "pick[#{@pick.id}][is_picked]", "js-submit-on-change": "true" %>
-      <%= label f, :is_picked, @pick.option.text, class: "control-label", for: "pick[#{@pick.id}][is_picked]" %>
+      <%= label f, :is_picked, class: "control-label", for: "pick[#{@pick.id}][is_picked]" do %>
+        <%= markdown @pick.option.text %>
+      <% end %>
     </div>
   </li>
 <% end %>
