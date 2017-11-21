@@ -1,4 +1,5 @@
 <%= render "_navigation.html", assigns %>
+<%= render "_timer.html", assigns %>
 
 <h2>
   <%= @answer.question.title %>

@@ -167,10 +167,14 @@ defmodule Novel.Exam do
   end
 
   def is_active?(%Attempt{} = attempt) do
+    time_left(attempt) > 0
+  end
+
+  def time_left(%Attempt{} = attempt) do
     inserted_at = DateTime.to_unix(attempt.inserted_at)
     duration_ago = inserted_at + attempt.quiz.duration * 60
     now = DateTime.to_unix DateTime.utc_now
-    duration_ago > now
+    duration_ago - now
   end
 
   def is_successful?(%Attempt{} = attempt) do
