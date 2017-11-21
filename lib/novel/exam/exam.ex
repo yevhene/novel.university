@@ -143,7 +143,10 @@ defmodule Novel.Exam do
   def get_attempt!(id) do
     Attempt
     |> Repo.get!(id)
-    |> Repo.preload([:quiz, :answers])
+    |> Repo.preload(:quiz)
+    |> Repo.preload(answers: from(
+      a in Answer, order_by: a.inserted_at
+    ))
   end
 
   def get_attempt!(%Enrollment{} = enrollment, id) do
@@ -152,7 +155,10 @@ defmodule Novel.Exam do
     |> where(id: ^id)
     |> limit(1)
     |> Repo.one()
-    |> Repo.preload([:quiz, :answers])
+    |> Repo.preload(:quiz)
+    |> Repo.preload(answers: from(
+      a in Answer, order_by: a.inserted_at
+    ))
   end
 
   def create_attempt(attrs \\ %{}) do
