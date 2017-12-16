@@ -1,4 +1,4 @@
-<li class="list-group-item %>">
+<li class="list-group-item">
   <div class="d-flex align-items-center justify-content-between">
     <%= link to: teacher_course_submission_path(@conn, :show, @course, @submission) do %>
       <%= @submission.lab.title %>
