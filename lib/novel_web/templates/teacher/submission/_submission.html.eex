@@ -1,15 +1,19 @@
-<li class="list-group-item">
-  <div class="d-flex align-items-center justify-content-between">
+<tr>
+  <td>
     <%= link to: teacher_course_submission_path(@conn, :show, @course, @submission) do %>
       <%= @submission.lab.title %>
     <% end %>
-
+  </td>
+  <td>
     <span><%= full_name @submission.enrollment.user %></span>
-
+  </td>
+  <td>
     <span><%= @submission.enrollment.group && @submission.enrollment.group.name %></span>
-
+  </td>
+  <td>
     <%= status_icon @submission.is_approved %>
-
+  </td>
+  <td>
     <%= render "_actions.html", assigns %>
-  </div>
-</li>
+  </td>
+</tr>

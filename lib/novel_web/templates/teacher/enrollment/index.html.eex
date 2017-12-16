@@ -1,6 +1,17 @@
-<ul class="list-group mb-3">
-  <%= render_many(@enrollments, NovelWeb.Teacher.EnrollmentView, "_enrollment.html", assigns) %>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= gettext "Student" %></th>
+      <th><%= gettext "Group" %></th>
+      <th><%= gettext "Labs" %></th>
+      <th><%= gettext "Quizzes" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render_many(@enrollments, NovelWeb.Teacher.EnrollmentView, "_enrollment.html", assigns) %>
+  </tbody>
+</table>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_path(@conn, :show, @course) %></span>

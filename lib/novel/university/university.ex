@@ -51,8 +51,9 @@ defmodule Novel.University do
 
   def list_enrollments(%Course{} = course) do
     Enrollment
+    |> join(:inner, [e], user in assoc(e, :user))
     |> where(course_id: ^course.id)
-    |> order_by(desc: :inserted_at)
+    |> order_by([e, u], asc: e.group_id, asc: u.last_name, asc: u.first_name)
     |> Repo.all
     |> Repo.preload([:user, :group, :assignment_results, :exam_results])
   end

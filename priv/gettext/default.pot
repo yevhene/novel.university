@@ -23,19 +23,19 @@ msgstr ""
 #: lib/novel_web/templates/student/quiz/index.html.eex:6
 #: lib/novel_web/templates/student/quiz/show.html.eex:34
 #: lib/novel_web/templates/student/submission/new.html.eex:7
-#: lib/novel_web/templates/teacher/attempt/index.html.eex:6
+#: lib/novel_web/templates/teacher/attempt/index.html.eex:16
 #: lib/novel_web/templates/teacher/course/edit.html.eex:4
 #: lib/novel_web/templates/teacher/course/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/show.html.eex:9
 #: lib/novel_web/templates/teacher/enrollment/edit.html.eex:4
-#: lib/novel_web/templates/teacher/enrollment/index.html.eex:6
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:17
 #: lib/novel_web/templates/teacher/enrollment/show.html.eex:14
 #: lib/novel_web/templates/teacher/group/edit.html.eex:4
-#: lib/novel_web/templates/teacher/group/index.html.eex:8
+#: lib/novel_web/templates/teacher/group/index.html.eex:16
 #: lib/novel_web/templates/teacher/group/new.html.eex:4
 #: lib/novel_web/templates/teacher/group/show.html.eex:7
 #: lib/novel_web/templates/teacher/lab/edit.html.eex:4
-#: lib/novel_web/templates/teacher/lab/index.html.eex:8
+#: lib/novel_web/templates/teacher/lab/index.html.eex:16
 #: lib/novel_web/templates/teacher/lab/new.html.eex:4
 #: lib/novel_web/templates/teacher/lab/show.html.eex:7
 #: lib/novel_web/templates/teacher/option/edit.html.eex:4
@@ -43,13 +43,13 @@ msgstr ""
 #: lib/novel_web/templates/teacher/option/show.html.eex:19
 #: lib/novel_web/templates/teacher/question/edit.html.eex:4
 #: lib/novel_web/templates/teacher/question/new.html.eex:4
-#: lib/novel_web/templates/teacher/question/show.html.eex:15
+#: lib/novel_web/templates/teacher/question/show.html.eex:23
 #: lib/novel_web/templates/teacher/quiz/edit.html.eex:4
-#: lib/novel_web/templates/teacher/quiz/index.html.eex:8
+#: lib/novel_web/templates/teacher/quiz/index.html.eex:16
 #: lib/novel_web/templates/teacher/quiz/new.html.eex:4
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:33
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:40
 #: lib/novel_web/templates/teacher/submission/edit.html.eex:4
-#: lib/novel_web/templates/teacher/submission/index.html.eex:6
+#: lib/novel_web/templates/teacher/submission/index.html.eex:17
 #: lib/novel_web/templates/teacher/submission/show.html.eex:29
 msgid "Back"
 msgstr ""
@@ -136,6 +136,7 @@ msgstr ""
 
 #: lib/novel_web/templates/layout/_student_navigation.html.eex:7
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:15
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:6
 msgid "Labs"
 msgstr ""
 
@@ -302,7 +303,9 @@ msgid "First name"
 msgstr ""
 
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:9
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
 #: lib/novel_web/templates/teacher/enrollment/show.html.eex:8
+#: lib/novel_web/templates/teacher/submission/index.html.eex:6
 #: lib/novel_web/templates/teacher/submission/show.html.eex:14
 msgid "Group"
 msgstr ""
@@ -314,6 +317,7 @@ msgstr ""
 
 #: lib/novel_web/templates/teacher/course/_form.html.eex:9
 #: lib/novel_web/templates/teacher/group/_form.html.eex:9
+#: lib/novel_web/templates/teacher/group/index.html.eex:4
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:9
 msgid "Name"
 msgstr ""
@@ -324,8 +328,11 @@ msgstr ""
 msgid "Start"
 msgstr ""
 
+#: lib/novel_web/templates/teacher/attempt/index.html.eex:4
 #: lib/novel_web/templates/teacher/lab/_form.html.eex:9
+#: lib/novel_web/templates/teacher/lab/index.html.eex:4
 #: lib/novel_web/templates/teacher/question/_form.html.eex:9
+#: lib/novel_web/templates/teacher/quiz/index.html.eex:4
 msgid "Title"
 msgstr ""
 
@@ -404,6 +411,7 @@ msgstr ""
 
 #: lib/novel_web/templates/layout/_student_navigation.html.eex:11
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:23
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:7
 msgid "Quizzes"
 msgstr ""
 
@@ -485,6 +493,7 @@ msgstr ""
 msgid "Group can't be deleted"
 msgstr ""
 
+#: lib/novel_web/templates/teacher/submission/index.html.eex:4
 #: lib/novel_web/templates/teacher/submission/show.html.eex:8
 msgid "Lab"
 msgstr ""
@@ -494,6 +503,7 @@ msgid "Lab can't be deleted"
 msgstr ""
 
 #: lib/novel_web/templates/teacher/option/show.html.eex:2
+#: lib/novel_web/templates/teacher/question/show.html.eex:11
 msgid "Option"
 msgstr ""
 
@@ -505,7 +515,7 @@ msgstr ""
 msgid "Quiz can't be deleted"
 msgstr ""
 
-#: lib/novel_web/views/helpers/format_helpers.ex:7
+#: lib/novel_web/views/helpers/format_helpers.ex:9
 msgid "%{duration} minute(s)"
 msgstr ""
 
@@ -515,7 +525,6 @@ msgid "Duration"
 msgstr ""
 
 #: lib/novel_web/templates/student/quiz/show.html.eex:12
-#: lib/novel_web/templates/teacher/quiz/show.html.eex:24
 msgid "Questions"
 msgstr ""
 
@@ -575,4 +584,22 @@ msgstr ""
 
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
 msgid "Threshold"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/submission/index.html.eex:7
+msgid "Approved"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/quiz/show.html.eex:28
+msgid "Question"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/attempt/index.html.eex:6
+msgid "Result"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/attempt/index.html.eex:5
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:4
+#: lib/novel_web/templates/teacher/submission/index.html.eex:5
+msgid "Student"
 msgstr ""

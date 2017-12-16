@@ -1,18 +1,19 @@
-<li class="list-group-item">
-  <div class="d-flex align-items-center justify-content-between">
+<tr>
+  <td>
     <%= link to: teacher_course_enrollment_path(@conn, :show, @course, @enrollment) do %>
       <span><%= full_name(@enrollment.user) %></span>
     <% end %>
-
+  </td>
+  <td>
     <%= @enrollment.group && @enrollment.group.name %>
-
+  </td>
+  <td>
     <%= format_results Enum.map(@enrollment.assignment_results, &(&1.is_passed)) %>
-
+  </td>
+  <td>
     <%= format_results Enum.map(@enrollment.exam_results, &(&1.is_passed)) %>
-
+  </td>
+  <td>
     <%= render "_actions.html", assigns %>
-  </div>
-</li>
-
-
-
+  </td>
+</tr>

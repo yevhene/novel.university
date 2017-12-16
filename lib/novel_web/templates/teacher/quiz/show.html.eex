@@ -21,13 +21,20 @@
 </ul>
 
 <hr />
-<h3><%= gettext "Questions" %></h3>
 
-<ul class="list-group mb-3">
-  <%= render_many(@questions, NovelWeb.Teacher.QuestionView, "_question.html", assigns) %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= gettext "Question" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render_many(@questions, NovelWeb.Teacher.QuestionView, "_question.html", assigns) %>
+  </tbody>
+</table>
 
-  <%= render NovelWeb.Teacher.QuestionView, "_new_question_button.html", assigns %>
-</ul>
+<%= render NovelWeb.Teacher.QuestionView, "_new_question_button.html", assigns %>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_quiz_path(@conn, :index, @course) %></span>
