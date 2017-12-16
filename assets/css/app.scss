@@ -34,3 +34,11 @@ p {
 }
 
 @keyframes spin { 100% { transform:rotate(360deg); } }
+
+.timer {
+  display: inline-block;
+}
+
+.form-group .help-block {
+  color: red;
+}

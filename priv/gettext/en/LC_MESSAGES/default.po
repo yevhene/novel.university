@@ -527,10 +527,6 @@ msgstr ""
 msgid "all/%{all_size}"
 msgstr ""
 
-#: lib/novel_web/views/helpers/format_helpers.ex:9
-msgid "unlimited"
-msgstr ""
-
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:21
 msgid "Duration (minutes)"
 msgstr ""
@@ -539,7 +535,7 @@ msgstr ""
 msgid "Are you ready?"
 msgstr ""
 
-#: lib/novel_web/views/helpers/attempt_helpers.ex:13
+#: lib/novel_web/views/helpers/attempt_helpers.ex:16
 msgid "In progress"
 msgstr ""
 
@@ -551,7 +547,7 @@ msgstr ""
 msgid "Your attempts"
 msgstr ""
 
-#: lib/novel_web/plug/check_quiz_attempt_time_scope.ex:29
+#: lib/novel_web/plug/quiz_attempt_timer.ex:29
 msgid "Attempt time elapsed"
 msgstr ""
 
@@ -573,6 +569,10 @@ msgstr ""
 msgid "Attempts"
 msgstr ""
 
+#: lib/novel_web/templates/student/answer/show.html.eex:4
+msgid "Results will be available when the time expires"
+msgstr ""
+
 #: lib/novel_web/templates/teacher/quiz/_form.html.eex:27
-msgid "Threshold (0..1)"
+msgid "Threshold"
 msgstr ""

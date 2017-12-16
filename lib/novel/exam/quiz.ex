@@ -31,9 +31,12 @@ defmodule Novel.Exam.Quiz do
       :name, :description, :sample_size, :duration, :threshold,
       :started_at, :course_id
     ])
-    |> validate_required([:name, :started_at, :course_id])
+    |> validate_required([:name, :started_at, :duration, :course_id])
     |> validate_number(:threshold,
       greater_than_or_equal_to: 0, less_than_or_equal_to: 1
+    )
+    |> validate_number(:duration,
+      greater_than: 0
     )
     |> foreign_key_constraint(:course_id)
     |> unique_constraint(:name, name: :exam_quizzes_course_id_name_index)

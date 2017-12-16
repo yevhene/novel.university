@@ -3,6 +3,7 @@ defmodule NovelWeb.AttemptHelpers do
   import NovelWeb.StatusHelpers
 
   alias Novel.Exam
+  alias NovelWeb.SharedView
 
   def format_attempt_status(nil) do
     nil
@@ -28,9 +29,9 @@ defmodule NovelWeb.AttemptHelpers do
   end
 
   defp attempt_timer(attempt) do
-    NovelWeb.SharedView.render(
+    SharedView.render(
       "_timer.html",
-      finished_at: Novel.Exam.finished_at(attempt)
+      finished_at: Exam.finished_at(attempt)
     )
   end
 end
