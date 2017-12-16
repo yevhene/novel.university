@@ -6,6 +6,10 @@
 
     <%= @enrollment.group && @enrollment.group.name %>
 
+    <%= format_results Enum.map(@enrollment.assignment_results, &(&1.is_passed)) %>
+
+    <%= format_results Enum.map(@enrollment.exam_results, &(&1.is_passed)) %>
+
     <%= render "_actions.html", assigns %>
   </div>
 </li>

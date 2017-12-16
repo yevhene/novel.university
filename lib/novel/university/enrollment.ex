@@ -3,7 +3,9 @@ defmodule Novel.University.Enrollment do
   import Ecto.Changeset
 
   alias Novel.Account.User
+  alias Novel.Assignment
   alias Novel.Assignment.Submission
+  alias Novel.Exam
   alias Novel.Exam.Attempt
   alias Novel.University.Course
   alias Novel.University.Enrollment
@@ -16,6 +18,9 @@ defmodule Novel.University.Enrollment do
 
     has_many :submissions, Submission
     has_many :attempts, Attempt
+
+    has_many :assignment_results, Assignment.Result
+    has_many :exam_results, Exam.Result
 
     timestamps(type: :utc_datetime)
   end

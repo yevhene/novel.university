@@ -54,7 +54,7 @@ defmodule Novel.University do
     |> where(course_id: ^course.id)
     |> order_by(desc: :inserted_at)
     |> Repo.all
-    |> Repo.preload([:user, :group])
+    |> Repo.preload([:user, :group, :assignment_results, :exam_results])
   end
 
   def new_enrollments_count(%Course{} = course) do
