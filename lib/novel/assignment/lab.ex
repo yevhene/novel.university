@@ -4,6 +4,7 @@ defmodule Novel.Assignment.Lab do
 
   alias Novel.University.Course
   alias Novel.Assignment.Lab
+  alias Novel.Assignment.Result
   alias Novel.Assignment.Submission
 
   schema "assignment_labs" do
@@ -12,6 +13,7 @@ defmodule Novel.Assignment.Lab do
     belongs_to :course, Course
 
     has_many :submissions, Submission
+    has_many :results, Result
 
     timestamps(type: :utc_datetime)
   end

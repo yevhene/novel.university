@@ -9,7 +9,8 @@ defmodule NovelWeb.Student.QuizController do
 
   def index(conn, _params) do
     course = conn.assigns.course
-    quizzes = Exam.list_active_quizzes(course)
+    enrollment = conn.assigns.enrollment
+    quizzes = Exam.list_quizzes(course, enrollment)
     render(conn, "index.html", quizzes: quizzes)
   end
 

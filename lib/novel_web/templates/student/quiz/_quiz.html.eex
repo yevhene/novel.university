@@ -4,6 +4,6 @@
       <span><%= @quiz.name %></span>
     <% end %>
 
-    <%= Novel.Exam.is_successful?(@enrollment, @quiz) |> status_icon %>
+    <%= status_icon List.first(@quiz.results).is_passed %>
   </div>
 </li>

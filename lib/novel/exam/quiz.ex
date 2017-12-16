@@ -5,6 +5,7 @@ defmodule Novel.Exam.Quiz do
   alias Novel.Exam.Attempt
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
+  alias Novel.Exam.Result
   alias Novel.University.Course
 
   schema "exam_quizzes" do
@@ -21,6 +22,7 @@ defmodule Novel.Exam.Quiz do
 
     has_many :questions, Question
     has_many :attempts, Attempt
+    has_many :results, Result
 
     timestamps(type: :utc_datetime)
   end

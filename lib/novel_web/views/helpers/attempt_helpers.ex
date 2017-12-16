@@ -20,7 +20,7 @@ defmodule NovelWeb.AttemptHelpers do
       if score do
         [
           :erlang.float_to_binary(score.value * 100, [decimals: 1]) <> "%",
-          status_icon(Exam.is_successful?(attempt))
+          status_icon(attempt.score.is_passed)
         ]
       else
         "-"
