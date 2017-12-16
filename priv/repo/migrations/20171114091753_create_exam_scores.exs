@@ -34,11 +34,24 @@ defmodule Novel.Repo.Migrations.CreateExamScores do
           FROM picks
           GROUP BY attempt_id
           ORDER BY attempt_id ASC
+        ),
+        values AS (
+          SELECT
+            attempt_id,
+            (true_positives + true_negatives)::float / total AS value
+          FROM attempts
         )
         SELECT
           attempt_id,
-          (true_positives + true_negatives)::float / total AS value
-        FROM attempts;
+          value,
+          value >= q.threshold AS is_passed
+        FROM values v
+        INNER JOIN exam_attempts a
+          ON a.id = v.attempt_id
+        INNER JOIN exam_quizzes q
+          ON q.id = a.quiz_id
+        ORDER BY attempt_id ASC
+        ;
     """
   end
 

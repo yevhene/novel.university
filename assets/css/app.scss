@@ -42,3 +42,23 @@ p {
 .form-group .help-block {
   color: red;
 }
+
+ul.results {
+  margin: 0;
+  padding: 0;
+
+  li {
+    height: 14px;
+    width: 14px;
+    display: inline-block;
+    background-color: lightgray;
+  }
+
+  li.true {
+    background-color: green;
+  }
+
+  li.false {
+    background-color: red;
+  }
+}

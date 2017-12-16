@@ -1,8 +1,10 @@
-<li class="list-group-item">
-  <div class="d-flex align-items-center justify-content-between">
+<tr>
+  <td>
     <%= link to: teacher_course_lab_path(@conn, :show, @course, @lab) do %>
       <span><%= @lab.title %></span>
     <% end %>
+  </td>
+  <td>
     <%= render "_actions.html", assigns %>
-  </div>
-</li>
+  </td>
+</tr>

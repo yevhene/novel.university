@@ -9,7 +9,8 @@ defmodule NovelWeb.Student.LabController do
 
   def index(conn, _params) do
     course = conn.assigns.course
-    labs = Assignment.list_labs(course)
+    enrollment = conn.assigns.enrollment
+    labs = Assignment.list_labs(course, enrollment)
     render(conn, "index.html", labs: labs)
   end
 

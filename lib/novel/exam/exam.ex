@@ -15,18 +15,19 @@ defmodule Novel.Exam do
   def list_quizzes(%Course{id: course_id}) do
     Quiz
     |> where(course_id: ^course_id)
-    |> order_by(:name)
+    |> order_by(asc: :id)
     |> Repo.all
   end
 
-  def list_active_quizzes(%Course{id: course_id}) do
+  def list_quizzes(%Course{id: course_id}, %Enrollment{id: enrollment_id}) do
     now = Ecto.DateTime.utc
 
     Quiz
     |> where(course_id: ^course_id)
     |> where([q], q.started_at <= type(^now, Ecto.DateTime))
-    |> order_by(:name)
+    |> order_by(asc: :id)
     |> Repo.all
+    |> Repo.preload(:results, enrollment_id: enrollment_id)
   end
 
   def get_quiz!(id) do
@@ -188,25 +189,6 @@ defmodule Novel.Exam do
       inserted_at + attempt.quiz.duration * 60
     )
     datetime
-  end
-
-  def is_successful?(%Attempt{} = attempt) do
-    attempt.score.value >= attempt.quiz.threshold
-  end
-
-  def is_successful?(%Enrollment{} = enrollment, %Quiz{} = quiz) do
-    student_attempts = enrollment
-      |> list_attempts(quiz)
-      |> Enum.filter(&(not is_active?(&1)))
-
-    cond do
-      length(student_attempts) == 0 ->
-        nil
-      student_attempts |> Enum.any?(&(is_successful?(&1))) ->
-        true
-      true ->
-        false
-    end
   end
 
   def get_answer!(%Attempt{} = attempt, id) do

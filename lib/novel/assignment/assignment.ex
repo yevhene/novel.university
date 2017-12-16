@@ -11,9 +11,16 @@ defmodule Novel.Assignment do
   def list_labs(%Course{id: course_id}) do
     Lab
     |> where(course_id: ^course_id)
-    |> order_by(:title)
+    |> order_by(asc: :id)
     |> Repo.all
-    |> Repo.preload(:submissions)
+  end
+
+  def list_labs(%Course{id: course_id}, %Enrollment{id: enrollment_id}) do
+    Lab
+    |> where(course_id: ^course_id)
+    |> order_by(asc: :id)
+    |> Repo.all
+    |> Repo.preload(:results, enrollment_id: enrollment_id)
   end
 
   def get_lab!(id) do
@@ -43,22 +50,6 @@ defmodule Novel.Assignment do
 
   def change_lab(%Lab{} = lab) do
     Lab.changeset(lab, %{})
-  end
-
-  def is_approved?(%Enrollment{} = enrollment, %Lab{} = lab) do
-    student_submissions = lab.submissions
-      |> Enum.filter(&(&1.enrollment_id == enrollment.id))
-
-    cond do
-      length(student_submissions) == 0 ->
-        nil
-      student_submissions |> Enum.any?(&(&1.is_approved)) ->
-        true
-      student_submissions |> Enum.any?(&(&1.is_approved == nil)) ->
-        nil
-      true ->
-        false
-    end
   end
 
   def list_submissions(%Course{} = course) do

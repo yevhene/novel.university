@@ -1,6 +1,16 @@
-<ul class="list-group mb-3">
-  <%= render_many(@attempts, NovelWeb.Teacher.AttemptView, "_attempt.html", assigns) %>
-</ul>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= gettext "Title" %></th>
+      <th><%= gettext "Student" %></th>
+      <th><%= gettext "Result" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render_many(@attempts, NovelWeb.Teacher.AttemptView, "_attempt.html", assigns) %>
+  </tbody>
+</table>
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_path(@conn, :show, @course) %></span>

@@ -1,10 +1,11 @@
-<li class="list-group-item">
-  <div class="d-flex align-items-center justify-content-between">
+<tr>
+  <td>
     <%= link to: teacher_course_quiz_question_option_path(@conn, :show, @course, @quiz, @question, @option) do %>
       <span><%= checkbox :option, :is_correct, value: @option.is_correct, disabled: true %></span>
       <%= markdown @option.text %>
     <% end %>
-
+  </td>
+  <td>
     <%= render "_actions.html", assigns %>
-  </div>
-</li>
+  </td>
+</tr>

@@ -1,9 +1,11 @@
-<li class="list-group-item">
-  <div class="d-flex align-items-center justify-content-between">
+<tr>
+  <td>
     <span><%= @attempt.quiz.name %></span>
-
+  </td>
+  <td>
     <span><%= full_name @attempt.enrollment.user %></span>
-
+  </td>
+  <td>
     <%= format_attempt_status @attempt %>
-  </div>
-</li>
+  </td>
+</tr>
