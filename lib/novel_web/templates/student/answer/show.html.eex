@@ -1,4 +1,8 @@
 <%= render "_navigation.html", assigns %>
+<div>
+  <%= render NovelWeb.SharedView, "_timer.html", finished_at: Novel.Exam.finished_at(@attempt) %>
+  <i class="timer-hint">(<%= gettext "Results will be available when the time expires" %>)</i>
+</div>
 
 <h2>
   <%= @answer.question.title %>

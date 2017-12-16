@@ -29,4 +29,16 @@ p {
   margin: 0;
 }
 
+.pick-form label pre {
+  margin: 0;
+}
+
 @keyframes spin { 100% { transform:rotate(360deg); } }
+
+.timer {
+  display: inline-block;
+}
+
+.form-group .help-block {
+  color: red;
+}

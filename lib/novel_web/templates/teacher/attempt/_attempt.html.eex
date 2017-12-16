@@ -4,8 +4,6 @@
 
     <span><%= full_name @attempt.enrollment.user %></span>
 
-    <span><%= format_datetime @attempt.inserted_at %></span>
-
     <%= format_attempt_status @attempt %>
   </div>
 </li>

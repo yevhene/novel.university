@@ -10,7 +10,7 @@ function replaceElementWithHtml(element, html) {
   element.parentElement.replaceChild(replacement, element);
 }
 
-$(function() {
+$(document).ready(function() {
   const lazyElements = document.querySelectorAll("[js-lazy-content]");
   for (let element of lazyElements) {
     lazyLoad(element);

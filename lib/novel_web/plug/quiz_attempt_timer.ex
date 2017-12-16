@@ -1,4 +1,4 @@
-defmodule NovelWeb.Plug.CheckQuizAttemptTimeScope do
+defmodule NovelWeb.Plug.QuizAttemptTimer do
   import NovelWeb.Gettext
   import Phoenix.Controller, only: [put_flash: 3, redirect: 2]
   import Plug.Conn, only: [halt: 1, send_resp: 3]
@@ -26,7 +26,7 @@ defmodule NovelWeb.Plug.CheckQuizAttemptTimeScope do
     case format do
       "html" ->
         conn
-        |> put_flash(:error, gettext "Attempt time elapsed")
+        |> put_flash(:info, gettext "Attempt time elapsed")
         |> redirect(to: Routes.student_course_quiz_path(
           conn, :show, course, quiz
         ))

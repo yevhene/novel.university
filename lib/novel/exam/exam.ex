@@ -143,7 +143,10 @@ defmodule Novel.Exam do
   def get_attempt!(id) do
     Attempt
     |> Repo.get!(id)
-    |> Repo.preload([:quiz, :answers])
+    |> Repo.preload(:quiz)
+    |> Repo.preload(answers: from(
+      a in Answer, order_by: a.inserted_at
+    ))
   end
 
   def get_attempt!(%Enrollment{} = enrollment, id) do
@@ -152,7 +155,10 @@ defmodule Novel.Exam do
     |> where(id: ^id)
     |> limit(1)
     |> Repo.one()
-    |> Repo.preload([:quiz, :answers])
+    |> Repo.preload(:quiz)
+    |> Repo.preload(answers: from(
+      a in Answer, order_by: a.inserted_at
+    ))
   end
 
   def create_attempt(attrs \\ %{}) do
@@ -167,10 +173,21 @@ defmodule Novel.Exam do
   end
 
   def is_active?(%Attempt{} = attempt) do
+    time_left(attempt) > 0
+  end
+
+  def time_left(%Attempt{} = attempt) do
+    target = attempt |> finished_at |> DateTime.to_unix
+    now = DateTime.utc_now |> DateTime.to_unix
+    target - now
+  end
+
+  def finished_at(%Attempt{} = attempt) do
     inserted_at = DateTime.to_unix(attempt.inserted_at)
-    duration_ago = inserted_at + attempt.quiz.duration * 60
-    now = DateTime.to_unix DateTime.utc_now
-    duration_ago > now
+    {:ok, datetime} = DateTime.from_unix(
+      inserted_at + attempt.quiz.duration * 60
+    )
+    datetime
   end
 
   def is_successful?(%Attempt{} = attempt) do
