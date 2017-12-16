@@ -47,7 +47,7 @@ defmodule NovelWeb.Router do
 
   pipeline :quiz_attempt do
     plug NovelWeb.Plug.LoadQuizAttempt
-    plug NovelWeb.Plug.CheckQuizAttemptTimeScope
+    plug NovelWeb.Plug.QuizAttemptTimer
   end
 
   scope "/", NovelWeb do

@@ -1,4 +1,4 @@
 <div class="timer">
   <i class="fa fa-clock-o" aria-hidden="true"></i>
-  <%= format_timer Novel.Exam.time_left(@attempt) %>
+  <span js-timer="<%= @finished_at %>"></span>
 </div>

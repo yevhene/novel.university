@@ -10,7 +10,10 @@ defmodule NovelWeb.AttemptHelpers do
 
   def format_attempt_status(attempt) do
     if Exam.is_active?(attempt) do
-      gettext "In progress"
+      [
+        attempt_timer(attempt),
+        gettext "In progress"
+      ]
     else
       score = attempt.score
       if score do
@@ -22,5 +25,12 @@ defmodule NovelWeb.AttemptHelpers do
         "-"
       end
     end
+  end
+
+  defp attempt_timer(attempt) do
+    NovelWeb.SharedView.render(
+      "_timer.html",
+      finished_at: Novel.Exam.finished_at(attempt)
+    )
   end
 end

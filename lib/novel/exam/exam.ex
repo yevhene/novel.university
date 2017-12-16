@@ -177,10 +177,17 @@ defmodule Novel.Exam do
   end
 
   def time_left(%Attempt{} = attempt) do
+    target = attempt |> finished_at |> DateTime.to_unix
+    now = DateTime.utc_now |> DateTime.to_unix
+    target - now
+  end
+
+  def finished_at(%Attempt{} = attempt) do
     inserted_at = DateTime.to_unix(attempt.inserted_at)
-    duration_ago = inserted_at + attempt.quiz.duration * 60
-    now = DateTime.to_unix DateTime.utc_now
-    duration_ago - now
+    {:ok, datetime} = DateTime.from_unix(
+      inserted_at + attempt.quiz.duration * 60
+    )
+    datetime
   end
 
   def is_successful?(%Attempt{} = attempt) do
