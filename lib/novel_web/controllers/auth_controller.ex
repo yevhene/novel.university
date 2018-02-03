@@ -1,11 +1,15 @@
 defmodule NovelWeb.AuthController do
   use NovelWeb, :controller
 
+  require Logger
+
   import NovelWeb.Guardian.Plug, only: [sign_in: 2]
 
   alias Novel.Account
 
-  def callback(%{assigns: %{ueberauth_failure: _fails}} = conn, _params) do
+  def callback(%{assigns: %{ueberauth_failure: failure}} = conn, _params) do
+    Logger.error inspect(failure)
+
     conn
     |> put_flash(:error, gettext "Failed to authenticate")
     |> redirect(to: "/")

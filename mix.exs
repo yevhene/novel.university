@@ -4,7 +4,7 @@ defmodule Novel.Mixfile do
   def project do
     [
       app: :novel,
-      version: "0.0.1",
+      version: "0.4.1",
       elixir: "~> 1.4",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
@@ -57,7 +57,9 @@ defmodule Novel.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
       {:junit_formatter, "~> 2.0", only: :test},
-      {:excoveralls, "~> 0.7", only: :test}
+      {:excoveralls, "~> 0.7", only: :test},
+      {:edeliver, "~> 1.4.5"},
+      {:distillery, "~> 1.5", runtime: false}
     ]
   end
 

@@ -32,3 +32,4 @@ npm-debug.log
 # Temp
 /tmp/*
 !/tmp/.keep
+.deliver/releases/

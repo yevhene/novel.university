@@ -15,7 +15,10 @@ use Mix.Config
 # which you typically run after static files are built.
 config :novel, NovelWeb.Endpoint,
   load_from_system_env: true,
-  url: [host: "novel.university", port: 80],
+  http: [port: {:system, "PORT"}],
+  url: [host: "novel.university", port: {:system, "PORT"}],
+  server: true,
+  root: ".",
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
@@ -24,9 +27,9 @@ config :logger, level: :info
 
 config :novel, Novel.Repo,
   adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
+  username: "novel",
+  database: "novel",
+  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
 
 config :novel, NovelWeb.Guardian,
   secret_key: Map.fetch!(System.get_env(), "GUARDIAN_SECRET_KEY")
