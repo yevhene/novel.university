@@ -12,7 +12,9 @@ defmodule Novel.University.Course do
   schema "university_courses" do
     field :name, :string
     field :description, :string
+
     field :started_at, :date
+    field :finished_at, :date
 
     belongs_to :head, User
 
@@ -26,7 +28,7 @@ defmodule Novel.University.Course do
 
   def changeset(%Course{} = course, attrs) do
     course
-    |> cast(attrs, [:name, :description, :started_at, :head_id])
+    |> cast(attrs, [:name, :description, :started_at, :finished_at, :head_id])
     |> validate_required([:name, :started_at, :head_id])
     |> foreign_key_constraint(:head_id)
   end

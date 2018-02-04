@@ -11,3 +11,11 @@
     <%= render "_new_course_button.html", assigns %>
   <% end %>
 </div>
+
+<hr />
+
+<h3><%= gettext "Finished Courses" %></h3>
+
+<div class="card-columns">
+  <%= render_many(@finished_courses, NovelWeb.CourseView, "_course.html", assigns) %>
+</div>
