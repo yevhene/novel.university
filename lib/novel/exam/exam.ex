@@ -9,6 +9,7 @@ defmodule Novel.Exam do
   alias Novel.Exam.Pick
   alias Novel.Exam.Quiz
   alias Novel.Exam.Question
+  alias Novel.Exam.Result
   alias Novel.University.Course
   alias Novel.University.Enrollment
 
@@ -27,7 +28,9 @@ defmodule Novel.Exam do
     |> where([q], q.started_at <= type(^now, Ecto.DateTime))
     |> order_by(asc: :id)
     |> Repo.all
-    |> Repo.preload(:results, enrollment_id: enrollment_id)
+    |> Repo.preload([
+      results: from(r in Result, where: r.enrollment_id == ^enrollment_id)
+    ])
   end
 
   def get_quiz!(id) do
