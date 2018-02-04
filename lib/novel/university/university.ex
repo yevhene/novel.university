@@ -11,7 +11,21 @@ defmodule Novel.University do
   alias Novel.University.Group
 
   def list_courses do
+    now = Ecto.DateTime.utc
+
     Course
+    |> where([c], is_nil(c.finished_at) or
+                  c.finished_at > type(^now, Ecto.DateTime))
+    |> order_by(:started_at)
+    |> Repo.all
+    |> Repo.preload(:head)
+  end
+
+  def list_finished_courses do
+    now = Ecto.DateTime.utc
+
+    Course
+    |> where([c], c.finished_at <= type(^now, Ecto.DateTime))
     |> order_by(:started_at)
     |> Repo.all
     |> Repo.preload(:head)
@@ -47,6 +61,10 @@ defmodule Novel.University do
 
   def change_course(%Course{} = course) do
     Course.changeset(course, %{})
+  end
+
+  def is_finished?(%Course{finished_at: finished_at}) do
+    finished_at == nil or finished_at <= DateTime.utc_now
   end
 
   def list_enrollments(%Course{} = course) do

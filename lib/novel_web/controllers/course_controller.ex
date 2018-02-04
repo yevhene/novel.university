@@ -8,7 +8,10 @@ defmodule NovelWeb.CourseController do
 
   def index(conn, _params) do
     courses = University.list_courses()
-    render(conn, "index.html", courses: courses)
+    finished_courses = University.list_finished_courses()
+    render(conn, "index.html",
+           courses: courses,
+           finished_courses: finished_courses)
   end
 
   def show(conn, _params) do

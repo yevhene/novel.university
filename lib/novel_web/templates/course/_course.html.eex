@@ -1,4 +1,4 @@
-<div class="card border-primary mb-3">
+<div class="card mb-3 <%= course_style(@course) %>">
   <div class="card-header">
     <h4 class="card-title m-0"><%= link(@course.name, to: course_path(@conn, :show, @course)) %></h4>
   </div>
