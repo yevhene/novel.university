@@ -77,6 +77,11 @@ jobs:
           paths: assets/node_modules
 
       - run:
+          name: Brunch Build
+          working_directory: assets
+          command: node_modules/.bin/brunch build
+
+      - run:
           name: Assets Digest
           command: mix phx.digest
 
