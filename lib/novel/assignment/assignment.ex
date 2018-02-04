@@ -4,6 +4,7 @@ defmodule Novel.Assignment do
   alias Novel.Repo
 
   alias Novel.Assignment.Lab
+  alias Novel.Assignment.Result
   alias Novel.Assignment.Submission
   alias Novel.University.Course
   alias Novel.University.Enrollment
@@ -20,7 +21,9 @@ defmodule Novel.Assignment do
     |> where(course_id: ^course_id)
     |> order_by(asc: :id)
     |> Repo.all
-    |> Repo.preload(:results, enrollment_id: enrollment_id)
+    |> Repo.preload([
+      results: from(r in Result, where: r.enrollment_id == ^enrollment_id)
+    ])
   end
 
   def get_lab!(id) do
