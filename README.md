@@ -50,3 +50,51 @@ mix coveralls.html
 ```
 mix credo
 ```
+
+## Deploy
+
+### Checks
+
+#### Check status
+```
+mix edeliver ping production
+```
+
+#### Check version
+```
+mix edeliver version production
+```
+
+#### Check migrations
+```
+mix edeliver show migrations on production
+```
+
+### Release
+
+#### Update code
+```
+mix edeliver update production
+```
+
+#### Run migrations
+```
+mix edeliver migrate production
+```
+
+### Control
+
+#### Start
+```
+mix edeliver start production
+```
+
+#### Stop
+```
+mix edeliver stop production
+```
+
+#### Restart
+```
+mix edeliver restart production
+```
