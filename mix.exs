@@ -5,7 +5,7 @@ defmodule Novel.Mixfile do
     [
       app: :novel,
       version: "0.4.1",
-      elixir: "~> 1.4",
+      elixir: "~> 1.6",
       elixirc_paths: elixirc_paths(Mix.env),
       compilers: [:phoenix, :gettext] ++ Mix.compilers,
       start_permanent: Mix.env == :prod,
@@ -41,25 +41,25 @@ defmodule Novel.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.3.0"},
+      {:phoenix, "~> 1.3.2"},
       {:phoenix_pubsub, "~> 1.0"},
       {:phoenix_ecto, "~> 3.3"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.10"},
-      {:gettext, "~> 0.11"},
-      {:cowboy, "~> 1.0"},
+      {:phoenix_html, "~> 2.11"},
+      {:gettext, "~> 0.13.1"},
+      {:cowboy, "~> 1.1.2"},
       {:ueberauth_github, "~> 0.4"},
-      {:guardian, "~> 1.0-beta"},
-      {:tentacat, "~> 0.7.1"},
-      {:earmark, "~> 1.2.3"},
-      {:calendar, "~> 0.17.2"},
+      {:guardian, "~> 1.0.1"},
+      {:tentacat, "~> 1.0.0"},
+      {:earmark, "~> 1.2.5"},
+      {:calendar, "~> 0.17.4"},
 
       {:phoenix_live_reload, "~> 1.0", only: :dev},
-      {:credo, "~> 0.8", only: [:dev, :test], runtime: false},
-      {:junit_formatter, "~> 2.0", only: :test},
-      {:excoveralls, "~> 0.7", only: :test},
-      {:edeliver, "~> 1.4.5"},
-      {:distillery, "~> 1.5", runtime: false}
+      {:credo, "~> 0.9.2", only: [:dev, :test], runtime: false},
+      {:junit_formatter, "~> 2.2.0", only: :test},
+      {:excoveralls, "~> 0.8.2", only: :test},
+      {:edeliver, "~> 1.4.6"},
+      {:distillery, "~> 1.5.2", runtime: false}
     ]
   end
 
