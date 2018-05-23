@@ -174,10 +174,6 @@ msgstr ""
 msgid "Successfully authenticated"
 msgstr ""
 
-#: lib/novel_web/guardian/error_handler.ex:12
-msgid "Unauthenticated"
-msgstr ""
-
 #: lib/novel_web/templates/layout/base.html.eex:17
 msgid "novel.university"
 msgstr ""
@@ -610,4 +606,8 @@ msgstr ""
 
 #: lib/novel_web/templates/course/index.html.eex:17
 msgid "Finished Courses"
+msgstr ""
+
+#: lib/novel_web/guardian/error_handler.ex:14
+msgid "Authorization expired"
 msgstr ""
