@@ -62,7 +62,7 @@ msgstr "Кабінет"
 msgid "Could not authenticate. Error: %{reason}"
 msgstr "Не вдалося автентифікувати. Помилка: %{reason}"
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:57
+#: lib/novel_web/controllers/teacher/course_controller.ex:58
 msgid "Course deleted successfully"
 msgstr "Курс видалено"
 
@@ -192,6 +192,7 @@ msgstr "Керування курсом \"%{course}\""
 
 #: lib/novel_web/templates/student/submission/_actions.html.eex:6
 #: lib/novel_web/templates/teacher/course/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/enrollment/_actions.html.eex:7
 #: lib/novel_web/templates/teacher/group/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/lab/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/option/_actions.html.eex:8
@@ -235,6 +236,7 @@ msgstr "Не вдалося зберегти, через помилки, що о
 
 #: lib/novel_web/templates/student/submission/_actions.html.eex:6
 #: lib/novel_web/templates/teacher/course/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/enrollment/_actions.html.eex:7
 #: lib/novel_web/templates/teacher/group/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/lab/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/option/_actions.html.eex:8
@@ -481,7 +483,7 @@ msgstr "Подання видалене"
 msgid "Actions"
 msgstr "Дії"
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:61
+#: lib/novel_web/controllers/teacher/course_controller.ex:62
 msgid "Course can't be deleted"
 msgstr "Курс неможливо видалити"
 
@@ -615,3 +617,11 @@ msgstr "Авторизація більше не дійсна"
 #: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
 msgid "Github"
 msgstr ""
+
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:56
+msgid "Enrollment can't be deleted"
+msgstr "Заявку не можна видалити"
+
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:50
+msgid "Enrollment deleted successfully"
+msgstr "Заявку видалено"
