@@ -11,7 +11,7 @@
     <span><%= @submission.enrollment.group && @submission.enrollment.group.name %></span>
   </td>
   <td>
-    <%= status_icon @submission.is_approved %>
+    <%= approved_icon @submission.is_approved %>
   </td>
   <td>
     <%= render "_actions.html", assigns %>
