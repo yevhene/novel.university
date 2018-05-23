@@ -11,10 +11,10 @@
     <%= @enrollment.group && @enrollment.group.name %>
   </td>
   <td>
-    <%= format_results Enum.map(@enrollment.assignment_results, &(&1.is_passed)) %>
+    <%= format_assignment_results @enrollment.assignment_results %>
   </td>
   <td>
-    <%= format_results Enum.map(@enrollment.exam_results, &(&1.is_passed)) %>
+    <%= format_exam_results @enrollment.exam_results %>
   </td>
   <td>
     <%= render "_actions.html", assigns %>

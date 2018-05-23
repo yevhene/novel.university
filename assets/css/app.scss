@@ -47,18 +47,27 @@ ul.results {
   margin: 0;
   padding: 0;
 
+  li:last-child {
+    border: none;
+  }
+
   li {
     height: 14px;
     width: 14px;
     display: inline-block;
     background-color: lightgray;
+    border-right: black 1px solid;
   }
 
-  li.true {
+  li.passed {
     background-color: green;
   }
 
-  li.false {
+  li.submitted {
+    background-color: yellow;
+  }
+
+  li.not_passed {
     background-color: red;
   }
 }
