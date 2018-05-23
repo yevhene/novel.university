@@ -16,3 +16,7 @@
 
 <hr />
 <span><%= link gettext("Back"), to: teacher_course_path(@conn, :show, @course) %></span>
+
+<%= link to: teacher_course_enrollment_path(@conn, :index, @course, _format: "csv"), class: "float-right" do %>
+  <i class="fa fa-file-excel-o text-success"></i> <span>CSV</span>
+<% end %>

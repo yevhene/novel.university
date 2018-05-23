@@ -4,6 +4,6 @@
       <span><%= @quiz.name %></span>
     <% end %>
 
-    <%= status_icon List.first(@quiz.results).is_passed %>
+    <%= status_icon List.first(@quiz.results).status %>
   </div>
 </li>

@@ -3,8 +3,9 @@ defmodule NovelWeb.StatusHelpers do
 
   def status_icon(status) do
     case status do
-      true -> content_tag(:i, "", class: "fa fa-check text-success")
-      false -> content_tag(:i, "", class: "fa fa-times text-danger")
+      "passed" -> content_tag(:i, "", class: "fa fa-check text-success")
+      "intent" -> content_tag(:i, "", class: "fa fa-spinner text-warning")
+      "failed" -> content_tag(:i, "", class: "fa fa-times text-danger")
       _ -> ""
     end
   end

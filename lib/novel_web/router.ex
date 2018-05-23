@@ -2,7 +2,7 @@ defmodule NovelWeb.Router do
   use NovelWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
+    plug :accepts, ["html", "csv"]
     plug :fetch_session
     plug :fetch_flash
     plug :protect_from_forgery

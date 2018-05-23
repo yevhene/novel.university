@@ -11,10 +11,10 @@
     <%= @enrollment.group && @enrollment.group.name %>
   </td>
   <td>
-    <%= format_assignment_results @enrollment.assignment_results %>
+    <%= format_results @enrollment.assignment_results %>
   </td>
   <td>
-    <%= format_exam_results @enrollment.exam_results %>
+    <%= format_results @enrollment.exam_results %>
   </td>
   <td>
     <%= render "_actions.html", assigns %>
