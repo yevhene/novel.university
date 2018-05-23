@@ -28,7 +28,7 @@ msgstr ""
 #: lib/novel_web/templates/teacher/course/new.html.eex:6
 #: lib/novel_web/templates/teacher/course/show.html.eex:9
 #: lib/novel_web/templates/teacher/enrollment/edit.html.eex:4
-#: lib/novel_web/templates/teacher/enrollment/index.html.eex:17
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:18
 #: lib/novel_web/templates/teacher/enrollment/show.html.eex:14
 #: lib/novel_web/templates/teacher/group/edit.html.eex:4
 #: lib/novel_web/templates/teacher/group/index.html.eex:16
@@ -62,7 +62,7 @@ msgstr ""
 msgid "Could not authenticate. Error: %{reason}"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:57
+#: lib/novel_web/controllers/teacher/course_controller.ex:58
 msgid "Course deleted successfully"
 msgstr ""
 
@@ -136,7 +136,7 @@ msgstr ""
 
 #: lib/novel_web/templates/layout/_student_navigation.html.eex:7
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:15
-#: lib/novel_web/templates/teacher/enrollment/index.html.eex:6
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:7
 msgid "Labs"
 msgstr ""
 
@@ -192,6 +192,7 @@ msgstr ""
 
 #: lib/novel_web/templates/student/submission/_actions.html.eex:6
 #: lib/novel_web/templates/teacher/course/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/enrollment/_actions.html.eex:7
 #: lib/novel_web/templates/teacher/group/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/lab/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/option/_actions.html.eex:8
@@ -235,6 +236,7 @@ msgstr ""
 
 #: lib/novel_web/templates/student/submission/_actions.html.eex:6
 #: lib/novel_web/templates/teacher/course/_actions.html.eex:8
+#: lib/novel_web/templates/teacher/enrollment/_actions.html.eex:7
 #: lib/novel_web/templates/teacher/group/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/lab/_actions.html.eex:8
 #: lib/novel_web/templates/teacher/option/_actions.html.eex:8
@@ -299,7 +301,7 @@ msgid "First name"
 msgstr ""
 
 #: lib/novel_web/templates/teacher/enrollment/_form.html.eex:9
-#: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:6
 #: lib/novel_web/templates/teacher/enrollment/show.html.eex:8
 #: lib/novel_web/templates/teacher/submission/index.html.eex:6
 #: lib/novel_web/templates/teacher/submission/show.html.eex:14
@@ -407,7 +409,7 @@ msgstr ""
 
 #: lib/novel_web/templates/layout/_student_navigation.html.eex:11
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:23
-#: lib/novel_web/templates/teacher/enrollment/index.html.eex:7
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:8
 msgid "Quizzes"
 msgstr ""
 
@@ -481,7 +483,7 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:61
+#: lib/novel_web/controllers/teacher/course_controller.ex:62
 msgid "Course can't be deleted"
 msgstr ""
 
@@ -610,4 +612,16 @@ msgstr ""
 
 #: lib/novel_web/guardian/error_handler.ex:14
 msgid "Authorization expired"
+msgstr ""
+
+#: lib/novel_web/templates/teacher/enrollment/index.html.eex:5
+msgid "Github"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:56
+msgid "Enrollment can't be deleted"
+msgstr ""
+
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:50
+msgid "Enrollment deleted successfully"
 msgstr ""

@@ -4,5 +4,6 @@
   </button>
   <div class="dropdown-menu">
     <%= link gettext("Edit"), to: teacher_course_enrollment_path(@conn, :edit, @course, @enrollment), class: "dropdown-item" %>
+    <%= link gettext("Delete"), to: teacher_course_enrollment_path(@conn, :delete, @course, @enrollment), method: "delete", class: "dropdown-item text-danger", data: [confirm: gettext("Really?")] %>
   </div>
 </div>

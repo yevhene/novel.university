@@ -29,8 +29,9 @@ defmodule NovelWeb.FormatHelpers do
 
   defp format_result(result) do
     case result do
-      true -> content_tag(:li, "", class: "true")
-      false -> content_tag(:li, "", class: "false")
+      "passed" -> content_tag(:li, "", class: "passed")
+      "submitted" -> content_tag(:li, "", class: "submitted")
+      "not_passed" -> content_tag(:li, "", class: "not_passed")
       _ -> content_tag(:li, "")
     end
   end

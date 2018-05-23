@@ -70,7 +70,7 @@ defmodule NovelWeb.Router do
       resources "/courses", CourseController, except: [:index, :new, :create] do
         resources "/groups", GroupController
         resources "/enrollments", EnrollmentController,
-          only: [:index, :show, :edit, :update]
+          only: [:index, :show, :edit, :update, :delete]
         resources "/labs", LabController
         resources "/submissions", SubmissionController,
           only: [:index, :show, :edit, :update]

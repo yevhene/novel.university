@@ -3,7 +3,7 @@ defmodule NovelWeb.Teacher.EnrollmentController do
 
   alias Novel.University
 
-  plug :load_resource when action in [:show, :edit, :update]
+  plug :load_resource when action in [:show, :edit, :update, :delete]
   plug :load_groups when action in [:edit, :update]
   plug :put_layout, "teacher.html"
 
@@ -37,6 +37,26 @@ defmodule NovelWeb.Teacher.EnrollmentController do
         ))
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "edit.html", changeset: changeset)
+    end
+  end
+
+  def delete(conn, _params) do
+    course = conn.assigns.course
+    enrollment = conn.assigns.enrollment
+
+    case University.delete_enrollment(enrollment) do
+      {:ok, _enrollment} ->
+        conn
+        |> put_flash(:info, gettext "Enrollment deleted successfully")
+        |> redirect(to: teacher_course_enrollment_path(
+          conn, :index, course
+        ))
+      {:error, %Ecto.Changeset{} = _changeset} ->
+        conn
+        |> put_flash(:error, gettext "Enrollment can't be deleted")
+        |> redirect(to: teacher_course_enrollment_path(
+          conn, :index, course
+        ))
     end
   end
 
