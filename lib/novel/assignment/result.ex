@@ -6,8 +6,7 @@ defmodule Novel.Assignment.Result do
 
   @primary_key false
   schema "assignment_results" do
-    field :is_passed, :boolean
-    field :is_submitted, :boolean
+    field :status, :string
 
     belongs_to :lab, Lab
     belongs_to :enrollment, Enrollment

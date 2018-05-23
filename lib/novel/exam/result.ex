@@ -7,7 +7,7 @@ defmodule Novel.Exam.Result do
   @primary_key false
   schema "exam_results" do
     field :score, :float
-    field :is_passed, :boolean
+    field :status, :string
 
     belongs_to :quiz, Quiz
     belongs_to :enrollment, Enrollment

@@ -21,6 +21,19 @@ defmodule NovelWeb.FormatHelpers do
     |> strftime!("%d/%m/%Y %H:%M")
   end
 
+  def format_results_string(results) do
+    results
+    |> Enum.map(fn result ->
+      case result.status do
+        "passed" -> "+"
+        "failed" -> "-"
+        "intent" -> "."
+        _        -> "_"
+      end
+    end)
+    |> Enum.join
+  end
+
   def format_results(results) do
     content_tag(:ul, class: "results") do
       results |> Enum.map(&format_result/1)
@@ -28,11 +41,6 @@ defmodule NovelWeb.FormatHelpers do
   end
 
   defp format_result(result) do
-    case result do
-      "passed" -> content_tag(:li, "", class: "passed")
-      "submitted" -> content_tag(:li, "", class: "submitted")
-      "not_passed" -> content_tag(:li, "", class: "not_passed")
-      _ -> content_tag(:li, "")
-    end
+    content_tag(:li, "", class: result.status)
   end
 end

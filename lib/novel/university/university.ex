@@ -119,19 +119,12 @@ defmodule Novel.University do
     enrollment
     |> change
     |> no_assoc_constraint(:submissions)
+    |> no_assoc_constraint(:attempts)
     |> Repo.delete()
   end
 
   def change_enrollment(%Enrollment{} = enrollment) do
     Enrollment.changeset(enrollment, %{})
-  end
-
-  def delete_enrollment(%Enrollment{} = enrollment) do
-    enrollment
-    |> change
-    |> no_assoc_constraint(:submissions)
-    |> no_assoc_constraint(:attempts)
-    |> Repo.delete()
   end
 
   def list_groups(%Course{id: course_id}) do

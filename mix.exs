@@ -50,9 +50,10 @@ defmodule Novel.Mixfile do
       {:cowboy, "~> 1.1.2"},
       {:ueberauth_github, "~> 0.4"},
       {:guardian, "~> 1.0.1"},
-      {:tentacat, "~> 1.0.0"},
+      {:tentacat, "~> 0.7.1"},
       {:earmark, "~> 1.2.5"},
       {:calendar, "~> 0.17.4"},
+      {:csv, "~> 2.1.1"},
 
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:credo, "~> 0.9.2", only: [:dev, :test], runtime: false},

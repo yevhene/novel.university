@@ -10,7 +10,19 @@ defmodule NovelWeb.Teacher.EnrollmentController do
   def index(conn, _params) do
     course = conn.assigns.course
     enrollments = University.list_enrollments(course)
-    render(conn, "index.html", enrollments: enrollments)
+
+    case get_format(conn) do
+      "csv" ->
+        conn
+        |> put_resp_content_type("text/csv")
+        |> put_resp_header(
+          "Content-Disposition",
+          "attachment; filename=\"enrollments.csv\""
+        )
+        |> render("index.csv", enrollments: enrollments)
+      "html" ->
+        render(conn, "index.html", enrollments: enrollments)
+    end
   end
 
   def show(conn, _params) do

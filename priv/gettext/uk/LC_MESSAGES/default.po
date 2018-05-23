@@ -62,7 +62,7 @@ msgstr "Кабінет"
 msgid "Could not authenticate. Error: %{reason}"
 msgstr "Не вдалося автентифікувати. Помилка: %{reason}"
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:58
+#: lib/novel_web/controllers/teacher/course_controller.ex:57
 msgid "Course deleted successfully"
 msgstr "Курс видалено"
 
@@ -90,7 +90,7 @@ msgstr "Створення заявки провалено. Спробуйте �
 msgid "Enrollment in progress"
 msgstr "Заявка у процесі"
 
-#: lib/novel_web/controllers/teacher/enrollment_controller.ex:34
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:46
 msgid "Enrollment updated successfully"
 msgstr "Заявку оновлено"
 
@@ -137,6 +137,7 @@ msgstr "Лабораторну оновлено"
 #: lib/novel_web/templates/layout/_student_navigation.html.eex:7
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:15
 #: lib/novel_web/templates/teacher/enrollment/index.html.eex:7
+#: lib/novel_web/views/teacher/enrollment_view.ex:27
 msgid "Labs"
 msgstr "Лабораторні"
 
@@ -149,7 +150,7 @@ msgstr "Новий курс"
 msgid "Novel University"
 msgstr ""
 
-#: lib/novel_web/plug/identify_current_user.ex:24
+#: lib/novel_web/plug/identify_current_user.ex:22
 msgid "Please fill your profile"
 msgstr "Будь ласка заповніть ваш профіль"
 
@@ -305,6 +306,7 @@ msgstr "Ім'я"
 #: lib/novel_web/templates/teacher/enrollment/show.html.eex:8
 #: lib/novel_web/templates/teacher/submission/index.html.eex:6
 #: lib/novel_web/templates/teacher/submission/show.html.eex:14
+#: lib/novel_web/views/teacher/enrollment_view.ex:26
 msgid "Group"
 msgstr "Група"
 
@@ -410,6 +412,7 @@ msgstr "Тест оновлено"
 #: lib/novel_web/templates/layout/_student_navigation.html.eex:11
 #: lib/novel_web/templates/layout/_teacher_navigation.html.eex:23
 #: lib/novel_web/templates/teacher/enrollment/index.html.eex:8
+#: lib/novel_web/views/teacher/enrollment_view.ex:28
 msgid "Quizzes"
 msgstr "Тести"
 
@@ -483,7 +486,7 @@ msgstr "Подання видалене"
 msgid "Actions"
 msgstr "Дії"
 
-#: lib/novel_web/controllers/teacher/course_controller.ex:62
+#: lib/novel_web/controllers/teacher/course_controller.ex:61
 msgid "Course can't be deleted"
 msgstr "Курс неможливо видалити"
 
@@ -599,6 +602,7 @@ msgstr "Результат"
 #: lib/novel_web/templates/teacher/attempt/index.html.eex:5
 #: lib/novel_web/templates/teacher/enrollment/index.html.eex:4
 #: lib/novel_web/templates/teacher/submission/index.html.eex:5
+#: lib/novel_web/views/teacher/enrollment_view.ex:25
 msgid "Student"
 msgstr "Студент"
 
@@ -618,10 +622,10 @@ msgstr "Авторизація більше не дійсна"
 msgid "Github"
 msgstr ""
 
-#: lib/novel_web/controllers/teacher/enrollment_controller.ex:56
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:68
 msgid "Enrollment can't be deleted"
 msgstr "Заявку не можна видалити"
 
-#: lib/novel_web/controllers/teacher/enrollment_controller.ex:50
+#: lib/novel_web/controllers/teacher/enrollment_controller.ex:62
 msgid "Enrollment deleted successfully"
 msgstr "Заявку видалено"

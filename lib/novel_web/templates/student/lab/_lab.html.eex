@@ -4,6 +4,6 @@
       <span><%= @lab.title %></span>
     <% end %>
 
-    <%= status_icon List.first(@lab.results).is_passed %>
+    <%= status_icon List.first(@lab.results).status %>
   </div>
 </li>
