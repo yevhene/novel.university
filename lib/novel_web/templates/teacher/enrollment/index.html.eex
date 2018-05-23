@@ -2,6 +2,7 @@
   <thead>
     <tr>
       <th><%= gettext "Student" %></th>
+      <th><%= gettext "Github" %></th>
       <th><%= gettext "Group" %></th>
       <th><%= gettext "Labs" %></th>
       <th><%= gettext "Quizzes" %></th>

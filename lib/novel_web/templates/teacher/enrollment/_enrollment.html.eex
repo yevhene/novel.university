@@ -5,6 +5,9 @@
     <% end %>
   </td>
   <td>
+    <%= @enrollment.user.nickname %>
+  </td>
+  <td>
     <%= @enrollment.group && @enrollment.group.name %>
   </td>
   <td>
