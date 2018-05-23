@@ -9,4 +9,12 @@ defmodule NovelWeb.StatusHelpers do
       _ -> ""
     end
   end
+
+  def approved_icon(is_approved) do
+    case is_approved do
+      true -> content_tag(:i, "", class: "fa fa-check text-success")
+      false -> content_tag(:i, "", class: "fa fa-times text-danger")
+      _ -> ""
+    end
+  end
 end
