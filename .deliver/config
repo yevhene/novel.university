@@ -1,10 +1,10 @@
 APP="novel"
 
-BUILD_HOST="novel.university"
+BUILD_HOST="learn.pomaranchi.com"
 BUILD_USER="novel"
 BUILD_AT="/tmp/builds/${APP}"
 
-PRODUCTION_HOSTS="novel.university"
+PRODUCTION_HOSTS="learn.pomaranchi.com"
 PRODUCTION_USER="novel"
 DELIVER_TO="/home/novel/app"
 
