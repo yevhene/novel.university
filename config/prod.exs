@@ -16,7 +16,7 @@ use Mix.Config
 config :novel, NovelWeb.Endpoint,
   load_from_system_env: true,
   http: [port: {:system, "PORT"}],
-  url: [host: "novel.university", port: {:system, "PORT"}],
+  url: [host: "learn.pomaranchi.com", port: {:system, "PORT"}],
   server: true,
   root: ".",
   cache_static_manifest: "priv/static/cache_manifest.json",
