@@ -146,10 +146,6 @@ msgstr ""
 msgid "New Course"
 msgstr ""
 
-#: lib/novel_web/templates/layout/base.html.eex:10
-msgid "Novel University"
-msgstr ""
-
 #: lib/novel_web/plug/identify_current_user.ex:22
 msgid "Please fill your profile"
 msgstr ""
@@ -173,10 +169,6 @@ msgstr ""
 
 #: lib/novel_web/controllers/auth_controller.ex:22
 msgid "Successfully authenticated"
-msgstr ""
-
-#: lib/novel_web/templates/layout/base.html.eex:17
-msgid "novel.university"
 msgstr ""
 
 #: lib/novel_web/templates/student/course/show.html.eex:1
@@ -628,4 +620,9 @@ msgstr ""
 
 #: lib/novel_web/controllers/teacher/enrollment_controller.ex:62
 msgid "Enrollment deleted successfully"
+msgstr ""
+
+#: lib/novel_web/templates/layout/base.html.eex:10
+#: lib/novel_web/templates/layout/base.html.eex:17
+msgid "Pomaranchi LMS"
 msgstr ""
